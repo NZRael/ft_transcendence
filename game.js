@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const scene = new THREE.Scene();
     const mapWidth = 10000;
     const mapHeight = 10000;
-    const aspect = window.innerWidth / window.innerHeight;
+    let aspect = window.innerWidth / window.innerHeight;
     const frustumSize = 1000;
     const camera = new THREE.OrthographicCamera(
         frustumSize * aspect / -2, frustumSize * aspect / 2,
@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
+    createMapBorders();
 
     const MAX_FOOD = 500;
     const foodTextureSize = 64;
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function render() {
         requestAnimationFrame(render);
+        console.log('Rendering scene');
         renderer.render(scene, camera);
     }
     render();
@@ -84,7 +86,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function updateGameState(gameState) {
         players = gameState.players;
-        food = gameState.food;
+        if (gameState.food && gameState.food.length > 0) {
+            console.log('Food data received:', gameState.food.length);
+            food = gameState.food;
+            updateFood();
+        }
         if (gameState.yourPlayerId && !myPlayerId) {
             myPlayerId = gameState.yourPlayerId;
         }
@@ -94,12 +100,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function updateFood() {
-        if (!food) {
+        console.log('Updating food, food array length:', food.length);
+        if (!food || food.length === 0) {
             console.warn('No food data available');
             return;
         }
         if (!foodInstancedMesh) {
-            console.warn('foodInstancedMesh is not initialized');
+            console.error('foodInstancedMesh is not initialized');
+            initializeFoodInstancedMesh();
             return;
         }
         if (!foodInstancedMesh.instanceMatrix || !foodInstancedMesh.instanceColor) {
@@ -122,11 +130,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         foodInstancedMesh.count = food.length;
         foodInstancedMesh.instanceMatrix.needsUpdate = true;
         foodInstancedMesh.instanceColor.needsUpdate = true;
+        console.log('Food update complete, count:', foodInstancedMesh.count);
+    }
+
+    function initializeFoodInstancedMesh() {
+        foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
+        foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+        scene.add(foodInstancedMesh);
     }
 
     function updateSceneObjects() {
         if (!players) return;
         removeObsoleteSprites();
+        updateFood();
 
         // Mise à jour des joueurs
         Object.values(players).forEach(p => {
@@ -211,8 +227,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             camera.right = currentZoom * aspect / 2;
             camera.top = currentZoom / 2;
             camera.bottom = -currentZoom / 2;
+
+            // Suivre le joueur sans limitation
             camera.position.set(player.x, player.y, 100);
             camera.updateProjectionMatrix();
+
             // Mettre à jour la fonction isInViewport avec les nouvelles limites de la caméra
             isInViewport = (x, y) => {
                 const dx = x - camera.position.x;
@@ -360,7 +379,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
         // Suppression de la nourriture obsolète
         Object.keys(foodSprites).forEach(id => {
+            console.log('Checking food sprite:', id);
             if (!food.some(f => f.id === id)) {
+                console.log('Removing food sprite:', id);
                 scene.remove(foodSprites[id]);
                 delete foodSprites[id];
             }
@@ -425,5 +446,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const halfHeight = (camera.top - camera.bottom) / 2;
         return Math.abs(dx) <= halfWidth && Math.abs(dy) <= halfHeight;
     }
+
+    function createMapBorders() {
+        const borderMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
+        const borderGeometry = new THREE.BufferGeometry().setFromPoints([
+            new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(mapWidth, 0, 0),
+            new THREE.Vector3(mapWidth, mapHeight, 0),
+            new THREE.Vector3(0, mapHeight, 0),
+            new THREE.Vector3(0, 0, 0)
+        ]);
+        const borderLine = new THREE.Line(borderGeometry, borderMaterial);
+        scene.add(borderLine);
+    }
+
     throttledUpdate();
 });
