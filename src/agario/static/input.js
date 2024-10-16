@@ -32,6 +32,6 @@ export function updatePlayerMovement(player) {
     if (dx !== 0 || dy !== 0) {
         const newX = player.x + dx;
         const newY = player.y + dy;
-        sendPlayerMove(newX, newY);
+        sendPlayerMove(player.id, newX, newY);
     }
 }

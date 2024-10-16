@@ -60,21 +60,6 @@ class GameState:
             'color': FOOD_TYPES[food_type]['color'],
             'type': food_type
         }
-
-        # min_distance = 20  # Distance minimale entre les éléments de nourriture
-        # max_attempts = 50
-        # attempts = 0
-
-        # while attempts < max_attempts:
-        #     if all(self.distance(new_food, f) >= min_distance for f in self.food):
-        #         self.food.append(new_food)
-        #         return
-            
-        #     new_food['x'] = random.randint(0, self.map_width)
-        #     new_food['y'] = random.randint(0, self.map_height)
-        #     attempts += 1
-
-        # print("Impossible de placer de la nourriture après plusieurs tentatives")
         self.food.append(new_food)
 
     def get_state(self):

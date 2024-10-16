@@ -35,3 +35,9 @@ function createMapBorders(scene, mapWidth, mapHeight) {
     const borderLine = new THREE.Line(borderGeometry, borderMaterial);
     scene.add(borderLine);
 }
+
+export function updateCameraPosition(camera, player) {
+    if (player) {
+        camera.position.set(player.x, player.y, camera.position.z);
+    }
+}

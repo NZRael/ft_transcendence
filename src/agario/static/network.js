@@ -1,6 +1,6 @@
 import { updatePlayers } from './player.js';
 import { updateFood } from './food.js';
-
+import { isInViewport } from './utils.js';
 let socket;
 
 export function initNetwork() {
@@ -11,10 +11,11 @@ export function initNetwork() {
     };
 }
 
-export function sendPlayerMove(x, y) {
+export function sendPlayerMove(playerId, x, y) {
     if (socket && socket.readyState === WebSocket.OPEN) {
         socket.send(JSON.stringify({
             type: 'move',
+            playerId: playerId,
             x: x,
             y: y
         }));
@@ -22,7 +23,8 @@ export function sendPlayerMove(x, y) {
 }
 
 function updateGameState(gameState) {
-    updatePlayers(gameState.players, gameState.yourPlayerId);
+    updatePlayers(gameState.players, gameState.yourPlayerId, gameState.camera);
+	isInViewport(gameState.camera);
 	console.log('received game state');
     if (gameState.food && gameState.food.length > 0) {
         console.log('Food data received:', gameState.food);
