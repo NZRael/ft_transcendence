@@ -11,12 +11,12 @@ class GameConsumer(AsyncWebsocketConsumer):
     game_id = None
     active_game = None
     player_count = 0
+    
 
     async def connect(self):
         await self.accept()
-        GameConsumer.player_count += 1
-        self.player_id = f"Player_{GameConsumer.player_count}"
-        self.player_name = f"Joueur_{GameConsumer.player_count}"
+        self.player_id = str(uuid.uuid4())
+        self.player_name = f"Joueur_{self.player_id[:8]}"
         GameConsumer.players[self.player_id] = self
         await self.send(text_data=json.dumps({
             "type": "waiting_room",
@@ -32,7 +32,6 @@ class GameConsumer(AsyncWebsocketConsumer):
             if len(GameConsumer.active_game.players) == 0:
                 GameConsumer.active_game = None
                 GameConsumer.game_id = None
-                GameConsumer.player_count = 0
 
     async def receive(self, text_data):
         data = json.loads(text_data)
@@ -77,11 +76,9 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def generate_food(self):
         while True:
-            await asyncio.sleep(10)  # Générer de la nourriture toutes les secondes
-            if GameConsumer.active_game is not None:
-                GameConsumer.active_game.add_food()
-            else:
-                print("Warning: active_game is None, cannot generate food")
+            await asyncio.sleep(30)  # Génère de la nourriture toutes les 30 secondes
+            game_state.add_food()
+            # Ne pas envoyer l'état du jeu ici, laissez le throttling s'en occuper
 
     async def throttled_send_game_state(self):
         current_time = time.time()
