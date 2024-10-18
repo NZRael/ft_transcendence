@@ -23,19 +23,16 @@ class GameState:
     def generate_player_id(self):
         return str(uuid.uuid4())
 
-    def add_player(self, name):
-        player_id = self.generate_player_id()
+    def add_player(self, player_id, player_name):
         self.players[player_id] = {
             'id': player_id,
-            'name': name,
+            'name': player_name,
             'x': random.randint(0, self.map_width),
             'y': random.randint(0, self.map_height),
             'size': 20,  # Taille initiale
             'score': 0,  # Score initial
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
         }
-        return player_id
-
     def remove_player(self, player_id):
         if player_id in self.players:
             del self.players[player_id]

@@ -26,7 +26,6 @@ export function updateFood(newFood) {
         return;
     }
 
-    console.log('Updating food instances...');
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
@@ -34,9 +33,9 @@ export function updateFood(newFood) {
         const item = food[i];
         
         // Log des détails pour le premier et le dernier élément
-        if (i === 0 || i === food.length - 1 || i === MAX_FOOD - 1) {
-            console.log(`Updating food item ${i}:`, item);
-        }
+        // if (i === 0 || i === food.length - 1 || i === MAX_FOOD - 1) {
+        //     console.log(`Updating food item ${i}:`, item);
+        // }
 
         // Mettre à jour la position
         matrix.setPosition(item.x, item.y, 0);
@@ -63,16 +62,16 @@ export function updateFood(newFood) {
     // Si le nombre d'instances a changé, mettez à jour le count
     foodInstancedMesh.count = Math.min(food.length, MAX_FOOD);
     
-    console.log('Food instances updated. Total count:', foodInstancedMesh.count);
+    //console.log('Food instances updated. Total count:', foodInstancedMesh.count);
     
     // Log des détails de l'InstancedMesh après mise à jour
-    console.log('InstancedMesh details:', {
-        geometry: foodInstancedMesh.geometry,
-        material: foodInstancedMesh.material,
-        count: foodInstancedMesh.count,
-        instanceMatrix: foodInstancedMesh.instanceMatrix,
-        instanceColor: foodInstancedMesh.instanceColor
-    });
+    // console.log('InstancedMesh details:', {
+    //     geometry: foodInstancedMesh.geometry,
+    //     material: foodInstancedMesh.material,
+    //     count: foodInstancedMesh.count,
+    //     instanceMatrix: foodInstancedMesh.instanceMatrix,
+    //     instanceColor: foodInstancedMesh.instanceColor
+    // });
 }
 
 export function createFoodTexture() {

@@ -6,12 +6,18 @@ import asyncio
 import time
 
 class GameConsumer(AsyncWebsocketConsumer):
+    player_count = 0
+
     async def connect(self):
         await self.accept()
-        self.player_id = game_state.add_player(f"Player_{self.channel_name}")
+        GameConsumer.player_count += 1
+        self.player_id = f"Player_{GameConsumer.player_count}"
+        self.player_name = f"Joueur_{GameConsumer.player_count}"
+        game_state.add_player(self.player_id, self.player_name)
         await self.channel_layer.group_add("game", self.channel_name)
         await self.send(text_data=json.dumps({
             "yourPlayerId": self.player_id,
+            "yourPlayerName": self.player_name,
             **game_state.get_state()
         }))
         asyncio.create_task(self.generate_food())

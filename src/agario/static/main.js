@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function gameLoop() {
 		requestAnimationFrame(gameLoop);
-        updatePlayerMovement(getMyPlayerId());
+        updatePlayerMovement(getPlayers()[getMyPlayerId()]);
         updatePlayers(getPlayers(), getMyPlayerId(), camera);
         //const currentFood = getFood();
         //if (currentFood && currentFood.length > 0) {
