@@ -1,11 +1,15 @@
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
-from .game_state import game_state
+from .game_state import game_state, GameState
 from asgiref.sync import async_to_sync
 import asyncio
 import time
+import uuid
 
 class GameConsumer(AsyncWebsocketConsumer):
+    players = {}
+    game_id = None
+    active_game = None
     player_count = 0
 
     async def connect(self):
@@ -13,26 +17,46 @@ class GameConsumer(AsyncWebsocketConsumer):
         GameConsumer.player_count += 1
         self.player_id = f"Player_{GameConsumer.player_count}"
         self.player_name = f"Joueur_{GameConsumer.player_count}"
-        game_state.add_player(self.player_id, self.player_name)
-        await self.channel_layer.group_add("game", self.channel_name)
+        GameConsumer.players[self.player_id] = self
         await self.send(text_data=json.dumps({
+            "type": "waiting_room",
             "yourPlayerId": self.player_id,
-            "yourPlayerName": self.player_name,
-            **game_state.get_state()
+            "yourPlayerName": self.player_name
         }))
-        asyncio.create_task(self.generate_food())
 
     async def disconnect(self, close_code):
-        game_state.remove_player(self.player_id)
-        await self.channel_layer.group_discard("game", self.channel_name)
-        await self.send_game_state_to_group()
+        if self.player_id in GameConsumer.players:
+            del GameConsumer.players[self.player_id]
+        if GameConsumer.active_game:
+            GameConsumer.active_game.remove_player(self.player_id)
+            if len(GameConsumer.active_game.players) == 0:
+                GameConsumer.active_game = None
+                GameConsumer.game_id = None
+                GameConsumer.player_count = 0
 
     async def receive(self, text_data):
         data = json.loads(text_data)
-        if data['type'] == 'move':
-            game_state.update_player(self.player_id, data['x'], data['y'])
-            if game_state.check_food_collision(self.player_id):
-                game_state.add_food()
+        if data['type'] == 'start_game':
+            if not GameConsumer.active_game:
+                GameConsumer.game_id = str(uuid.uuid4())
+                GameConsumer.active_game = GameState()
+            GameConsumer.active_game.add_player(self.player_id, self.player_name)
+            await self.channel_layer.group_add(f"game_{GameConsumer.game_id}", self.channel_name)
+            player_data = GameConsumer.active_game.players.get(self.player_id, {})
+            await self.send(text_data=json.dumps({
+                "type": "game_started",
+                "gameId": GameConsumer.game_id,
+                "yourPlayerId": self.player_id,
+                "yourPlayerName": self.player_name,
+                "players": {self.player_id: player_data},
+                **GameConsumer.active_game.get_state()
+            }))
+            asyncio.create_task(self.generate_food())
+        elif data['type'] == 'move':
+            if GameConsumer.active_game:
+                GameConsumer.active_game.update_player(self.player_id, data['x'], data['y'])
+                if GameConsumer.active_game.check_food_collision(self.player_id):
+                    GameConsumer.active_game.add_food()
         # Utiliser un throttle pour limiter les mises à jour
         await self.throttled_send_game_state()
 
@@ -53,9 +77,11 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def generate_food(self):
         while True:
-            await asyncio.sleep(30)  # Génère de la nourriture toutes les 30 secondes
-            game_state.add_food()
-            # Ne pas envoyer l'état du jeu ici, laissez le throttling s'en occuper
+            await asyncio.sleep(10)  # Générer de la nourriture toutes les secondes
+            if GameConsumer.active_game is not None:
+                GameConsumer.active_game.add_food()
+            else:
+                print("Warning: active_game is None, cannot generate food")
 
     async def throttled_send_game_state(self):
         current_time = time.time()

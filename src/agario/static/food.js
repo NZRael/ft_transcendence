@@ -1,6 +1,7 @@
 import { scene } from './scene.js';
+// import * as THREE from 'three';
 
-const MAX_FOOD = 500;
+const MAX_FOOD = 1000;
 const foodTextureSize = 64;
 let food = [];
 let foodInstancedMesh;
@@ -11,9 +12,12 @@ export function initFood() {
     foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
     foodInstancedMesh.instanceMatrix = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 16), 16);
     foodInstancedMesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 3), 3);
+    foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
+    // foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(foodInstancedMesh);
-    createFoodTexture();
+    // createFoodTexture();
 }
+
 export function updateFood(newFood) {
     console.log('updateFood called with', newFood.length, 'items');
     food = newFood;
@@ -31,11 +35,6 @@ export function updateFood(newFood) {
 
     for (let i = 0; i < food.length && i < MAX_FOOD; i++) {
         const item = food[i];
-        
-        // Log des détails pour le premier et le dernier élément
-        // if (i === 0 || i === food.length - 1 || i === MAX_FOOD - 1) {
-        //     console.log(`Updating food item ${i}:`, item);
-        // }
 
         // Mettre à jour la position
         matrix.setPosition(item.x, item.y, 0);
@@ -62,7 +61,7 @@ export function updateFood(newFood) {
     // Si le nombre d'instances a changé, mettez à jour le count
     foodInstancedMesh.count = Math.min(food.length, MAX_FOOD);
     
-    //console.log('Food instances updated. Total count:', foodInstancedMesh.count);
+    console.log('Food instances updated. Total count:', foodInstancedMesh.count);
     
     // Log des détails de l'InstancedMesh après mise à jour
     // console.log('InstancedMesh details:', {

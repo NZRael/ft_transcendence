@@ -22,6 +22,10 @@ export function handleKeyUp(event) {
 }
 
 export function updatePlayerMovement(player) {
+    if (!player) {
+        console.warn('No player found for movement update');
+        return;
+    }
     let dx = 0;
     let dy = 0;
     if (keys.w) dy += 1;

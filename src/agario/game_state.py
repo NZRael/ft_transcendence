@@ -1,7 +1,7 @@
 import random
 import uuid
 
-MAX_FOOD = 500  # Augmenté pour une carte plus grande
+MAX_FOOD = 1000  # Augmenté pour une carte plus grande
 MAP_WIDTH = 10000
 MAP_HEIGHT = 10000
 
@@ -18,6 +18,7 @@ class GameState:
         self.next_player_id = 1
         self.map_width = MAP_WIDTH
         self.map_height = MAP_HEIGHT
+        self.active_players_count = 0
         self.initialize_food()
 
     def generate_player_id(self):
@@ -33,9 +34,12 @@ class GameState:
             'score': 0,  # Score initial
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
         }
+        self.active_players_count += 1
+
     def remove_player(self, player_id):
         if player_id in self.players:
             del self.players[player_id]
+            self.active_players_count -= 1
 
     def update_player(self, player_id, x, y):
         if player_id in self.players:
@@ -92,5 +96,12 @@ class GameState:
             if rand <= cumulative_prob:
                 return food_type
         return 'common'  # Fallback au cas où
+
+    def reset(self):
+        self.players = {}
+        self.food = []
+        self.next_player_id = 1
+        self.active_players_count = 0
+        self.initialize_food()
 
 game_state = GameState()

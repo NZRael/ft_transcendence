@@ -1,21 +1,23 @@
-import { scene } from './scene.js';
-import { getRandomColor, isInViewport } from './utils.js';
+import { scene, getScene } from './scene.js';
+import { updateScoreboard } from './ui.js';
+import { getRandomColor } from './utils.js';
 
 let players = {};
 let myPlayerId = null;
 
-export function initPlayers() {
-    players = {};
-    myPlayerId = null;
-}
-
-export function updatePlayers(newPlayers, newMyPlayerId, camera) {
-    if (newPlayers) {
+export function updatePlayers(newPlayers, newMyPlayerId) {
+    if (newPlayers && Object.keys(newPlayers).length > 0) {
+        console.log('Updating players:', newPlayers);
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {
             myPlayerId = newMyPlayerId;
+            console.log('My player ID set:', myPlayerId);
         }
-        Object.values(players).forEach(player => updatePlayerSprite(player, camera));
+        const currentScene = getScene();
+        if (currentScene) {
+            Object.values(players).forEach(player => updatePlayerSprite(player, currentScene));
+        }
+        updateScoreboard();
     }
 }
 
@@ -43,27 +45,26 @@ export function createPlayerSprite(player) {
     return playerSprite;
 }
 
-function updatePlayerSprite(player, camera) {
+function updatePlayerSprite(player, scene) {
     let playerSprite = scene.getObjectByName(`player_${player.id}`);
     let textSprite = scene.getObjectByName(`text_${player.id}`);
     
-    if (isInViewport(player.x, player.y, camera)) {
-        if (!playerSprite) {
-            playerSprite = createPlayerSprite(player);
-        }
-        if (!textSprite) {
-            textSprite = createTextSprite(player);
-        }
-        playerSprite.visible = true;
-        textSprite.visible = true;
-        playerSprite.position.set(player.x, player.y, 0);
-        playerSprite.scale.set(player.size * 2, player.size * 2, 1);
-        textSprite.position.set(player.x, player.y, 0.1);
-        textSprite.scale.set(120, 30, 1);
-    } else {
-        if (playerSprite) playerSprite.visible = false;
-        if (textSprite) textSprite.visible = false;
+    if (!playerSprite) {
+        playerSprite = createPlayerSprite(player);
+        scene.add(playerSprite);
     }
+    if (!textSprite) {
+        textSprite = createTextSprite(player);
+        scene.add(textSprite);
+    }
+    
+    playerSprite.position.set(player.x, player.y, 0);
+    playerSprite.scale.set(player.size * 2, player.size * 2, 1);
+    
+    textSprite.position.set(player.x, player.y, 0.1);
+    textSprite.scale.set(120, 30, 1);
+    
+    // La visibilité sera gérée par la caméra et le rendu
 }
 
 function createTextSprite(player) {
