@@ -1,7 +1,7 @@
 import { scene } from './scene.js';
 // import * as THREE from 'three';
 
-const MAX_FOOD = 1000;
+const MAX_FOOD = 500;
 const foodTextureSize = 64;
 let food = [];
 let foodInstancedMesh;
@@ -13,9 +13,28 @@ export function initFood() {
     foodInstancedMesh.instanceMatrix = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 16), 16);
     foodInstancedMesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 3), 3);
     foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
-    // foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(foodInstancedMesh);
-    // createFoodTexture();
+    createFoodTexture();
+    initializeFoodInstances();
+}
+
+function initializeFoodInstances() {
+    const matrix = new THREE.Matrix4();
+    const color = new THREE.Color();
+
+    for (let i = 0; i < MAX_FOOD; i++) {
+        matrix.setPosition(0, 0, 0);
+        matrix.scale(new THREE.Vector3(1, 1, 1));
+        foodInstancedMesh.setMatrixAt(i, matrix);
+
+        color.setRGB(1, 1, 1);
+        foodInstancedMesh.setColorAt(i, color);
+    }
+
+    foodInstancedMesh.instanceMatrix.needsUpdate = true;
+    foodInstancedMesh.instanceColor.needsUpdate = true;
+    foodInstancedMesh.count = MAX_FOOD;
 }
 
 export function updateFood(newFood) {
@@ -33,44 +52,24 @@ export function updateFood(newFood) {
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
-    for (let i = 0; i < food.length && i < MAX_FOOD; i++) {
-        const item = food[i];
-
-        // Mettre à jour la position
-        matrix.setPosition(item.x, item.y, 0);
-        foodInstancedMesh.setMatrixAt(i, matrix);
-
-        // Mettre à jour la couleur
-        try {
+    for (let i = 0; i < MAX_FOOD; i++) {
+        if (i < food.length) {
+            const item = food[i];
+            matrix.setPosition(item.x, item.y, 0);
+            const scale = 1 + (item.value - 1) * 0.5;
+            matrix.scale(new THREE.Vector3(scale, scale, 1));
             color.setStyle(item.color);
-            foodInstancedMesh.setColorAt(i, color);
-        } catch (error) {
-            console.error(`Error setting color for item ${i}:`, error);
+        } else {
+            matrix.setPosition(0, 0, 0);
+            matrix.scale(new THREE.Vector3(0, 0, 0));
+            color.setRGB(0, 0, 0);
         }
-
-        // Mettre à jour la taille (basée sur la valeur)
-        const scale = 1 + (item.value - 1) * 0.5; // Ajustez cette formule selon vos besoins
-        matrix.scale(new THREE.Vector3(scale, scale, 1));
         foodInstancedMesh.setMatrixAt(i, matrix);
+        foodInstancedMesh.setColorAt(i, color);
     }
 
-    // Marquer les attributs comme nécessitant une mise à jour
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
     foodInstancedMesh.instanceColor.needsUpdate = true;
-
-    // Si le nombre d'instances a changé, mettez à jour le count
-    foodInstancedMesh.count = Math.min(food.length, MAX_FOOD);
-    
-    console.log('Food instances updated. Total count:', foodInstancedMesh.count);
-    
-    // Log des détails de l'InstancedMesh après mise à jour
-    // console.log('InstancedMesh details:', {
-    //     geometry: foodInstancedMesh.geometry,
-    //     material: foodInstancedMesh.material,
-    //     count: foodInstancedMesh.count,
-    //     instanceMatrix: foodInstancedMesh.instanceMatrix,
-    //     instanceColor: foodInstancedMesh.instanceColor
-    // });
 }
 
 export function createFoodTexture() {
@@ -118,31 +117,29 @@ export function getFood() {
 //        return;
 //    }
 //    if (!foodInstancedMesh) {
-//        // Créer ou mettre à jour les modèles de nourriture
-//        for (let i = 0; i < food.length; i++) {
-//            const f = food[i];
-//            if (!foodModels[i]) {
-//                // Créer un nouveau modèle si nécessaire
-//                const foodGeometry = new THREE.CircleGeometry(5, 32);
-//                const foodMaterial = new THREE.MeshBasicMaterial({ color: f.color });
-//                const foodMesh = new THREE.Mesh(foodGeometry, foodMaterial);
-//                scene.add(foodMesh);
-//                foodModels[i] = foodMesh;
-//            }
-//            // Mettre à jour la position et l'échelle du modèle
-//            const foodModel = foodModels[i];
-//            foodModel.position.set(f.x, f.y, 0);
-//            foodModel.scale.set(f.type === 'epic' ? 2 : 1, f.type === 'epic' ? 2 : 1, 1);
-//            foodModel.material.color.set(f.color);
-//        }
-//        // foodInstancedMesh.instanceColor.needsUpdate = true;
-//        // Cacher les modèles excédentaires
-//        for (let i = food.length; i < foodModels.length; i++) {
-//            if (foodModels[i]) {
-//                foodModels[i].visible = false;
-//            }
-//        }
+//        console.warn('Food instanced mesh not initialized');
+//        return;
 //    }
+//    const color = new THREE.Color();
+//    const matrix = new THREE.Matrix4();
+//    for (let i = 0; i < food.length && i < MAX_FOOD; i++) {
+//        const item = food[i];
+//        matrix.setPosition(item.x, item.y, 0);
+//        const scale = 1 + (item.value - 1) * 0.5;
+//        matrix.scale(new THREE.Vector3(scale, scale, 1));
+//        color.setStyle(item.color);
+//        foodInstancedMesh.setMatrixAt(i, matrix);
+//        foodInstancedMesh.setColorAt(i, color);
+//    }
+//    // Mettre à jour la taille (basée sur la valeur)
+//    const scale = 1 + (item.value - 1) * 0.5; // Ajustez cette formule selon vos besoins
+//    matrix.scale(new THREE.Vector3(scale, scale, 1));
+//    foodInstancedMesh.setMatrixAt(i, matrix);
+//
+//    // Marquer les attributs comme nécessitant une mise à jour
+//    foodInstancedMesh.instanceMatrix.needsUpdate = true;
+//    foodInstancedMesh.instanceColor.needsUpdate = true;
+//    foodInstancedMesh.count = Math.min(food.length, MAX_FOOD);
 //}
 //
 //export function createFoodTexture() {
@@ -180,3 +177,4 @@ export function getFood() {
 //    });
 //    foodModels = [];
 //}
+

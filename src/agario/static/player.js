@@ -7,7 +7,7 @@ let myPlayerId = null;
 
 export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
-        console.log('Updating players:', newPlayers);
+        console.log('Updating players in updatePlayers:', newPlayers);
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {
             myPlayerId = newMyPlayerId;
@@ -17,7 +17,7 @@ export function updatePlayers(newPlayers, newMyPlayerId) {
         if (currentScene) {
             Object.values(players).forEach(player => updatePlayerSprite(player, currentScene));
         }
-        updateScoreboard();
+        //updateScoreboard();
     }
 }
 

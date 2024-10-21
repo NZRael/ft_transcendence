@@ -1,7 +1,7 @@
 import random
 import uuid
 
-MAX_FOOD = 1000  # Augmenté pour une carte plus grande
+MAX_FOOD = 500  # Augmenté pour une carte plus grande
 MAP_WIDTH = 10000
 MAP_HEIGHT = 10000
 
@@ -57,27 +57,26 @@ class GameState:
             'id': str(uuid.uuid4()),
             'x': random.randint(0, self.map_width),
             'y': random.randint(0, self.map_height),
+            'type': food_type,
             'value': FOOD_TYPES[food_type]['value'],
-            'color': FOOD_TYPES[food_type]['color'],
-            'type': food_type
+            'color': FOOD_TYPES[food_type]['color']
         }
         self.food.append(new_food)
+        return new_food
 
-    def get_state(self):
-        return {
-            'players': self.players,
-            'food': self.food
-        }
+    def remove_food(self, food_id):
+        self.food = [f for f in self.food if f['id'] != food_id]
 
     def check_food_collision(self, player_id):
-        player = self.players[player_id]
-        player_size_squared = player['size'] ** 2
+        player = self.players.get(player_id)
+        if not player:
+            return False
         for food in self.food[:]:
-            if (food['x'] - player['x'])**2 + (food['y'] - player['y'])**2 < player_size_squared:
-                self.food.remove(food)
+            if self.distance(player, food) < player['size']:
                 player['size'] += food['value']
                 player['score'] += food['value']
-                self.add_food()
+                self.food.remove(food)
+                self.add_food()  # Ajoute immédiatement une nouvelle nourriture
                 return True
         return False
 
@@ -85,8 +84,17 @@ class GameState:
         return ((obj1['x'] - obj2['x']) ** 2 + (obj1['y'] - obj2['y']) ** 2) ** 0.5
 
     def initialize_food(self):
+        self.food = []
         for _ in range(MAX_FOOD):
             self.add_food()
+
+    def get_state(self):
+        return {
+            'players': self.players,
+            'food': self.food,
+            'map_width': self.map_width,
+            'map_height': self.map_height
+        }
 
     def get_random_food_type(self):
         rand = random.random()

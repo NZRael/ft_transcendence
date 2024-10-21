@@ -23,22 +23,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
-    initFood();// Initialise la structure de la nourriture sans données
-    initInput();
+    //initNetwork();
+    initFood();
     initUI();
-    updateGameState(initialGameState);  // Met à jour l'état du jeu avec les données initiales
+    initInput();
+    updateGameState(initialGameState);
+
     function gameLoop() {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
             updatePlayerMovement(myPlayer);
             updateCameraPosition(camera, myPlayer);
-        }
-        // updatePlayers(getPlayers(), getMyPlayerId());
+        };
         updateUI();
         render(scene, camera, renderer);
     }
-
     const throttledGameLoop = throttle(gameLoop, 32);
     throttledGameLoop();
 }

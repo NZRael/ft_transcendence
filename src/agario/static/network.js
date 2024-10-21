@@ -6,25 +6,28 @@ import { startGameLoop } from './main.js';
 let socket;
 
 export function initNetwork() {
-    console.log('Initializing network connection...');
+    console.log('in initNetwork, Initializing network connection...');
     socket = new WebSocket('ws://' + window.location.host + '/ws/game/');
     socket.onopen = function() {
-        console.log('WebSocket connection established');
+        console.log('in initNetwork, WebSocket connection established');
     };
     socket.onmessage = function(e) {
-        console.log('Message received:', e.data);
+        //console.log('Message received:', e.data);
         const data = JSON.parse(e.data);
         if (data.type === 'waiting_room') {
-            console.log('Entered waiting room');
+            console.log('in initNetwork, Entered waiting room');
             document.getElementById('waitingRoom').style.display = 'block';
             document.getElementById('gameContainer').style.display = 'none';
         } else if (data.type === 'game_started') {
-            console.log('Game started with data:', data);
+            console.log('in initNetwork, Game started with data:', data);
             document.getElementById('waitingRoom').style.display = 'none';
             document.getElementById('gameContainer').style.display = 'block';
             startGameLoop(data);
+        } else if (data.type === 'food_update') {
+            console.log('in initNetwork, Updating food:', data.food);
+            updateFood(data.food);
         } else {
-            console.log('Updating game state');
+            console.log('in initNetwork, Updating game state');
             updateGameState(data);
         }
     };
@@ -42,31 +45,31 @@ export function sendPlayerMove(playerId, x, y) {
         console.error('Socket non initialisé');
         return;
     }
-    console.log('État du socket:', socket.readyState);
+    console.log('in sendPlayerMove, État du socket:', socket.readyState);
     if (socket.readyState === WebSocket.OPEN) {
-        console.log('Socket ouvert, envoi du mouvement');
+        console.log('in sendPlayerMove, Socket ouvert, envoi du mouvement');
         const message = JSON.stringify({
             type: 'move',
             playerId: playerId,
             x: x,
             y: y
         });
-        console.log('Message à envoyer:', message);
+        console.log('in sendPlayerMove, Message à envoyer:', message);
         socket.send(message);
-        console.log('Message envoyé avec succès');
+        console.log('in sendPlayerMove, Message envoyé avec succès');
     } else {
-        console.error('Socket non disponible ou fermé, état:', socket.readyState);
+        console.error('in sendPlayerMove, Socket non disponible ou fermé, état:', socket.readyState);
     }
 }
 
 export function updateGameState(gameState) {
-    console.log('Updating game state:', gameState);
+    console.log('in updateGameState, Updating game state');
     if (gameState.players) {
-        console.log('Updating players:', gameState.players);
+        console.log('in updateGameState, Updating players:', gameState.players);
         updatePlayers(gameState.players, gameState.yourPlayerId);
     }
     if (gameState.food && gameState.food.length > 0) {
-        console.log('Updating food:', gameState.food);
+        console.log('in updateGameState, Updating food:', gameState.food);
         updateFood(gameState.food);
     }
 }
