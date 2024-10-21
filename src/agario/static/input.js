@@ -1,4 +1,5 @@
 import { sendPlayerMove } from './network.js';
+import { updatePlayerTarget } from './player.js';
 
 let keys = { w: false, a: false, s: false, d: false };
 
@@ -7,25 +8,23 @@ export function initInput() {
     document.addEventListener('keyup', handleKeyUp);
 }
 
-export function handleKeyDown(event) {
+function handleKeyDown(event) {
     if (event.key === 'w' || event.key === 'W') keys.w = true;
     if (event.key === 'a' || event.key === 'A') keys.a = true;
     if (event.key === 's' || event.key === 'S') keys.s = true;
     if (event.key === 'd' || event.key === 'D') keys.d = true;
+    updatePlayerMovement();
 }
 
-export function handleKeyUp(event) {
+function handleKeyUp(event) {
     if (event.key === 'w' || event.key === 'W') keys.w = false;
     if (event.key === 'a' || event.key === 'A') keys.a = false;
     if (event.key === 's' || event.key === 'S') keys.s = false;
     if (event.key === 'd' || event.key === 'D') keys.d = false;
+    updatePlayerMovement();
 }
 
-export function updatePlayerMovement(player) {
-    if (!player) {
-        console.warn('No player found for movement update');
-        return;
-    }
+function updatePlayerMovement() {
     let dx = 0;
     let dy = 0;
     if (keys.w) dy += 1;
@@ -33,9 +32,12 @@ export function updatePlayerMovement(player) {
     if (keys.a) dx -= 1;
     if (keys.d) dx += 1;
 
-    if (dx !== 0 || dy !== 0) {
-        const newX = player.x + dx;
-        const newY = player.y + dy;
-        sendPlayerMove(player.id, newX, newY);
+    // Normaliser le vecteur de direction
+    if (dx !== 0 && dy !== 0) {
+        const length = Math.sqrt(dx * dx + dy * dy);
+        dx /= length;
+        dy /= length;
     }
+
+    updatePlayerTarget(dx, dy);
 }

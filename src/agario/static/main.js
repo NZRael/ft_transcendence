@@ -1,8 +1,8 @@
 import { initScene, render, updateCameraPosition } from './scene.js';
-import { updatePlayers, getMyPlayerId, getPlayers } from './player.js';
+import { updatePlayers, getMyPlayerId, getPlayers, interpolatePlayerPosition } from './player.js';
 import { initFood, updateFood, getFood } from './food.js';
 import { initNetwork, startGame, updateGameState } from './network.js';
-import { initInput, updatePlayerMovement } from './input.js';
+import { initInput } from './input.js';
 import { initUI, updateUI } from './ui.js';
 import { throttle } from './utils.js';
 
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
-    //initNetwork();
     initFood();
     initUI();
     initInput();
@@ -33,12 +32,12 @@ export function startGameLoop(initialGameState) {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
-            updatePlayerMovement(myPlayer);
+            interpolatePlayerPosition();
             updateCameraPosition(camera, myPlayer);
-        };
+        }
         updateUI();
         render(scene, camera, renderer);
     }
-    const throttledGameLoop = throttle(gameLoop, 32);
+    const throttledGameLoop = throttle(gameLoop, 16); // 60 FPS
     throttledGameLoop();
 }

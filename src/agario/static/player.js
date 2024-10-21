@@ -1,9 +1,13 @@
 import { scene, getScene } from './scene.js';
 import { updateScoreboard } from './ui.js';
 import { getRandomColor } from './utils.js';
+import { sendPlayerMove } from './network.js';
 
 let players = {};
 let myPlayerId = null;
+
+const INTERPOLATION_SPEED = 0.1; // Ajustez cette valeur pour modifier la vitesse d'interpolation
+const MOVEMENT_THRESHOLD = 1; // Seuil minimal de mouvement pour envoyer une mise à jour au serveur
 
 export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
@@ -107,4 +111,35 @@ export function getPlayers() {
 
 export function getMyPlayerId() {
     return myPlayerId;
+}
+
+export function updatePlayerTarget(dx, dy) {
+    const player = players[myPlayerId];
+    if (!player) return;
+
+    const speed = 10; // Ajustez cette valeur pour modifier la vitesse de déplacement
+    player.targetX = player.x + dx * speed;
+    player.targetY = player.y + dy * speed;
+}
+
+export function interpolatePlayerPosition() {
+    const player = players[myPlayerId];
+    if (!player) return;
+
+    const oldX = player.x;
+    const oldY = player.y;
+
+    player.x += (player.targetX - player.x) * INTERPOLATION_SPEED;
+    player.y += (player.targetY - player.y) * INTERPOLATION_SPEED;
+
+    // Envoyer la mise à jour au serveur si le mouvement dépasse le seuil
+    if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
+        sendPlayerMove(myPlayerId, player.x, player.y);
+    }
+
+    // Mettre à jour la position du sprite du joueur
+    const scene = getScene();
+    if (scene) {
+        updatePlayerSprite(player, scene);
+    }
 }
