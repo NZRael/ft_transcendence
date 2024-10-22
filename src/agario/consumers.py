@@ -37,12 +37,14 @@ class GameConsumer(AsyncWebsocketConsumer):
         data = json.loads(text_data)
         if data['type'] == 'start_game':
             if not GameConsumer.active_game:
+                print("start game")
                 GameConsumer.game_id = str(uuid.uuid4())
-                GameConsumer.active_game = GameState()
+                GameConsumer.active_game = game_state
             else:
+                print("reset game")
                 GameConsumer.active_game.reset()
                 GameConsumer.game_id = str(uuid.uuid4())
-                GameConsumer.active_game = GameState()
+                GameConsumer.active_game = game_state
             GameConsumer.active_game.add_player(self.player_id, self.player_name)
             await self.channel_layer.group_add(f"game_{GameConsumer.game_id}", self.channel_name)
             player_data = GameConsumer.active_game.players.get(self.player_id, {})

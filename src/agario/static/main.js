@@ -32,6 +32,7 @@ export function startGameLoop(initialGameState) {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
+            console.log('in gameLoop, myPlayer:', myPlayer);
             interpolatePlayerPosition();
             updateCameraPosition(camera, myPlayer);
         }

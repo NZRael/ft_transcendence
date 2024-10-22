@@ -11,17 +11,20 @@ const MOVEMENT_THRESHOLD = 1; // Seuil minimal de mouvement pour envoyer une mis
 
 export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
-        console.log('Updating players in updatePlayers:', newPlayers);
+        console.log('in updatePlayers, Updating players:', newPlayers);
+        Object.values(newPlayers).forEach(player => {
+            player.x = player.x;
+            player.y = player.y;
+        });
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {
             myPlayerId = newMyPlayerId;
-            console.log('My player ID set:', myPlayerId);
+            console.log('in updatePlayers, My player ID set:', myPlayerId);
         }
         const currentScene = getScene();
         if (currentScene) {
             Object.values(players).forEach(player => updatePlayerSprite(player, currentScene));
         }
-        //updateScoreboard();
     }
 }
 
@@ -54,10 +57,12 @@ function updatePlayerSprite(player, scene) {
     let textSprite = scene.getObjectByName(`text_${player.id}`);
     
     if (!playerSprite) {
+        console.log('Creating player sprite for player:', player.name);
         playerSprite = createPlayerSprite(player);
         scene.add(playerSprite);
     }
     if (!textSprite) {
+        console.log('Creating text sprite for player:', player.name);
         textSprite = createTextSprite(player);
         scene.add(textSprite);
     }
@@ -67,8 +72,6 @@ function updatePlayerSprite(player, scene) {
     
     textSprite.position.set(player.x, player.y, 0.1);
     textSprite.scale.set(120, 30, 1);
-    
-    // La visibilité sera gérée par la caméra et le rendu
 }
 
 function createTextSprite(player) {
@@ -117,14 +120,17 @@ export function updatePlayerTarget(dx, dy) {
     const player = players[myPlayerId];
     if (!player) return;
 
-    const speed = 10; // Ajustez cette valeur pour modifier la vitesse de déplacement
+    const speed = 10; // Ajustez cette valeur pour modifier la speed
     player.targetX = player.x + dx * speed;
     player.targetY = player.y + dy * speed;
 }
 
 export function interpolatePlayerPosition() {
     const player = players[myPlayerId];
-    if (!player) return;
+    if (!player) {
+        console.warn('in interpolatePlayerPosition, Player not found');
+        return;
+    }
 
     const oldX = player.x;
     const oldY = player.y;
