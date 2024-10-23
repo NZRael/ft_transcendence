@@ -6,6 +6,7 @@ import { initInput } from './input.js';
 import { initUI, updateUI } from './ui.js';
 import { throttle } from './utils.js';
 
+
 let scene, camera, renderer;
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -32,7 +33,6 @@ export function startGameLoop(initialGameState) {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
-            console.log('in gameLoop, myPlayer:', myPlayer);
             interpolatePlayerPosition();
             updateCameraPosition(camera, myPlayer);
         }

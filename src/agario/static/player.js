@@ -1,5 +1,4 @@
 import { scene, getScene } from './scene.js';
-import { updateScoreboard } from './ui.js';
 import { getRandomColor } from './utils.js';
 import { sendPlayerMove } from './network.js';
 
@@ -13,8 +12,8 @@ export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
         console.log('in updatePlayers, Updating players:', newPlayers);
         Object.values(newPlayers).forEach(player => {
-            player.x = player.x;
-            player.y = player.y;
+            player.targetX = player.x;
+            player.targetY = player.y;
         });
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {
@@ -131,21 +130,19 @@ export function interpolatePlayerPosition() {
         console.warn('in interpolatePlayerPosition, Player not found');
         return;
     }
-
     const oldX = player.x;
     const oldY = player.y;
-
     player.x += (player.targetX - player.x) * INTERPOLATION_SPEED;
     player.y += (player.targetY - player.y) * INTERPOLATION_SPEED;
-
     // Envoyer la mise à jour au serveur si le mouvement dépasse le seuil
     if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
+        console.log('in interpolatePlayerPosition, Sending player move to server');
         sendPlayerMove(myPlayerId, player.x, player.y);
     }
-
     // Mettre à jour la position du sprite du joueur
     const scene = getScene();
     if (scene) {
+        console.log('in interpolatePlayerPosition, Updating player sprite');
         updatePlayerSprite(player, scene);
     }
 }

@@ -9,18 +9,18 @@ export function initInput() {
 }
 
 function handleKeyDown(event) {
-    if (event.key === 'w' || event.key === 'W') keys.w = true;
-    if (event.key === 'a' || event.key === 'A') keys.a = true;
-    if (event.key === 's' || event.key === 'S') keys.s = true;
-    if (event.key === 'd' || event.key === 'D') keys.d = true;
+    if (event.key === 'w' || event.key === 'up') keys.w = true;
+    if (event.key === 'a' || event.key === 'left') keys.a = true;
+    if (event.key === 's' || event.key === 'down') keys.s = true;
+    if (event.key === 'd' || event.key === 'right') keys.d = true;
     updatePlayerMovement();
 }
 
 function handleKeyUp(event) {
-    if (event.key === 'w' || event.key === 'W') keys.w = false;
-    if (event.key === 'a' || event.key === 'A') keys.a = false;
-    if (event.key === 's' || event.key === 'S') keys.s = false;
-    if (event.key === 'd' || event.key === 'D') keys.d = false;
+    if (event.key === 'w' || event.key === 'up') keys.w = false;
+    if (event.key === 'a' || event.key === 'left') keys.a = false;
+    if (event.key === 's' || event.key === 'down') keys.s = false;
+    if (event.key === 'd' || event.key === 'right') keys.d = false;
     updatePlayerMovement();
 }
 
@@ -33,11 +33,10 @@ function updatePlayerMovement() {
     if (keys.d) dx += 1;
 
     // Normaliser le vecteur de direction
-    if (dx !== 0 && dy !== 0) {
-        const length = Math.sqrt(dx * dx + dy * dy);
+    const length = Math.sqrt(dx * dx + dy * dy);
+    if (length !== 0) {
         dx /= length;
         dy /= length;
     }
-
     updatePlayerTarget(dx, dy);
 }
