@@ -1,4 +1,4 @@
-import { scene, getScene } from './scene.js';
+import { scene, getScene, mapWidth, mapHeight } from './scene.js';
 import { getRandomColor } from './utils.js';
 import { sendPlayerMove } from './network.js';
 
@@ -119,7 +119,7 @@ export function updatePlayerTarget(dx, dy) {
     const player = players[myPlayerId];
     if (!player) return;
 
-    const speed = 10; // Ajustez cette valeur pour modifier la speed
+    const speed = 50; // Ajustez cette valeur pour modifier la speed
     player.targetX = player.x + dx * speed;
     player.targetY = player.y + dy * speed;
 }
@@ -134,6 +134,11 @@ export function interpolatePlayerPosition() {
     const oldY = player.y;
     player.x += (player.targetX - player.x) * INTERPOLATION_SPEED;
     player.y += (player.targetY - player.y) * INTERPOLATION_SPEED;
+
+    // Limiter le mouvement du joueur à l'intérieur des bordures
+    player.x = Math.max(0, Math.min(player.x, mapWidth));
+    player.y = Math.max(0, Math.min(player.y, mapHeight));
+
     // Envoyer la mise à jour au serveur si le mouvement dépasse le seuil
     if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
         console.log('in interpolatePlayerPosition, Sending player move to server');
@@ -142,7 +147,7 @@ export function interpolatePlayerPosition() {
     // Mettre à jour la position du sprite du joueur
     const scene = getScene();
     if (scene) {
-        console.log('in interpolatePlayerPosition, Updating player sprite');
+        //console.log('in interpolatePlayerPosition, Updating player sprite');
         updatePlayerSprite(player, scene);
     }
 }

@@ -1,5 +1,6 @@
 import random
 import uuid
+import logging
 
 MAX_FOOD = 500  # Augmenté pour une carte plus grande
 MAP_WIDTH = 10000
@@ -43,6 +44,8 @@ class GameState:
 
     def update_player(self, player_id, x, y):
         if player_id in self.players:
+            x = max(0, min(x, self.map_width))
+            y = max(0, min(y, self.map_height))
             self.players[player_id]['x'] = x
             self.players[player_id]['y'] = y
             self.players[player_id]['size'] = int(self.players[player_id]['size'])

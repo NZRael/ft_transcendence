@@ -1,9 +1,9 @@
 export let scene;
+export const mapWidth = 10000;
+export const mapHeight = 10000;
 
 export function initScene() {
     scene = new THREE.Scene();
-    const mapWidth = 10000;
-    const mapHeight = 10000;
     let aspect = window.innerWidth / window.innerHeight;
     const frustumSize = 1000;
     const camera = new THREE.OrthographicCamera(
@@ -22,7 +22,7 @@ export function initScene() {
     createMapBorders(scene, mapWidth, mapHeight);
     camera.position.set(0, 0, 500);
     camera.lookAt(0, 0, 0);
-    return { scene, camera, renderer /*, mapWidth, mapHeight */ };
+    return { scene, camera, renderer };
 }
 
 export function render(scene, camera, renderer) {
@@ -46,7 +46,7 @@ function createMapBorders(scene, mapWidth, mapHeight) {
 
 export function updateCameraPosition(camera, player) {
     if (player && player.x !== undefined && player.y !== undefined) {
-        console.log('in updateCameraPosition, Updating camera position to:', player.x, player.y, camera.position.z);
+        //console.log('in updateCameraPosition, Updating camera position to:', player.x, player.y, camera.position.z);
         camera.position.set(player.x, player.y, camera.position.z);
         camera.lookAt(player.x, player.y, 0);
     }
