@@ -15,7 +15,7 @@ export function initFood() {
     foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
     foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(foodInstancedMesh);
-    createFoodTexture();
+    //createFoodTexture();
     initializeFoodInstances();
 }
 
@@ -38,7 +38,7 @@ function initializeFoodInstances() {
 }
 
 export function updateFood(newFood) {
-    console.log('updateFood called with', newFood.length, 'items');
+    console.log('in updateFood, start with : ', newFood.length, ' items');
     food = newFood;
     if (!food || food.length === 0) {
         console.warn('No food data available');
@@ -72,32 +72,33 @@ export function updateFood(newFood) {
     foodInstancedMesh.instanceColor.needsUpdate = true;
 }
 
-export function createFoodTexture() {
-    const foodTexture = new THREE.DataTexture(
-        new Uint8Array(foodTextureSize * foodTextureSize * 3),
-        foodTextureSize,
-        foodTextureSize,
-        THREE.RGBFormat
-    );
-    const data = foodTexture.image.data;
-    for (let i = 0; i < foodTextureSize; i++) {
-        for (let j = 0; j < foodTextureSize; j++) {
-            const index = (i * foodTextureSize + j) * 3;
-            const distance = Math.sqrt(Math.pow(i - foodTextureSize / 2, 2) + Math.pow(j - foodTextureSize / 2, 2));
-            if (distance < foodTextureSize / 2) {
-                data[index] = 255;
-                data[index + 1] = 255;
-                data[index + 2] = 255;
-            }
-        }
-    }
-    foodTexture.needsUpdate = true;
-    return foodTexture;
-}
-
 export function getFood() {
     return food;
 }
+
+// export function createFoodTexture() {
+//     const foodTexture = new THREE.DataTexture(
+//         new Uint8Array(foodTextureSize * foodTextureSize * 3),
+//         foodTextureSize,
+//         foodTextureSize,
+//         THREE.RGBFormat
+//     );
+//     const data = foodTexture.image.data;
+//     for (let i = 0; i < foodTextureSize; i++) {
+//         for (let j = 0; j < foodTextureSize; j++) {
+//             const index = (i * foodTextureSize + j) * 3;
+//             const distance = Math.sqrt(Math.pow(i - foodTextureSize / 2, 2) + Math.pow(j - foodTextureSize / 2, 2));
+//             if (distance < foodTextureSize / 2) {
+//                 data[index] = 255;
+//                 data[index + 1] = 255;
+//                 data[index + 2] = 255;
+//             }
+//         }
+//     }
+//     foodTexture.needsUpdate = true;
+//     return foodTexture;
+// }
+
 
 
 //export function initFood() {
