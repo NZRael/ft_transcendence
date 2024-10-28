@@ -39,8 +39,8 @@ export function initNetwork() {
     };
 }
 
-export function sendPlayerMove(playerId, x, y) {
-    console.log(`Tentative de déplacement du joueur ${playerId} vers (${x}, ${y})`);
+export function sendPlayerMove(playerId, dx, dy) {
+    console.log(`Tentative de déplacement du joueur ${playerId} vers (${dx}, ${dy})`);
     if (!socket) {
         console.error('Socket non initialisé');
         return;
@@ -51,8 +51,8 @@ export function sendPlayerMove(playerId, x, y) {
         const message = JSON.stringify({
             type: 'move',
             playerId: playerId,
-            x: x,
-            y: y
+            dx: dx,
+            dy: dy
         });
         console.log('in sendPlayerMove, Message à envoyer:', message);
         socket.send(message);

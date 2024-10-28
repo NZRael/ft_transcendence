@@ -1,5 +1,5 @@
 import { sendPlayerMove } from './network.js';
-import { updatePlayerTarget } from './player.js';
+import { getMyPlayerId, updatePlayerTarget } from './player.js';
 
 let keys = { w: false, a: false, s: false, d: false };
 
@@ -38,5 +38,5 @@ function updatePlayerMovement() {
         dx /= length;
         dy /= length;
     }
-    updatePlayerTarget(dx, dy);
+    sendPlayerMove(getMyPlayerId(), dx, dy);
 }

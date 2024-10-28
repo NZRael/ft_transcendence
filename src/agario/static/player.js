@@ -140,10 +140,10 @@ export function interpolatePlayerPosition() {
     player.y = Math.max(0, Math.min(player.y, mapHeight));
 
     // Envoyer la mise à jour au serveur si le mouvement dépasse le seuil
-    if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
-        console.log('in interpolatePlayerPosition, Sending player move to server');
-        sendPlayerMove(myPlayerId, player.x, player.y);
-    }
+    // if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
+    //     console.log('in interpolatePlayerPosition, Sending player move to server');
+    //     sendPlayerMove(myPlayerId, player.x, player.y);
+    // }
     // Mettre à jour la position du sprite du joueur
     const scene = getScene();
     if (scene) {

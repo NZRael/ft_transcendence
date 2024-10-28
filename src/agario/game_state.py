@@ -20,6 +20,9 @@ class GameState:
         self.map_width = MAP_WIDTH
         self.map_height = MAP_HEIGHT
         self.active_players_count = 0
+        self.INTERPOLATION_SPEED = 0.1
+        self.MOVEMENT_THRESHOLD = 1
+        self.PLAYER_SPEED = 50
         self.initialize_food()
 
     def generate_player_id(self):
@@ -31,8 +34,10 @@ class GameState:
             'name': player_name,
             'x': random.randint(0, self.map_width),
             'y': random.randint(0, self.map_height),
-            'size': 20,  # Taille initiale
-            'score': 0,  # Score initial
+            'targetX': 0,
+            'targetY': 0,
+            'size': 20,
+            'score': 0,
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
         }
         self.active_players_count += 1
@@ -114,5 +119,52 @@ class GameState:
         self.next_player_id = 1
         self.active_players_count = 0
         self.initialize_food()
+
+    def update_player_target(self, player_id, dx, dy):
+        player = self.players.get(player_id)
+        if not player:
+            return False
+            
+        speed = self.PLAYER_SPEED
+        target_x = player['x'] + dx * speed
+        target_y = player['y'] + dy * speed
+        
+        # Limiter aux bordures de la carte
+        target_x = max(0, min(target_x, self.map_width))
+        target_y = max(0, min(target_y, self.map_height))
+        
+        # Mettre à jour la position du joueur
+        old_x, old_y = player['x'], player['y']
+        player['x'] = target_x
+        player['y'] = target_y
+        
+        # Vérifier les collisions après le mouvement
+        if self.check_food_collision(player_id):
+            return True
+        # self.check_player_collisions(player_id)
+        return False
+        
+    # def check_player_collisions(self, player_id):
+    #     player = self.players.get(player_id)
+    #     if not player:
+    #         return False
+            
+    #     for other_id, other_player in self.players.items():
+    #         if other_id != player_id:
+    #             distance = self.distance(player, other_player)
+    #             if distance < max(player['size'], other_player['size']):
+    #                 self.handle_player_collision(player, other_player)
+                    
+    # def handle_player_collision(self, player1, player2):
+    #     # Le plus gros mange le plus petit
+    #     if player1['size'] > player2['size']:
+    #         self.consume_player(player1, player2)
+    #     elif player2['size'] > player1['size']:
+    #         self.consume_player(player2, player1)
+            
+    # def consume_player(self, predator, prey):
+    #     predator['size'] += prey['size'] * 0.8  # 80% de la taille de la proie
+    #     predator['score'] += prey['score']
+    #     self.remove_player(prey['id'])
 
 game_state = GameState()

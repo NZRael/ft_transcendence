@@ -58,8 +58,14 @@ class GameConsumer(AsyncWebsocketConsumer):
             }))
         elif data['type'] == 'move':
             if GameConsumer.active_game:
-                GameConsumer.active_game.update_player(self.player_id, data['x'], data['y'])
-                if GameConsumer.active_game.check_food_collision(self.player_id):
+                dx = float(data.get('dx', 0))
+                dy = float(data.get('dy', 0))
+                length = (dx ** 2 + dy ** 2) ** 0.5
+                if length > 0:
+                    dx /= length
+                    dy /= length
+
+                if GameConsumer.active_game.update_player_target(data['playerId'], dx, dy):
                     await self.send_food_update()
         await self.throttled_send_game_state()
 
@@ -98,3 +104,13 @@ class GameConsumer(AsyncWebsocketConsumer):
             "type": "food_update",
             "food": event["food"]
         }))
+
+    async def broadcast_game_state(self):
+        await self.channel_layer.group_send(
+            f"game_{GameConsumer.game_id}",
+            {
+                "type": "game_state_update",
+                "players": GameConsumer.active_game.players,
+                "food": GameConsumer.active_game.food
+            }
+        )
