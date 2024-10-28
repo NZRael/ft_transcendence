@@ -115,39 +115,13 @@ export function getMyPlayerId() {
     return myPlayerId;
 }
 
-export function updatePlayerTarget(dx, dy) {
-    const player = players[myPlayerId];
-    if (!player) return;
-
-    const speed = 50; // Ajustez cette valeur pour modifier la speed
-    player.targetX = player.x + dx * speed;
-    player.targetY = player.y + dy * speed;
-}
-
 export function interpolatePlayerPosition() {
     const player = players[myPlayerId];
-    if (!player) {
-        console.warn('in interpolatePlayerPosition, Player not found');
-        return;
-    }
-    const oldX = player.x;
-    const oldY = player.y;
-    player.x += (player.targetX - player.x) * INTERPOLATION_SPEED;
-    player.y += (player.targetY - player.y) * INTERPOLATION_SPEED;
-
-    // Limiter le mouvement du joueur à l'intérieur des bordures
-    player.x = Math.max(0, Math.min(player.x, mapWidth));
-    player.y = Math.max(0, Math.min(player.y, mapHeight));
-
-    // Envoyer la mise à jour au serveur si le mouvement dépasse le seuil
-    // if (Math.abs(player.x - oldX) > MOVEMENT_THRESHOLD || Math.abs(player.y - oldY) > MOVEMENT_THRESHOLD) {
-    //     console.log('in interpolatePlayerPosition, Sending player move to server');
-    //     sendPlayerMove(myPlayerId, player.x, player.y);
-    // }
-    // Mettre à jour la position du sprite du joueur
+    if (!player) return;
+    
+    // Uniquement mettre à jour l'affichage avec les positions reçues du serveur
     const scene = getScene();
     if (scene) {
-        //console.log('in interpolatePlayerPosition, Updating player sprite');
         updatePlayerSprite(player, scene);
     }
 }

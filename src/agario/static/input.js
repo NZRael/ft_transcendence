@@ -32,7 +32,6 @@ function updatePlayerMovement() {
     if (keys.a) dx -= 1;
     if (keys.d) dx += 1;
 
-    // Normaliser le vecteur de direction
     const length = Math.sqrt(dx * dx + dy * dy);
     if (length !== 0) {
         dx /= length;

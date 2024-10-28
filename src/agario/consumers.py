@@ -4,6 +4,7 @@ from .game_state import game_state, GameState
 from asgiref.sync import async_to_sync
 import time
 import uuid
+import asyncio
 
 class GameConsumer(AsyncWebsocketConsumer):
     players = {}
@@ -11,6 +12,10 @@ class GameConsumer(AsyncWebsocketConsumer):
     active_game = None
     player_count = 0
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.game_loop_task = None
+        
     async def connect(self):
         await self.accept()
         self.player_id = str(uuid.uuid4())
@@ -60,13 +65,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             if GameConsumer.active_game:
                 dx = float(data.get('dx', 0))
                 dy = float(data.get('dy', 0))
-                length = (dx ** 2 + dy ** 2) ** 0.5
-                if length > 0:
-                    dx /= length
-                    dy /= length
-
-                if GameConsumer.active_game.update_player_target(data['playerId'], dx, dy):
-                    await self.send_food_update()
+                GameConsumer.active_game.set_player_movement(data['playerId'], dx, dy)
         await self.throttled_send_game_state()
 
     async def send_game_state(self):
@@ -114,3 +113,16 @@ class GameConsumer(AsyncWebsocketConsumer):
                 "food": GameConsumer.active_game.food
             }
         )
+
+    async def game_loop(self):
+        last_update = time.time()
+        while True:
+            current_time = time.time()
+            delta_time = current_time - last_update
+            last_update = current_time
+            
+            if GameConsumer.active_game:
+                GameConsumer.active_game.update_positions(delta_time)
+                await self.broadcast_game_state()
+            
+            await asyncio.sleep(1/60)  # 60 FPS

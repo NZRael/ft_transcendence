@@ -23,6 +23,7 @@ class GameState:
         self.INTERPOLATION_SPEED = 0.1
         self.MOVEMENT_THRESHOLD = 1
         self.PLAYER_SPEED = 50
+        self.player_movements = {}  # Stocke la direction actuelle de chaque joueur
         self.initialize_food()
 
     def generate_player_id(self):
@@ -141,30 +142,31 @@ class GameState:
         # Vérifier les collisions après le mouvement
         if self.check_food_collision(player_id):
             return True
-        # self.check_player_collisions(player_id)
         return False
+
+    def set_player_movement(self, player_id, dx, dy):
+        """Stocke la direction de mouvement du joueur"""
+        self.player_movements[player_id] = {'dx': dx, 'dy': dy}
         
-    # def check_player_collisions(self, player_id):
-    #     player = self.players.get(player_id)
-    #     if not player:
-    #         return False
-            
-    #     for other_id, other_player in self.players.items():
-    #         if other_id != player_id:
-    #             distance = self.distance(player, other_player)
-    #             if distance < max(player['size'], other_player['size']):
-    #                 self.handle_player_collision(player, other_player)
-                    
-    # def handle_player_collision(self, player1, player2):
-    #     # Le plus gros mange le plus petit
-    #     if player1['size'] > player2['size']:
-    #         self.consume_player(player1, player2)
-    #     elif player2['size'] > player1['size']:
-    #         self.consume_player(player2, player1)
-            
-    # def consume_player(self, predator, prey):
-    #     predator['size'] += prey['size'] * 0.8  # 80% de la taille de la proie
-    #     predator['score'] += prey['score']
-    #     self.remove_player(prey['id'])
+    def update_positions(self, delta_time):
+        """Met à jour les positions de tous les joueurs en fonction de leur direction"""
+        for player_id, movement in self.player_movements.items():
+            if player_id in self.players:
+                dx = movement['dx'] * self.PLAYER_SPEED * delta_time
+                dy = movement['dy'] * self.PLAYER_SPEED * delta_time
+                
+                player = self.players[player_id]
+                new_x = player['x'] + dx
+                new_y = player['y'] + dy
+                
+                # Limiter aux bordures
+                new_x = max(0, min(new_x, self.map_width))
+                new_y = max(0, min(new_y, self.map_height))
+                
+                player['x'] = new_x
+                player['y'] = new_y
+                
+                # Vérifier les collisions
+                self.check_food_collision(player_id)
 
 game_state = GameState()
