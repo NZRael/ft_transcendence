@@ -17,11 +17,11 @@ function connectWebSocket() {
     try {
         socket = new WebSocket(wsUrl);
         console.log('WebSocket instance created');
-        
+
         socket.onopen = function() {
             console.log('WebSocket connection established successfully');
         };
-        
+
         socket.onerror = function(error) {
             console.error('WebSocket error:', error);
             console.log('WebSocket readyState:', socket.readyState);
