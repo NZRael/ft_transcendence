@@ -26,14 +26,25 @@ class GameConsumer(AsyncWebsocketConsumer):
         self.player_name = f"Player_{GameConsumer.player_count}"
         GameConsumer.players[self.player_id] = self
         
-        # Démarrer la boucle de jeu
-        self.game_loop_task = asyncio.create_task(self.game_loop())
-        
-        await self.send(text_data=json.dumps({
-            "type": "waiting_room",
-            "yourPlayerId": self.player_id,
-            "yourPlayerName": self.player_name
-        }))
+        # Si une partie existe déjà, ajouter le joueur à celle-ci
+        if GameConsumer.active_game:
+            GameConsumer.active_game.add_player(self.player_id, self.player_name)
+            # Démarrer la boucle de jeu pour ce joueur
+            self.game_loop_task = asyncio.create_task(self.game_loop())
+            # Envoyer directement l'état du jeu au nouveau joueur
+            await self.send(text_data=json.dumps({
+                "type": "game_started",
+                "yourPlayerId": self.player_id,
+                "yourPlayerName": self.player_name,
+                "gameState": GameConsumer.active_game.get_state()
+            }))
+        else:
+            # Si pas de partie en cours, envoyer en salle d'attente
+            await self.send(text_data=json.dumps({
+                "type": "waiting_room",
+                "yourPlayerId": self.player_id,
+                "yourPlayerName": self.player_name
+            }))
 
     async def disconnect(self, close_code):
         logger.info(f"Player {self.player_id} disconnected with code {close_code}")
@@ -59,23 +70,26 @@ class GameConsumer(AsyncWebsocketConsumer):
             if not GameConsumer.active_game:
                 logger.info("Starting new game")
                 GameConsumer.game_id = str(uuid.uuid4())
-                GameConsumer.active_game = game_state
-            else:
-                logger.info("Resetting game")
-                GameConsumer.active_game.reset()
-                GameConsumer.game_id = str(uuid.uuid4())
-                GameConsumer.active_game = game_state
-            GameConsumer.active_game.add_player(self.player_id, self.player_name)
-            await self.channel_layer.group_add(f"game_{GameConsumer.game_id}", self.channel_name)
-            player_data = GameConsumer.active_game.players.get(self.player_id, {})
-            await self.send(text_data=json.dumps({
-                "type": "game_started",
-                "gameId": GameConsumer.game_id,
-                "yourPlayerId": self.player_id,
-                "yourPlayerName": self.player_name,
-                "players": {self.player_id: player_data},
-                **GameConsumer.active_game.get_state()
-            }))
+                GameConsumer.active_game = GameState()
+                # Ajouter tous les joueurs en attente
+                for player_id, player in GameConsumer.players.items():
+                    GameConsumer.active_game.add_player(
+                        player_id, 
+                        f"{GameConsumer.players[player_id].player_name}"
+                    )
+            
+            # Démarrer la boucle de jeu pour ce joueur s'il ne l'a pas déjà
+            if not self.game_loop_task:
+                self.game_loop_task = asyncio.create_task(self.game_loop())
+            
+            # Notifier tous les joueurs que la partie commence
+            for player in GameConsumer.players.values():
+                await player.send(text_data=json.dumps({
+                    "type": "game_started",
+                    "yourPlayerId": player.player_id,
+                    "yourPlayerName": player.player_name,
+                    "gameState": GameConsumer.active_game.get_state()
+                }))
         elif data['type'] == 'input': ##########################################
             if GameConsumer.active_game:
                 GameConsumer.active_game.handle_player_input(
