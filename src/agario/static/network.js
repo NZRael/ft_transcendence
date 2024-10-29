@@ -75,10 +75,10 @@ export function updateGameState(gameState) {
         console.log('in updateGameState, Updating players:', gameState.players);
         updatePlayers(gameState.players, gameState.yourPlayerId);
     }
-    if (gameState.food && gameState.food.length > 0) {
-        console.log('in updateGameState, Updating food:', gameState.food);
-        updateFood(gameState.food);
-    }
+    // if (gameState.food && gameState.food.length > 0) {
+    //     console.log('in updateGameState, Updating food:', gameState.food);
+    //     updateFood(gameState.food);
+    // }
 }
 
 export function startGame() {

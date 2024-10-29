@@ -127,14 +127,17 @@ class GameConsumer(AsyncWebsocketConsumer):
         }))
 
     async def broadcast_game_state(self):
-        await self.channel_layer.group_send(
-            f"game_{GameConsumer.game_id}",
-            {
-                "type": "game_state_update",
-                "players": GameConsumer.active_game.players,
-                "food": GameConsumer.active_game.food
-            }
-        )
+        if not GameConsumer.active_game:
+            return
+        
+        game_state = GameConsumer.active_game.get_state()
+        for player_id, player in GameConsumer.players.items():
+            await player.send(text_data=json.dumps({
+                'type': 'game_state',
+                'players': game_state['players'],
+                'food': game_state['food'],
+                'yourPlayerId': player_id
+            }))
 
     async def game_loop(self):
         try:
@@ -146,7 +149,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 
                 if GameConsumer.active_game:
                     GameConsumer.active_game.update_positions(delta_time)
-                    await self.throttled_send_game_state()
+                    await self.broadcast_game_state()
                 
                 await asyncio.sleep(1/60)
         except Exception as e:

@@ -10,7 +10,7 @@ export function updatePlayers(newPlayers, newMyPlayerId) {
         Object.values(newPlayers).forEach(player => {
             const oldPlayer = players[player.id];
             const oldPos = oldPlayer ? `(${oldPlayer.x}, ${oldPlayer.y})` : 'new player';
-            console.log(`Player ${player.id} position received: ${oldPos} -> (${player.x}, ${player.y})`);
+            console.log(`Player ${player.name} position received: ${oldPos} -> (${player.x}, ${player.y})`);
             
             player.x = player.x;
             player.y = player.y;

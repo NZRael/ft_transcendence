@@ -100,7 +100,17 @@ class GameState:
 
     def get_state(self):
         return {
-            'players': self.players,
+            'players': {
+                pid: {
+                    'id': p['id'],
+                    'name': p['name'],
+                    'x': p['x'],
+                    'y': p['y'],
+                    'size': p['size'],
+                    'score': p['score'],
+                    'color': p['color']
+                } for pid, p in self.players.items()
+            },
             'food': self.food,
             'map_width': self.map_width,
             'map_height': self.map_height
