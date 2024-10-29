@@ -1,6 +1,8 @@
 import random
 import uuid
 import logging
+from .logger import setup_logger
+logger = setup_logger()
 
 MAX_FOOD = 500  # Augmenté pour une carte plus grande
 MAP_WIDTH = 10000
@@ -120,45 +122,44 @@ class GameState:
         self.active_players_count = 0
         self.initialize_food()
 
-    def update_player_target(self, player_id, dx, dy):
-        player = self.players.get(player_id)
-        if not player:
-            return False
+    # def update_player_target(self, player_id, dx, dy):
+    #     player = self.players.get(player_id)
+    #     if not player:
+    #         return False
             
-        speed = self.PLAYER_SPEED
-        target_x = player['x'] + dx * speed
-        target_y = player['y'] + dy * speed
+    #     speed = self.PLAYER_SPEED
+    #     target_x = player['x'] + dx * speed
+    #     target_y = player['y'] + dy * speed
         
-        # Limiter aux bordures de la carte
-        target_x = max(0, min(target_x, self.map_width))
-        target_y = max(0, min(target_y, self.map_height))
+    #     # Limiter aux bordures de la carte
+    #     target_x = max(0, min(target_x, self.map_width))
+    #     target_y = max(0, min(target_y, self.map_height))
         
-        # Mettre à jour la position du joueur
-        old_x, old_y = player['x'], player['y']
-        player['x'] = target_x
-        player['y'] = target_y
+    #     # Mettre à jour la position du joueur
+    #     old_x, old_y = player['x'], player['y']
+    #     player['x'] = target_x
+    #     player['y'] = target_y
         
-        # Vérifier les collisions après le mouvement
-        if self.check_food_collision(player_id):
-            return True
-        return False
+    #     # Vérifier les collisions après le mouvement
+    #     if self.check_food_collision(player_id):
+    #         return True
+    #     return False
 
     def set_player_movement(self, player_id, dx, dy):
         """Stocke la direction de mouvement du joueur"""
         self.player_movements[player_id] = {'dx': dx, 'dy': dy}
         
     def handle_player_input(self, player_id, key, is_key_down):
+        logger.debug(f"Received input: player={player_id}, key={key}, isKeyDown={is_key_down}")
         if player_id not in self.player_inputs:
             self.player_inputs[player_id] = {
                 'w': False, 'a': False, 's': False, 'd': False,
                 'arrowup': False, 'arrowleft': False, 'arrowdown': False, 'arrowright': False
             }
+        self.player_inputs[player_id][key] = is_key_down
+        logger.debug(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
         
-        key = key.lower()
-        if key in self.player_inputs[player_id]:
-            self.player_inputs[player_id][key] = is_key_down
-        
-    def update_positions(self):
+    def update_positions(self, delta_time):
         for player_id, inputs in self.player_inputs.items():
             if player_id not in self.players:
                 continue
@@ -170,6 +171,22 @@ class GameState:
             if inputs['d'] or inputs['arrowright']: dx += 1
 
             if dx != 0 or dy != 0:
-                self.update_player_target(player_id, dx, dy)
+                player = self.players[player_id]
+                old_x, old_y = player['x'], player['y']
+                
+                # Calculer la nouvelle position avec delta_time
+                speed = 200  # vitesse en pixels par seconde
+                new_x = player['x'] + dx * speed * delta_time
+                new_y = player['y'] + dy * speed * delta_time
+                
+                # Limiter aux bordures
+                new_x = max(0, min(new_x, self.map_width))
+                new_y = max(0, min(new_y, self.map_height))
+                
+                # Mettre à jour la position
+                player['x'] = new_x
+                player['y'] = new_y
+                
+                logger.debug(f"Player {player_id} position updated: ({old_x}, {old_y}) -> ({new_x}, {new_y})")
 
 game_state = GameState()

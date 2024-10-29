@@ -5,7 +5,9 @@ from asgiref.sync import async_to_sync
 import time
 import uuid
 import asyncio
-import logging
+from .logger import setup_logger
+
+logger = setup_logger()
 
 class GameConsumer(AsyncWebsocketConsumer):
     players = {}
@@ -34,7 +36,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         }))
 
     async def disconnect(self, close_code):
-        print(f"Player {self.player_id} disconnected with code {close_code}")
+        logger.info(f"Player {self.player_id} disconnected with code {close_code}")
         if hasattr(self, 'game_loop_task') and self.game_loop_task:
             self.game_loop_task.cancel()
             try:
@@ -55,11 +57,11 @@ class GameConsumer(AsyncWebsocketConsumer):
         data = json.loads(text_data)
         if data['type'] == 'start_game':
             if not GameConsumer.active_game:
-                print("start game")
+                logger.info("Starting new game")
                 GameConsumer.game_id = str(uuid.uuid4())
                 GameConsumer.active_game = game_state
             else:
-                print("reset game")
+                logger.info("Resetting game")
                 GameConsumer.active_game.reset()
                 GameConsumer.game_id = str(uuid.uuid4())
                 GameConsumer.active_game = game_state
@@ -148,7 +150,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 
                 await asyncio.sleep(1/60)
         except Exception as e:
-            logging.error(f"Error in game loop: {e}")
+            logger.error(f"Error in game loop: {e}")
             # Ne pas laisser l'erreur fermer la connexion
             if not self.is_closing():
                 await self.send_json({

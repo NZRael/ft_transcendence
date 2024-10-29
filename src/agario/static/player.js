@@ -7,15 +7,17 @@ let myPlayerId = null;
 
 export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
-        console.log('in updatePlayers, Updating players:', newPlayers);
         Object.values(newPlayers).forEach(player => {
+            const oldPlayer = players[player.id];
+            const oldPos = oldPlayer ? `(${oldPlayer.x}, ${oldPlayer.y})` : 'new player';
+            console.log(`Player ${player.id} position received: ${oldPos} -> (${player.x}, ${player.y})`);
+            
             player.x = player.x;
             player.y = player.y;
         });
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {
             myPlayerId = newMyPlayerId;
-            console.log('in updatePlayers, My player ID set:', myPlayerId);
         }
         const currentScene = getScene();
         if (currentScene) {
