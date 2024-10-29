@@ -24,6 +24,7 @@ class GameState:
         self.MOVEMENT_THRESHOLD = 1
         self.PLAYER_SPEED = 50
         self.player_movements = {}  # Stocke la direction actuelle de chaque joueur
+        self.player_inputs = {}  # {player_id: {key: bool}}
         self.initialize_food()
 
     def generate_player_id(self):
@@ -35,8 +36,6 @@ class GameState:
             'name': player_name,
             'x': random.randint(0, self.map_width),
             'y': random.randint(0, self.map_height),
-            'targetX': 0,
-            'targetY': 0,
             'size': 20,
             'score': 0,
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
@@ -148,25 +147,50 @@ class GameState:
         """Stocke la direction de mouvement du joueur"""
         self.player_movements[player_id] = {'dx': dx, 'dy': dy}
         
+    def handle_player_input(self, player_id, key, is_key_down):
+        print(f"Received input: player={player_id}, key={key}, isKeyDown={is_key_down}")
+        if player_id not in self.player_inputs:
+            self.player_inputs[player_id] = {
+                'w': False, 'a': False, 's': False, 'd': False,
+                'arrowup': False, 'arrowleft': False, 'arrowdown': False, 'arrowright': False
+            }
+        self.player_inputs[player_id][key] = is_key_down
+        print(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
+
     def update_positions(self, delta_time):
-        """Met à jour les positions de tous les joueurs en fonction de leur direction"""
-        for player_id, movement in self.player_movements.items():
-            if player_id in self.players:
-                dx = movement['dx'] * self.PLAYER_SPEED * delta_time
-                dy = movement['dy'] * self.PLAYER_SPEED * delta_time
-                
-                player = self.players[player_id]
-                new_x = player['x'] + dx
-                new_y = player['y'] + dy
-                
-                # Limiter aux bordures
-                new_x = max(0, min(new_x, self.map_width))
-                new_y = max(0, min(new_y, self.map_height))
-                
-                player['x'] = new_x
-                player['y'] = new_y
-                
-                # Vérifier les collisions
-                self.check_food_collision(player_id)
+        for player_id, inputs in self.player_inputs.items():
+            if player_id not in self.players:
+                continue
+
+            dx = dy = 0
+            if inputs['w'] or inputs['arrowup']: dy += 1
+            if inputs['s'] or inputs['arrowdown']: dy -= 1
+            if inputs['a'] or inputs['arrowleft']: dx -= 1
+            if inputs['d'] or inputs['arrowright']: dx += 1
+
+            if dx == 0 and dy == 0:  # Si aucune touche n'est pressée
+                continue
+
+            # Normalisation du vecteur de direction
+            length = (dx * dx + dy * dy) ** 0.5
+            if length > 0:
+                dx /= length
+                dy /= length
+
+            player = self.players[player_id]
+            new_x = player['x'] + dx * self.PLAYER_SPEED * delta_time
+            new_y = player['y'] + dy * self.PLAYER_SPEED * delta_time
+
+            # Limites de la carte
+            new_x = max(0, min(new_x, self.map_width))
+            new_y = max(0, min(new_y, self.map_height))
+
+            print(f"Moving player {player_id} from ({player['x']}, {player['y']}) to ({new_x}, {new_y})")
+            player['x'] = new_x
+            player['y'] = new_y
+
+            if self.check_food_collision(player_id):
+                return True
+        return False
 
 game_state = GameState()

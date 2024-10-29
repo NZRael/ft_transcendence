@@ -12,8 +12,8 @@ export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
         console.log('in updatePlayers, Updating players:', newPlayers);
         Object.values(newPlayers).forEach(player => {
-            player.targetX = player.x;
-            player.targetY = player.y;
+            player.x = player.x;
+            player.y = player.y;
         });
         players = newPlayers;
         if (newMyPlayerId && !myPlayerId) {

@@ -1,5 +1,5 @@
 import { sendPlayerMove } from './network.js';
-import { getMyPlayerId, updatePlayerTarget } from './player.js';
+import { getMyPlayerId } from './player.js';
 
 let keys = { w: false, a: false, s: false, d: false };
 
@@ -9,33 +9,23 @@ export function initInput() {
 }
 
 function handleKeyDown(event) {
-    if (event.key === 'w' || event.key === 'up') keys.w = true;
-    if (event.key === 'a' || event.key === 'left') keys.a = true;
-    if (event.key === 's' || event.key === 'down') keys.s = true;
-    if (event.key === 'd' || event.key === 'right') keys.d = true;
-    updatePlayerMovement();
+    const playerId = getMyPlayerId();
+    if (!playerId) return;
+
+    let key = event.key.toLowerCase();
+    if (['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
+        event.preventDefault();
+        sendPlayerMove(playerId, key, true);
+    }
 }
 
 function handleKeyUp(event) {
-    if (event.key === 'w' || event.key === 'up') keys.w = false;
-    if (event.key === 'a' || event.key === 'left') keys.a = false;
-    if (event.key === 's' || event.key === 'down') keys.s = false;
-    if (event.key === 'd' || event.key === 'right') keys.d = false;
-    updatePlayerMovement();
-}
+    const playerId = getMyPlayerId();
+    if (!playerId) return;
 
-function updatePlayerMovement() {
-    let dx = 0;
-    let dy = 0;
-    if (keys.w) dy += 1;
-    if (keys.s) dy -= 1;
-    if (keys.a) dx -= 1;
-    if (keys.d) dx += 1;
-
-    const length = Math.sqrt(dx * dx + dy * dy);
-    if (length !== 0) {
-        dx /= length;
-        dy /= length;
+    let key = event.key.toLowerCase();
+    if (['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
+        event.preventDefault();
+        sendPlayerMove(playerId, key, false);
     }
-    sendPlayerMove(getMyPlayerId(), dx, dy);
 }

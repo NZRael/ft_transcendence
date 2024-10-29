@@ -2,63 +2,71 @@ import { updatePlayers } from './player.js';
 import { updateFood } from './food.js';
 import { startGameLoop } from './main.js';
 
-
 let socket;
 
 export function initNetwork() {
-    console.log('in initNetwork, Initializing network connection...');
-    socket = new WebSocket('ws://' + window.location.host + '/ws/game/');
-    socket.onopen = function() {
-        console.log('in initNetwork, WebSocket connection established');
-    };
-    socket.onmessage = function(e) {
-        //console.log('Message received:', e.data);
-        const data = JSON.parse(e.data);
-        if (data.type === 'waiting_room') {
-            console.log('in initNetwork, Entered waiting room');
-            document.getElementById('waitingRoom').style.display = 'block';
-            document.getElementById('gameContainer').style.display = 'none';
-        } else if (data.type === 'game_started') {
-            console.log('in initNetwork, Game started with data:', data);
-            document.getElementById('waitingRoom').style.display = 'none';
-            document.getElementById('gameContainer').style.display = 'block';
-            startGameLoop(data);
-        } else if (data.type === 'food_update') {
-            console.log('in initNetwork, Updating food:', data.food);
-            updateFood(data.food);
-        } else {
-            console.log('in initNetwork, Updating game state');
-            updateGameState(data);
-        }
-    };
-    socket.onerror = function(error) {
-        console.error('WebSocket error:', error);
-    };
-    socket.onclose = function(event) {
-        console.log('WebSocket connection closed:', event.code, event.reason);
-    };
+    console.log('Initializing network connection...');
+    connectWebSocket();
 }
 
-export function sendPlayerMove(playerId, dx, dy) {
-    console.log(`Tentative de déplacement du joueur ${playerId} vers (${dx}, ${dy})`);
-    if (!socket) {
-        console.error('Socket non initialisé');
+function connectWebSocket() {
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${protocol}//${window.location.host}/ws/game/`;
+    console.log('Attempting WebSocket connection to:', wsUrl);
+    
+    try {
+        socket = new WebSocket(wsUrl);
+        console.log('WebSocket instance created');
+        
+        socket.onopen = function() {
+            console.log('WebSocket connection established successfully');
+        };
+        
+        socket.onerror = function(error) {
+            console.error('WebSocket error:', error);
+            console.log('WebSocket readyState:', socket.readyState);
+        };
+
+        socket.onclose = function(event) {
+            console.log('WebSocket connection closed:', event.code, event.reason);
+        };
+
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            if (data.type === 'waiting_room') {
+                document.getElementById('waitingRoom').style.display = 'block';
+                document.getElementById('gameContainer').style.display = 'none';
+            } else if (data.type === 'game_started') {
+                document.getElementById('waitingRoom').style.display = 'none';
+                document.getElementById('gameContainer').style.display = 'block';
+                startGameLoop(data);
+            } else if (data.type === 'food_update') {
+                updateFood(data.food);
+            } else {
+                updateGameState(data);
+            }
+        };
+
+    } catch (error) {
+        console.error('Error creating WebSocket:', error);
+    }
+}
+
+export function sendPlayerMove(playerId, key, isKeyDown) {
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+        console.warn('Socket not ready, attempting to reconnect...');
         return;
     }
-    console.log('in sendPlayerMove, État du socket:', socket.readyState);
-    if (socket.readyState === WebSocket.OPEN) {
-        console.log('in sendPlayerMove, Socket ouvert, envoi du mouvement');
-        const message = JSON.stringify({
-            type: 'move',
+    
+    try {
+        socket.send(JSON.stringify({
+            type: 'input',
             playerId: playerId,
-            dx: dx,
-            dy: dy
-        });
-        console.log('in sendPlayerMove, Message à envoyer:', message);
-        socket.send(message);
-        console.log('in sendPlayerMove, Message envoyé avec succès');
-    } else {
-        console.error('in sendPlayerMove, Socket non disponible ou fermé, état:', socket.readyState);
+            key: key,
+            isKeyDown: isKeyDown
+        }));
+    } catch (error) {
+        console.error('Error sending player move:', error);
     }
 }
 
@@ -75,6 +83,13 @@ export function updateGameState(gameState) {
 }
 
 export function startGame() {
-    socket.send(JSON.stringify({type: 'start_game'}));
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+        console.error('Socket not ready');
+        return;
+    }
+    
+    socket.send(JSON.stringify({
+        type: 'start_game'
+    }));
 }
 

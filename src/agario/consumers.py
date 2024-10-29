@@ -22,6 +22,10 @@ class GameConsumer(AsyncWebsocketConsumer):
         GameConsumer.player_count += 1
         self.player_name = f"Player_{GameConsumer.player_count}"
         GameConsumer.players[self.player_id] = self
+        
+        # Démarrer la boucle de jeu
+        self.game_loop_task = asyncio.create_task(self.game_loop())
+        
         await self.send(text_data=json.dumps({
             "type": "waiting_room",
             "yourPlayerId": self.player_id,
@@ -29,18 +33,33 @@ class GameConsumer(AsyncWebsocketConsumer):
         }))
 
     async def disconnect(self, close_code):
+        print(f"Player {self.player_id} disconnected with code {close_code}")
+        if hasattr(self, 'game_loop_task') and self.game_loop_task:
+            self.game_loop_task.cancel()
+            try:
+                await self.game_loop_task
+            except asyncio.CancelledError:
+                pass
+        
         if self.player_id in GameConsumer.players:
             del GameConsumer.players[self.player_id]
-        if GameConsumer.active_game:
+        if GameConsumer.active_game and self.player_id in GameConsumer.active_game.players:
             GameConsumer.active_game.remove_player(self.player_id)
             if len(GameConsumer.active_game.players) == 0:
                 GameConsumer.active_game = None
                 GameConsumer.game_id = None
-        GameConsumer.player_count -= 1
+        GameConsumer.player_count = max(0, GameConsumer.player_count - 1)
 
     async def receive(self, text_data):
         data = json.loads(text_data)
-        if data['type'] == 'start_game':
+        if data['type'] == 'input':
+            if GameConsumer.active_game:
+                GameConsumer.active_game.handle_player_input(
+                    data['playerId'],
+                    data['key'],
+                    data['isKeyDown']
+                )
+        elif data['type'] == 'start_game':
             if not GameConsumer.active_game:
                 print("start game")
                 GameConsumer.game_id = str(uuid.uuid4())
@@ -115,6 +134,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         )
 
     async def game_loop(self):
+        print("Game loop started")
         last_update = time.time()
         while True:
             current_time = time.time()
@@ -124,5 +144,6 @@ class GameConsumer(AsyncWebsocketConsumer):
             if GameConsumer.active_game:
                 GameConsumer.active_game.update_positions(delta_time)
                 await self.broadcast_game_state()
+                print("Game state broadcasted")
             
             await asyncio.sleep(1/60)  # 60 FPS

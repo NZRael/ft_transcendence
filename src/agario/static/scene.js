@@ -42,8 +42,6 @@ function createMapBorders(scene, mapWidth, mapHeight) {
     scene.add(borderLine);
 }
 
-// let cameraTarget = new THREE.Vector3();
-
 export function updateCameraPosition(camera, player) {
     if (player && player.x !== undefined && player.y !== undefined) {
         //console.log('in updateCameraPosition, Updating camera position to:', player.x, player.y, camera.position.z);
