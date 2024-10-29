@@ -13,8 +13,8 @@ function handleKeyDown(event) {
     if (!playerId) return;
 
     let key = event.key.toLowerCase();
-    console.log('in handleKeyDown, key', key);
     if (['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
+        console.log('in handleKeyDown, key', key);
         event.preventDefault();
         sendPlayerMove(playerId, key, true);
     }

@@ -55,7 +55,7 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data):
         data = json.loads(text_data)
-        if data['type'] == 'start_game':
+        if data['type'] == 'start_game': ##########################################
             if not GameConsumer.active_game:
                 logger.info("Starting new game")
                 GameConsumer.game_id = str(uuid.uuid4())
@@ -76,14 +76,14 @@ class GameConsumer(AsyncWebsocketConsumer):
                 "players": {self.player_id: player_data},
                 **GameConsumer.active_game.get_state()
             }))
-        elif data['type'] == 'input':
+        elif data['type'] == 'input': ##########################################
             if GameConsumer.active_game:
                 GameConsumer.active_game.handle_player_input(
                     data['playerId'],
                     data['key'],
                     data['isKeyDown']
                 )
-        elif data['type'] == 'move':
+        elif data['type'] == 'move': ##########################################
             if GameConsumer.active_game:
                 dx = float(data.get('dx', 0))
                 dy = float(data.get('dy', 0))

@@ -33,12 +33,11 @@ export function startGameLoop(initialGameState) {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
-            // interpolatePlayerPosition();
             updateCameraPosition(camera, myPlayer);
         }
         updateUI();
         render(scene, camera, renderer);
     }
-    const throttledGameLoop = throttle(gameLoop, 32); // 30 FPS
+    const throttledGameLoop = throttle(gameLoop, 16); // 30 FPS
     throttledGameLoop();
 }
