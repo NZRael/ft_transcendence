@@ -4,6 +4,7 @@ export const mapHeight = 10000;
 
 export function initScene() {
     scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000);
     let aspect = window.innerWidth / window.innerHeight;
     const frustumSize = 1000;
     const camera = new THREE.OrthographicCamera(
@@ -20,6 +21,7 @@ export function initScene() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
     createMapBorders(scene, mapWidth, mapHeight);
+    createGrid();
     camera.position.set(0, 0, 500);
     camera.lookAt(0, 0, 0);
     return { scene, camera, renderer };
@@ -48,16 +50,30 @@ export function updateCameraPosition(camera, player) {
         camera.position.set(player.x, player.y, camera.position.z);
         camera.lookAt(player.x, player.y, 0);
     }
-    // const zoomFactor = 1 + (player.size / 100);
-    // const frustumSize = 1000 * zoomFactor;
-    // const aspect = window.innerWidth / window.innerHeight;
-    // camera.left = frustumSize * aspect / -2;
-    // camera.right = frustumSize * aspect / 2;
-    // camera.top = frustumSize / 2;
-    // camera.bottom = frustumSize / -2;
-    // camera.updateProjectionMatrix();
+    const zoomFactor = 1 + (player.size / 100);
+    const frustumSize = 1000 * zoomFactor;
+    const aspect = window.innerWidth / window.innerHeight;
+    camera.left = frustumSize * aspect / -2;
+    camera.right = frustumSize * aspect / 2;
+    camera.top = frustumSize / 2;
+    camera.bottom = frustumSize / -2;
+    camera.updateProjectionMatrix();
 }
 
 export function getScene() {
     return scene;
+}
+
+export function createGrid() {
+    const gridSize = 10000;  // Taille totale de la grille
+    const divisions = 50;    // Nombre de divisions
+    const gridHelper = new THREE.GridHelper(gridSize, divisions, 0x444444, 0x222222);
+    
+    // Rotation pour que la grille soit horizontale (X-Z plane)
+    gridHelper.rotation.x = Math.PI / 2;
+    
+    // Position de la grille au centre de la scène
+    gridHelper.position.set(gridSize/2, gridSize/2, -1);
+    
+    scene.add(gridHelper);
 }
