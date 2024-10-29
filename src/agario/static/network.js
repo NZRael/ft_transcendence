@@ -57,7 +57,6 @@ export function sendPlayerMove(playerId, key, isKeyDown) {
         console.warn('Socket not ready, attempting to reconnect...');
         return;
     }
-    
     try {
         socket.send(JSON.stringify({
             type: 'input',
