@@ -5,6 +5,7 @@ from asgiref.sync import async_to_sync
 import time
 import uuid
 import asyncio
+import logging
 
 class GameConsumer(AsyncWebsocketConsumer):
     players = {}
@@ -52,14 +53,7 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def receive(self, text_data):
         data = json.loads(text_data)
-        if data['type'] == 'input':
-            if GameConsumer.active_game:
-                GameConsumer.active_game.handle_player_input(
-                    data['playerId'],
-                    data['key'],
-                    data['isKeyDown']
-                )
-        elif data['type'] == 'start_game':
+        if data['type'] == 'start_game':
             if not GameConsumer.active_game:
                 print("start game")
                 GameConsumer.game_id = str(uuid.uuid4())
@@ -80,6 +74,13 @@ class GameConsumer(AsyncWebsocketConsumer):
                 "players": {self.player_id: player_data},
                 **GameConsumer.active_game.get_state()
             }))
+        elif data['type'] == 'input':
+            if GameConsumer.active_game:
+                GameConsumer.active_game.handle_player_input(
+                    data['playerId'],
+                    data['key'],
+                    data['isKeyDown']
+                )
         elif data['type'] == 'move':
             if GameConsumer.active_game:
                 dx = float(data.get('dx', 0))
@@ -134,16 +135,23 @@ class GameConsumer(AsyncWebsocketConsumer):
         )
 
     async def game_loop(self):
-        print("Game loop started")
-        last_update = time.time()
-        while True:
-            current_time = time.time()
-            delta_time = current_time - last_update
-            last_update = current_time
-            
-            if GameConsumer.active_game:
-                GameConsumer.active_game.update_positions(delta_time)
-                await self.broadcast_game_state()
-                print("Game state broadcasted")
-            
-            await asyncio.sleep(1/60)  # 60 FPS
+        try:
+            last_update = time.time()
+            while True:
+                current_time = time.time()
+                delta_time = current_time - last_update
+                last_update = current_time
+                
+                if GameConsumer.active_game:
+                    GameConsumer.active_game.update_positions(delta_time)
+                    await self.throttled_send_game_state()
+                
+                await asyncio.sleep(1/60)
+        except Exception as e:
+            logging.error(f"Error in game loop: {e}")
+            # Ne pas laisser l'erreur fermer la connexion
+            if not self.is_closing():
+                await self.send_json({
+                    "type": "error",
+                    "message": "Internal server error, reconnecting..."
+                })

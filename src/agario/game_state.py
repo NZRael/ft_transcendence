@@ -148,16 +148,17 @@ class GameState:
         self.player_movements[player_id] = {'dx': dx, 'dy': dy}
         
     def handle_player_input(self, player_id, key, is_key_down):
-        print(f"Received input: player={player_id}, key={key}, isKeyDown={is_key_down}")
         if player_id not in self.player_inputs:
             self.player_inputs[player_id] = {
                 'w': False, 'a': False, 's': False, 'd': False,
                 'arrowup': False, 'arrowleft': False, 'arrowdown': False, 'arrowright': False
             }
-        self.player_inputs[player_id][key] = is_key_down
-        print(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
-
-    def update_positions(self, delta_time):
+        
+        key = key.lower()
+        if key in self.player_inputs[player_id]:
+            self.player_inputs[player_id][key] = is_key_down
+        
+    def update_positions(self):
         for player_id, inputs in self.player_inputs.items():
             if player_id not in self.players:
                 continue
@@ -168,29 +169,7 @@ class GameState:
             if inputs['a'] or inputs['arrowleft']: dx -= 1
             if inputs['d'] or inputs['arrowright']: dx += 1
 
-            if dx == 0 and dy == 0:  # Si aucune touche n'est pressée
-                continue
-
-            # Normalisation du vecteur de direction
-            length = (dx * dx + dy * dy) ** 0.5
-            if length > 0:
-                dx /= length
-                dy /= length
-
-            player = self.players[player_id]
-            new_x = player['x'] + dx * self.PLAYER_SPEED * delta_time
-            new_y = player['y'] + dy * self.PLAYER_SPEED * delta_time
-
-            # Limites de la carte
-            new_x = max(0, min(new_x, self.map_width))
-            new_y = max(0, min(new_y, self.map_height))
-
-            print(f"Moving player {player_id} from ({player['x']}, {player['y']}) to ({new_x}, {new_y})")
-            player['x'] = new_x
-            player['y'] = new_y
-
-            if self.check_food_collision(player_id):
-                return True
-        return False
+            if dx != 0 or dy != 0:
+                self.update_player_target(player_id, dx, dy)
 
 game_state = GameState()
