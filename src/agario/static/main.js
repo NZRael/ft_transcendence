@@ -33,7 +33,7 @@ export function startGameLoop(initialGameState) {
         requestAnimationFrame(gameLoop);
         const myPlayer = getPlayers()[getMyPlayerId()];
         if (myPlayer) {
-            interpolatePlayerPosition();
+            // interpolatePlayerPosition();
             updateCameraPosition(camera, myPlayer);
         }
         updateUI();
