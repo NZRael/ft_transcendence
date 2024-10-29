@@ -3,7 +3,7 @@ import { updatePlayers, getMyPlayerId, getPlayers, interpolatePlayerPosition } f
 import { initFood, updateFood, getFood } from './food.js';
 import { initNetwork, startGame, updateGameState } from './network.js';
 import { initInput } from './input.js';
-import { initUI, updateUI } from './ui.js';
+import { updateUI } from './ui.js';
 import { throttle } from './utils.js';
 
 
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
     initFood();
-    initUI();
+    updateUI();
     initInput();
     updateGameState(initialGameState);
 

@@ -4,15 +4,9 @@ import { getMyPlayerId } from './player.js';
 
 const minimapCanvas = document.getElementById('minimap');
 const minimapCtx = minimapCanvas.getContext('2d');
-const minimapSize = 150;
+const minimapSize = 175;
 minimapCanvas.width = minimapSize;
 minimapCanvas.height = minimapSize;
-
-export function initUI() {
-    // Initialisation de l'interface utilisateur
-    updateScoreboard();
-    updateMinimap();
-}
 
 export function updateUI() {
     updateScoreboard();
@@ -23,11 +17,11 @@ export function updateScoreboard() {
     const scoreboard = document.getElementById('scoreboard');
     const players = getPlayers();
     const sortedPlayers = Object.values(players).sort((a, b) => b.score - a.score);
-    let scoreboardHTML = '<h3>Tableau des scores</h3>';
-    scoreboardHTML += '<table><tr><th>Nom</th><th>Score</th></tr>';
+    let scoreboardHTML = '<h3>Scoreboard</h3>';
+    scoreboardHTML += '<table><tr><th>Name</th><th>Score</th></tr>';
     sortedPlayers.forEach(player => {
         const displayName = player.name.length > 10 ? player.name.substring(0, 10) + '...' : player.name;
-        scoreboardHTML += `<tr><td>${displayName}</td><td>${player.score}</td></tr>`;
+        scoreboardHTML += `<tr><td> ${displayName} </td><td> ${player.score} </td></tr>`;
     });
     scoreboardHTML += '</table>';
     scoreboard.innerHTML = scoreboardHTML;
