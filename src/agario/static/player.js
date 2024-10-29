@@ -5,9 +5,6 @@ import { sendPlayerMove } from './network.js';
 let players = {};
 let myPlayerId = null;
 
-const INTERPOLATION_SPEED = 0.1; // Ajustez cette valeur pour modifier la vitesse d'interpolation
-const MOVEMENT_THRESHOLD = 1; // Seuil minimal de mouvement pour envoyer une mise à jour au serveur
-
 export function updatePlayers(newPlayers, newMyPlayerId) {
     if (newPlayers && Object.keys(newPlayers).length > 0) {
         console.log('in updatePlayers, Updating players:', newPlayers);
@@ -67,6 +64,7 @@ function updatePlayerSprite(player, scene) {
     }
     
     playerSprite.position.set(player.x, player.y, 0);
+    console.log('in updatePlayerSprite : player.x:', player.x, 'player.y:', player.y);
     playerSprite.scale.set(player.size * 2, player.size * 2, 1);
     
     textSprite.position.set(player.x, player.y, 0.1);
