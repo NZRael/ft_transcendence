@@ -11,7 +11,7 @@ export function initNetwork() {
 
 function connectWebSocket() {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//${window.location.host}/ws/game/`;
+    const wsUrl = `${protocol}//${window.location.host}/ws/game/`; // Use computer hostname for remote (GOOFY)
     console.log('Attempting WebSocket connection to:', wsUrl);
     
     try {
