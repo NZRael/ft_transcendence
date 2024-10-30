@@ -1,6 +1,6 @@
 import { initScene, render, updateCameraPosition } from './scene.js';
-import { updatePlayers, getMyPlayerId, getPlayers, interpolatePlayerPosition } from './player.js';
-import { initFood, updateFood, getFood } from './food.js';
+import { updatePlayers, getMyPlayerId, getPlayers } from './player.js';
+import { initFood } from './food.js';
 import { initNetwork, startGame, updateGameState } from './network.js';
 import { initInput } from './input.js';
 import { updateUI } from './ui.js';
@@ -27,7 +27,7 @@ export function startGameLoop(initialGameState) {
     initFood();
     updateUI();
     initInput();
-    updateGameState(initialGameState);
+    updatePlayers(initialGameState.players, initialGameState.yourPlayerId);
 
     function gameLoop() {
         requestAnimationFrame(gameLoop);

@@ -72,7 +72,7 @@ export function sendPlayerMove(playerId, key, isKeyDown) {
 export function updateGameState(gameState) {
     console.log('in updateGameState, Updating game state');
     if (gameState.players) {
-        console.log('in updateGameState, Updating players:', gameState.players);
+        //console.log('in updateGameState, Updating players:', gameState.players);
         updatePlayers(gameState.players, gameState.yourPlayerId);
     }
 }

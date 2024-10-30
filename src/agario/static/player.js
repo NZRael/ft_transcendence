@@ -10,7 +10,7 @@ export function updatePlayers(newPlayers, newMyPlayerId) {
         Object.values(newPlayers).forEach(player => {
             const oldPlayer = players[player.id];
             const oldPos = oldPlayer ? `(${oldPlayer.x}, ${oldPlayer.y})` : 'new player';
-            console.log(`Player ${player.name} position received: ${oldPos} -> (${player.x}, ${player.y})`);
+            //console.log(`Player ${player.name} position received: ${oldPos} -> (${player.x}, ${player.y})`);
             
             player.x = player.x;
             player.y = player.y;
@@ -66,7 +66,7 @@ function updatePlayerSprite(player, scene) {
     }
     
     playerSprite.position.set(player.x, player.y, 0);
-    console.log('in updatePlayerSprite : player.x:', player.x, 'player.y:', player.y);
+    //console.log('in updatePlayerSprite : player.x:', player.x, 'player.y:', player.y);
     playerSprite.scale.set(player.size * 2, player.size * 2, 1);
     
     textSprite.position.set(player.x, player.y, 0.1);
