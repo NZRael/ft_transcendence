@@ -81,14 +81,20 @@ class GameState:
         player = self.players.get(player_id)
         if not player:
             return False
+        
+        changed_foods = []
+        collision_occurred = False
+        
         for food in self.food[:]:
             if self.distance(player, food) < player['size']:
                 player['size'] += food['value']
                 player['score'] += food['value']
                 self.food.remove(food)
-                self.add_food()  # Ajoute immédiatement une nouvelle nourriture
-                return True
-        return False
+                new_food = self.add_food()  # Ajoute immédiatement une nouvelle nourriture
+                changed_foods.append(new_food)
+                collision_occurred = True
+                
+        return changed_foods if collision_occurred else None
 
     def distance(self, obj1, obj2):
         return ((obj1['x'] - obj2['x']) ** 2 + (obj1['y'] - obj2['y']) ** 2) ** 0.5

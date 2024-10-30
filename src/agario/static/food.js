@@ -14,7 +14,6 @@ export function initFood() {
     foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
     foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(foodInstancedMesh);
-    //createFoodTexture();
     initializeFoodInstances();
 }
 
@@ -23,11 +22,12 @@ function initializeFoodInstances() {
     const color = new THREE.Color();
 
     for (let i = 0; i < MAX_FOOD; i++) {
-        matrix.setPosition(0, 0, 0);
+        const foodItem = food[i];
+        matrix.setPosition(foodItem.x, foodItem.y, 0);
         matrix.scale(new THREE.Vector3(1, 1, 1));
         foodInstancedMesh.setMatrixAt(i, matrix);
 
-        color.setRGB(1, 1, 1);
+        color.setStyle(foodItem.color);
         foodInstancedMesh.setColorAt(i, color);
     }
 
@@ -37,38 +37,35 @@ function initializeFoodInstances() {
 }
 
 export function updateFood(newFood) {
-    console.log('in updateFood, start with : ', newFood.length, ' items');
     food = newFood;
-    if (!food || food.length === 0) {
-        console.warn('No food data available');
-        return;
-    }
-    if (!foodInstancedMesh) {
-        console.warn('Food instanced mesh not initialized');
-        return;
-    }
+    if (!food || food.length === 0 || !foodInstancedMesh) return;
 
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
-    for (let i = 0; i < MAX_FOOD; i++) {
-        if (i < food.length) {
-            const item = food[i];
-            matrix.setPosition(item.x, item.y, 0);
-            const scale = 1 + (item.value - 1) * 0.5;
-            matrix.scale(new THREE.Vector3(scale, scale, 1));
-            color.setStyle(item.color);
-        } else {
-            matrix.setPosition(0, 0, 0);
-            matrix.scale(new THREE.Vector3(0, 0, 0));
-            color.setRGB(0, 0, 0);
-        }
-        foodInstancedMesh.setMatrixAt(i, matrix);
-        foodInstancedMesh.setColorAt(i, color);
-    }
+    // On ne met à jour que les foods qui ont changé
+    const changedFoods = food.filter((f, index) => {
+        const oldFood = food[index];
+        return !oldFood || 
+               oldFood.x !== f.x || 
+               oldFood.y !== f.y || 
+               oldFood.type !== f.type;
+    });
 
-    foodInstancedMesh.instanceMatrix.needsUpdate = true;
-    foodInstancedMesh.instanceColor.needsUpdate = true;
+    changedFoods.forEach((item, index) => {
+        matrix.setPosition(item.x, item.y, 0);
+        const scale = 1 + (item.value - 1) * 0.5;
+        matrix.scale(new THREE.Vector3(scale, scale, 1));
+        color.setStyle(item.color);
+        
+        foodInstancedMesh.setMatrixAt(index, matrix);
+        foodInstancedMesh.setColorAt(index, color);
+    });
+
+    if (changedFoods.length > 0) {
+        foodInstancedMesh.instanceMatrix.needsUpdate = true;
+        foodInstancedMesh.instanceColor.needsUpdate = true;
+    }
 }
 
 export function getFood() {

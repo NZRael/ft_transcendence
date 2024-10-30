@@ -9,7 +9,6 @@ services:
     depends_on:
       - redis
     environment:
-      - HOST_NAME=c1r4p5
       - REDIS_HOST=redis
     networks:
       - alt_game_network
