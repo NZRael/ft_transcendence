@@ -29,8 +29,6 @@ class GameConsumer(AsyncWebsocketConsumer):
         # Si une partie existe déjà, ajouter le joueur à celle-ci
         if GameConsumer.active_game:
             GameConsumer.active_game.add_player(self.player_id, self.player_name)
-            # Démarrer la boucle de jeu pour ce joueur
-            self.game_loop_task = asyncio.create_task(self.game_loop())
             # Envoyer directement l'état du jeu au nouveau joueur
             await self.send(text_data=json.dumps({
                 "type": "game_started",
