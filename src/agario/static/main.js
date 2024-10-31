@@ -1,7 +1,8 @@
+import * as THREE from './three/three.module.js';
 import { initScene, render, updateCameraPosition } from './scene.js';
 import { updatePlayers, getMyPlayerId, getPlayers } from './player.js';
 import { initFood } from './food.js';
-import { initNetwork, startGame, updateGameState } from './network.js';
+import { initNetwork, startGame } from './network.js';
 import { initInput } from './input.js';
 import { updateUI } from './ui.js';
 import { throttle } from './utils.js';

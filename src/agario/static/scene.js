@@ -1,3 +1,5 @@
+import * as THREE from './three/three.module.js';
+
 export let scene;
 export const mapWidth = 10000;
 export const mapHeight = 10000;

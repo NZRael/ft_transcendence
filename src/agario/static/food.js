@@ -1,5 +1,5 @@
+import * as THREE from './three/three.module.js';
 import { scene } from './scene.js';
-import * as THREE from './vendor/three/build/three.module.js';
 
 const MAX_FOOD = 500;
 const foodTextureSize = 64;

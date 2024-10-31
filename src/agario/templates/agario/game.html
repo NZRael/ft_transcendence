@@ -87,6 +87,7 @@
             border: 1px solid rgba(255, 255, 255, 0.774);
         }
     </style>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
 </head>
 <body>
     <div id="waitingRoom">
@@ -97,8 +98,7 @@
         <div id="scoreboard"></div>
         <canvas id="minimap"></canvas>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
+    <!-- <script>
         window.addEventListener('load', function() {
             if (typeof THREE === 'undefined') {
                 console.error('Three.js is not loaded FUCCCCCKKK');
@@ -106,7 +106,7 @@
                 console.log('Three.js is loaded successfully MY BLOOD');
             }
         });
-    </script>
+    </script> -->
     <script type="module" src="{% static 'main.js' %}"></script>
 </body>
 </html>

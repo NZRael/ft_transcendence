@@ -1,8 +1,6 @@
 import { sendPlayerMove } from './network.js';
 import { getMyPlayerId } from './player.js';
 
-// let keys = { w: false, a: false, s: false, d: false };
-
 export function initInput() {
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);

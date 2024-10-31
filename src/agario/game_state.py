@@ -1,6 +1,5 @@
 import random
 import uuid
-import logging
 from .logger import setup_logger
 logger = setup_logger()
 
@@ -93,7 +92,7 @@ class GameState:
                 new_food = self.add_food()  # Ajoute immédiatement une nouvelle nourriture
                 changed_foods.append(new_food)
                 collision_occurred = True
-                
+
         return changed_foods if collision_occurred else None
 
     def distance(self, obj1, obj2):
