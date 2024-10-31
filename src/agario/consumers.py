@@ -131,9 +131,23 @@ class GameConsumer(AsyncWebsocketConsumer):
                 'yourPlayerId': player_id
             }))
 
+    # async def broadcast_firststate(self):
+    #     if not GameConsumer.active_game:
+    #         return
+
+    #     game_state = GameConsumer.active_game.get_state()
+    #     for player_id, player in GameConsumer.players.items():
+    #         await player.send(text_data=json.dumps({
+    #             'type': 'game_state',
+    #             'players': game_state['players'],
+    #             'food': game_state['food'],
+    #             'yourPlayerId': player_id
+    #         }))
+
     async def game_loop(self):
         try:
             last_update = time.time()
+            await self.broadcast_game_state()
             while True:
                 current_time = time.time()
                 delta_time = current_time - last_update
