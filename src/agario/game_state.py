@@ -153,6 +153,7 @@ class GameState:
         # logger.debug(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
         
     def update_positions(self, delta_time):
+        positions_updated = False
         for player_id, inputs in self.player_inputs.items():
             if player_id not in self.players:
                 continue
@@ -167,18 +168,18 @@ class GameState:
                 player = self.players[player_id]
                 old_x, old_y = player['x'], player['y']
                 
-                # Calculer la nouvelle position avec delta_time
-                speed = self.PLAYER_SPEED  # vitesse en pixels par seconde
+                speed = self.PLAYER_SPEED
                 new_x = player['x'] + dx * speed * delta_time
                 new_y = player['y'] + dy * speed * delta_time
                 
-                # Limiter aux bordures
                 new_x = max(0, min(new_x, self.map_width))
                 new_y = max(0, min(new_y, self.map_height))
                 
-                # Mettre à jour la position
-                player['x'] = new_x
-                player['y'] = new_y
-                logger.debug(f"Player {player_id} position updated: ({old_x}, {old_y}) -> ({new_x}, {new_y})")
+                if abs(new_x - old_x) > 0.1 or abs(new_y - old_y) > 0.1:
+                    player['x'] = new_x
+                    player['y'] = new_y
+                    positions_updated = True
+                    
+        return positions_updated
 
 game_state = GameState()
