@@ -143,14 +143,14 @@ class GameState:
         self.player_movements[player_id] = {'dx': dx, 'dy': dy}
         
     def handle_player_input(self, player_id, key, is_key_down):
-        logger.debug(f"Received input: player={player_id}, key={key}, isKeyDown={is_key_down}")
+        # logger.debug(f"Received input: player={player_id}, key={key}, isKeyDown={is_key_down}")
         if player_id not in self.player_inputs:
             self.player_inputs[player_id] = {
                 'w': False, 'a': False, 's': False, 'd': False,
                 'arrowup': False, 'arrowleft': False, 'arrowdown': False, 'arrowright': False
             }
         self.player_inputs[player_id][key] = is_key_down
-        logger.debug(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
+        # logger.debug(f"Updated inputs for player {player_id}: {self.player_inputs[player_id]}")
         
     def update_positions(self, delta_time):
         for player_id, inputs in self.player_inputs.items():
@@ -179,7 +179,6 @@ class GameState:
                 # Mettre à jour la position
                 player['x'] = new_x
                 player['y'] = new_y
-                
                 logger.debug(f"Player {player_id} position updated: ({old_x}, {old_y}) -> ({new_x}, {new_y})")
 
 game_state = GameState()

@@ -42,8 +42,11 @@ function connectWebSocket() {
                 startGameLoop(data);
             } else if (data.type === 'food_update') {
                 updateFood(data.food);
-            } else {
+            } else if (data.type === 'game_state') {
                 updateGameState(data);
+            }
+            else {
+                // console.log('Unknown message type:', data.type);
             }
         };
 

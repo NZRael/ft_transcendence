@@ -75,11 +75,9 @@ class GameConsumer(AsyncWebsocketConsumer):
                         player_id, 
                         f"{GameConsumer.players[player_id].player_name}"
                     )
-            
             # Démarrer la boucle de jeu pour ce joueur s'il ne l'a pas déjà
             if not self.game_loop_task:
                 self.game_loop_task = asyncio.create_task(self.game_loop())
-            
             # Notifier tous les joueurs que la partie commence
             for player in GameConsumer.players.values():
                 await player.send(text_data=json.dumps({
@@ -102,20 +100,17 @@ class GameConsumer(AsyncWebsocketConsumer):
                 GameConsumer.active_game.set_player_movement(data['playerId'], dx, dy)
         await self.throttled_send_game_state()
 
-    async def send_game_state(self):
-        await self.send(text_data=json.dumps(game_state.get_state()))
+    # async def send_game_state(self):
+    #     await self.send(text_data=json.dumps(game_state.get_state()))
 
     async def send_game_state_to_group(self):
         await self.channel_layer.group_send(
             "game",
             {
-                "type": "game_state_update",
+                "type": "game_state",
                 "game_state": game_state.get_state()
             }
         )
-
-    async def game_state_update(self, event):
-        await self.send(text_data=json.dumps(event["game_state"]))
 
     async def throttled_send_game_state(self):
         current_time = time.time()
@@ -123,25 +118,10 @@ class GameConsumer(AsyncWebsocketConsumer):
             await self.send_game_state_to_group()
             self.last_update_time = current_time
 
-    async def send_food_update(self):
-        await self.channel_layer.group_send(
-            "game",
-            {
-                "type": "food_update",
-                "food": GameConsumer.active_game.food
-            }
-        )
-
-    async def food_update(self, event):
-        await self.send(text_data=json.dumps({
-            "type": "food_update",
-            "food": event["food"]
-        }))
-
     async def broadcast_game_state(self):
         if not GameConsumer.active_game:
             return
-        
+
         game_state = GameConsumer.active_game.get_state()
         for player_id, player in GameConsumer.players.items():
             await player.send(text_data=json.dumps({
@@ -158,15 +138,12 @@ class GameConsumer(AsyncWebsocketConsumer):
                 current_time = time.time()
                 delta_time = current_time - last_update
                 last_update = current_time
-                
                 if GameConsumer.active_game:
                     GameConsumer.active_game.update_positions(delta_time)
                     await self.broadcast_game_state()
-                
                 await asyncio.sleep(1/60)
         except Exception as e:
             logger.error(f"Error in game loop: {e}")
-            # Ne pas laisser l'erreur fermer la connexion
             if not self.is_closing():
                 await self.send_json({
                     "type": "error",
