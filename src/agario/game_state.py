@@ -57,10 +57,11 @@ class GameState:
             self.players[player_id]['size'] = int(self.players[player_id]['size'])
             self.players[player_id]['score'] = int(self.players[player_id]['score'])
 
-    def add_food(self):
+    def add_food(self, food_id=None):
         if len(self.food) >= MAX_FOOD:
             return
-
+        if food_id:
+            self.food = [f for f in self.food if f['id'] != food_id]
         food_type = self.get_random_food_type()
         new_food = {
             'id': str(uuid.uuid4()),

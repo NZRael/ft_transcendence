@@ -2,39 +2,39 @@ import * as THREE from './three/three.module.js';
 import { scene } from './scene.js';
 
 const MAX_FOOD = 500;
-const foodTextureSize = 64;
 let food = [];
 let foodInstancedMesh;
 
-export function initFood() {
+export function initFood(initialFood = []) {
+    food = initialFood;
     const foodGeometry = new THREE.CircleGeometry(5, 32);
     const foodMaterial = new THREE.MeshBasicMaterial({ vertexColors: true });
     foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
-    foodInstancedMesh.instanceMatrix = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 16), 16);
-    foodInstancedMesh.instanceColor = new THREE.InstancedBufferAttribute(new Float32Array(MAX_FOOD * 3), 3);
-    foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
-    foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
-    scene.add(foodInstancedMesh);
-    // initializeFoodInstances();
-}
-
-function initializeFoodInstances() {
+    
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
+    // Initialiser toutes les instances avec des positions par défaut
     for (let i = 0; i < MAX_FOOD; i++) {
-        const foodItem = food[i];
-        matrix.setPosition(foodItem.x, foodItem.y, 0);
-        matrix.scale(new THREE.Vector3(1, 1, 1));
+        if (i < food.length) {
+            const foodItem = food[i];
+            matrix.setPosition(foodItem.x, foodItem.y, 0);
+            const scale = 1 + (foodItem.value - 1) * 0.5;
+            matrix.scale(new THREE.Vector3(scale, scale, 1));
+            color.setStyle(foodItem.color);
+        } else {
+            matrix.setPosition(0, 0, 0);
+            matrix.scale(new THREE.Vector3(0, 0, 0));
+            color.setRGB(0, 0, 0);
+        }
         foodInstancedMesh.setMatrixAt(i, matrix);
-
-        color.setStyle(foodItem.color);
         foodInstancedMesh.setColorAt(i, color);
     }
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
     foodInstancedMesh.instanceColor.needsUpdate = true;
     foodInstancedMesh.count = MAX_FOOD;
+    scene.add(foodInstancedMesh);
 }
 
 export function updateFood(newFood) {

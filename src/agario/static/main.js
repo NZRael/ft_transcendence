@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
-    initFood();
+    initFood(initialGameState.food);
     updateUI();
     initInput();
     updatePlayers(initialGameState.players, initialGameState.yourPlayerId);
