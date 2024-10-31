@@ -1,4 +1,5 @@
 import { scene } from './scene.js';
+import * as THREE from './vendor/three/build/three.module.js';
 
 const MAX_FOOD = 500;
 const foodTextureSize = 64;
@@ -14,7 +15,7 @@ export function initFood() {
     foodInstancedMesh.instanceColor.setUsage(THREE.DynamicDrawUsage);
     foodInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     scene.add(foodInstancedMesh);
-    initializeFoodInstances();
+    // initializeFoodInstances();
 }
 
 function initializeFoodInstances() {

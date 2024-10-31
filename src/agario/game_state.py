@@ -24,7 +24,7 @@ class GameState:
         self.active_players_count = 0
         self.INTERPOLATION_SPEED = 0.1
         self.MOVEMENT_THRESHOLD = 1
-        self.PLAYER_SPEED = 50
+        self.PLAYER_SPEED = 300
         self.player_movements = {}  # Stocke la direction actuelle de chaque joueur
         self.player_inputs = {}  # {player_id: {key: bool}}
         self.initialize_food()
@@ -138,29 +138,6 @@ class GameState:
         self.active_players_count = 0
         self.initialize_food()
 
-    # def update_player_target(self, player_id, dx, dy):
-    #     player = self.players.get(player_id)
-    #     if not player:
-    #         return False
-            
-    #     speed = self.PLAYER_SPEED
-    #     target_x = player['x'] + dx * speed
-    #     target_y = player['y'] + dy * speed
-        
-    #     # Limiter aux bordures de la carte
-    #     target_x = max(0, min(target_x, self.map_width))
-    #     target_y = max(0, min(target_y, self.map_height))
-        
-    #     # Mettre à jour la position du joueur
-    #     old_x, old_y = player['x'], player['y']
-    #     player['x'] = target_x
-    #     player['y'] = target_y
-        
-    #     # Vérifier les collisions après le mouvement
-    #     if self.check_food_collision(player_id):
-    #         return True
-    #     return False
-
     def set_player_movement(self, player_id, dx, dy):
         """Stocke la direction de mouvement du joueur"""
         self.player_movements[player_id] = {'dx': dx, 'dy': dy}
@@ -191,7 +168,7 @@ class GameState:
                 old_x, old_y = player['x'], player['y']
                 
                 # Calculer la nouvelle position avec delta_time
-                speed = 200  # vitesse en pixels par seconde
+                speed = self.PLAYER_SPEED  # vitesse en pixels par seconde
                 new_x = player['x'] + dx * speed * delta_time
                 new_y = player['y'] + dy * speed * delta_time
                 
