@@ -139,12 +139,10 @@ class GameConsumer(AsyncWebsocketConsumer):
                 current_time = time.time()
                 delta_time = current_time - last_update
                 last_update = current_time
-                
                 if GameConsumer.active_game:
                     positions_updated = GameConsumer.active_game.update_positions(delta_time)
                     if positions_updated:
                         await self.broadcast_game_state()
-                        
                 await asyncio.sleep(1/60)
         except Exception as e:
             logger.error(f"Error in game loop: {e}")

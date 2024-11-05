@@ -14,26 +14,19 @@ export function initFood(initialFood = []) {
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
-    // Initialiser toutes les instances avec des positions par défaut
-    for (let i = 0; i < MAX_FOOD; i++) {
-        if (i < food.length) {
-            const foodItem = food[i];
-            matrix.setPosition(foodItem.x, foodItem.y, 0);
-            const scale = 1 + (foodItem.value - 1) * 0.5;
-            matrix.scale(new THREE.Vector3(scale, scale, 1));
-            color.setStyle(foodItem.color);
-        } else {
-            matrix.setPosition(0, 0, 0);
-            matrix.scale(new THREE.Vector3(0, 0, 0));
-            color.setRGB(0, 0, 0);
-        }
-        foodInstancedMesh.setMatrixAt(i, matrix);
-        foodInstancedMesh.setColorAt(i, color);
-    }
+    // Initialiser toutes les instances avec leurs positions initiales
+    food.forEach((foodItem, index) => {
+        matrix.setPosition(foodItem.x, foodItem.y, 0);
+        const scale = 1 + (foodItem.value - 1) * 0.5;
+        matrix.scale(new THREE.Vector3(scale, scale, 1));
+        color.setStyle(foodItem.color);
+        
+        foodInstancedMesh.setMatrixAt(index, matrix);
+        foodInstancedMesh.setColorAt(index, color);
+    });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
-    foodInstancedMesh.instanceColor.needsUpdate = true;
-    foodInstancedMesh.count = MAX_FOOD;
+    // foodInstancedMesh.instanceColor.needsUpdate = true;
     scene.add(foodInstancedMesh);
 }
 

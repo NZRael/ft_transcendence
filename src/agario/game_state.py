@@ -24,8 +24,8 @@ class GameState:
         self.INTERPOLATION_SPEED = 0.1
         self.MOVEMENT_THRESHOLD = 1
         self.PLAYER_SPEED = 300
-        self.player_movements = {}  # Stocke la direction actuelle de chaque joueur
-        self.player_inputs = {}  # {player_id: {key: bool}}
+        self.player_movements = {}
+        self.player_inputs = {}
         self.initialize_food()
 
     def generate_player_id(self):
