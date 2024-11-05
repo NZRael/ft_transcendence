@@ -33,6 +33,7 @@ function connectWebSocket() {
 
         socket.onmessage = function(e) {
             const data = JSON.parse(e.data);
+            console.log('Received message:', data);
             if (data.type === 'waiting_room') {
                 document.getElementById('waitingRoom').style.display = 'block';
                 document.getElementById('gameContainer').style.display = 'none';

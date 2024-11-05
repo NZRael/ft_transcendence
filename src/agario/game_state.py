@@ -8,7 +8,7 @@ MAP_WIDTH = 10000
 MAP_HEIGHT = 10000
 
 FOOD_TYPES = {
-    'common': {'value': 1, 'probability': 0.75, 'color': '#FFFFFF'},
+    'common': {'value': 1, 'probability': 0.75, 'color': '#FFFF00'},
     'rare': {'value': 3, 'probability': 0.20, 'color': '#00FF00'},
     'epic': {'value': 10, 'probability': 0.05, 'color': '#FF00FF'}
 }
