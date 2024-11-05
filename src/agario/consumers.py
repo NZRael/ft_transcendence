@@ -100,15 +100,12 @@ class GameConsumer(AsyncWebsocketConsumer):
                 GameConsumer.active_game.set_player_movement(data['playerId'], dx, dy)
         await self.throttled_send_game_state()
 
-    # async def send_game_state(self):
-    #     await self.send(text_data=json.dumps(game_state.get_state()))
-
     async def send_game_state_to_group(self):
         await self.channel_layer.group_send(
             "game",
             {
-                "type": "game_state",
-                "game_state": game_state.get_state()
+                "type": "food_update",
+                "food_update": game_state.get_state()
             }
         )
 
@@ -126,7 +123,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             if include_food:
                 game_state = GameConsumer.active_game.get_state()
                 await player.send(text_data=json.dumps({
-                    'type': 'game_state',
+                    'type': 'food_update',
                     'players': game_state['players'],
                     'food': game_state['food'],
                     'yourPlayerId': player_id

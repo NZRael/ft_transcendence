@@ -33,22 +33,24 @@ function connectWebSocket() {
 
         socket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            console.log('Received message:', data);
             switch (data.type) {
                 case 'waiting_room':
                     document.getElementById('waitingRoom').style.display = 'block';
                     document.getElementById('gameContainer').style.display = 'none';
                     break;
                 case 'game_started':
+                    console.log('Received message:', data);
                     document.getElementById('waitingRoom').style.display = 'none';
                     document.getElementById('gameContainer').style.display = 'block';
                     startGameLoop(data);
                     break;
-                case 'game_state':
+                case 'food_update':
+                    console.log('FOOD_UPDATE');
                     updateFood(data.food);
                     updatePlayers(data.players, data.yourPlayerId);
                     break;
                 case 'players_update':
+                    console.log('PLAYERS_UPDATE');
                     updatePlayers(data.players, data.yourPlayerId);
                     break;
                 default:
