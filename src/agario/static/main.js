@@ -39,6 +39,6 @@ export function startGameLoop(initialGameState) {
         updateUI();
         render(scene, camera, renderer);
     }
-    const throttledGameLoop = throttle(gameLoop, 16); // 30 FPS
+    const throttledGameLoop = throttle(gameLoop, 32); // 60 FPS
     throttledGameLoop();
 }

@@ -34,20 +34,25 @@ function connectWebSocket() {
         socket.onmessage = function(e) {
             const data = JSON.parse(e.data);
             console.log('Received message:', data);
-            if (data.type === 'waiting_room') {
-                document.getElementById('waitingRoom').style.display = 'block';
-                document.getElementById('gameContainer').style.display = 'none';
-            } else if (data.type === 'game_started') {
-                document.getElementById('waitingRoom').style.display = 'none';
-                document.getElementById('gameContainer').style.display = 'block';
-                startGameLoop(data);
-            } else if (data.type === 'food_update') {
-                updateFood(data.food);
-            } else if (data.type === 'game_state') {
-                updateGameState(data);
-            }
-            else {
-                // console.log('Unknown message type:', data.type);
+            switch (data.type) {
+                case 'waiting_room':
+                    document.getElementById('waitingRoom').style.display = 'block';
+                    document.getElementById('gameContainer').style.display = 'none';
+                    break;
+                case 'game_started':
+                    document.getElementById('waitingRoom').style.display = 'none';
+                    document.getElementById('gameContainer').style.display = 'block';
+                    startGameLoop(data);
+                    break;
+                case 'game_state':
+                    updateFood(data.food);
+                    updatePlayers(data.players, data.yourPlayerId);
+                    break;
+                case 'players_update':
+                    updatePlayers(data.players, data.yourPlayerId);
+                    break;
+                default:
+                    console.log('Unknown message type:', data.type);
             }
         };
 
@@ -70,14 +75,6 @@ export function sendPlayerMove(playerId, key, isKeyDown) {
         }));
     } catch (error) {
         console.error('Error sending player move:', error);
-    }
-}
-
-export function updateGameState(gameState) {
-    console.log('in updateGameState, Updating game state');
-    if (gameState.players) {
-        //console.log('in updateGameState, Updating players:', gameState.players);
-        updatePlayers(gameState.players, gameState.yourPlayerId);
     }
 }
 

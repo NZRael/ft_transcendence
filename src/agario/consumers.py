@@ -118,31 +118,49 @@ class GameConsumer(AsyncWebsocketConsumer):
             await self.send_game_state_to_group()
             self.last_update_time = current_time
 
-    async def broadcast_game_state(self):
+    async def broadcast_game_state(self, include_food=False):
         if not GameConsumer.active_game:
             return
 
-        game_state = GameConsumer.active_game.get_state()
         for player_id, player in GameConsumer.players.items():
-            await player.send(text_data=json.dumps({
-                'type': 'game_state',
-                'players': game_state['players'],
-                'food': game_state['food'],
-                'yourPlayerId': player_id
-            }))
+            if include_food:
+                game_state = GameConsumer.active_game.get_state()
+                await player.send(text_data=json.dumps({
+                    'type': 'game_state',
+                    'players': game_state['players'],
+                    'food': game_state['food'],
+                    'yourPlayerId': player_id
+                }))
+            else:
+                players_state = GameConsumer.active_game.get_players_state()
+                await player.send(text_data=json.dumps({
+                    'type': 'players_update',
+                    'players': players_state['players'],
+                    'yourPlayerId': player_id
+                }))
 
     async def game_loop(self):
         try:
             last_update = time.time()
-            await self.broadcast_game_state()
+            # Envoi initial avec toutes les données
+            await self.broadcast_game_state(include_food=True)
+            
             while True:
                 current_time = time.time()
                 delta_time = current_time - last_update
                 last_update = current_time
+                
                 if GameConsumer.active_game:
                     positions_updated = GameConsumer.active_game.update_positions(delta_time)
                     if positions_updated:
-                        await self.broadcast_game_state()
+                        # N'envoie que les positions des joueurs
+                        await self.broadcast_game_state(include_food=False)
+                        
+                    # Vérifier les collisions et envoyer les mises à jour de nourriture si nécessaire
+                    food_changes = GameConsumer.active_game.check_food_collision(self.player_id)
+                    if food_changes:
+                        await self.broadcast_game_state(include_food=True)
+                        
                 await asyncio.sleep(1/60)
         except Exception as e:
             logger.error(f"Error in game loop: {e}")
