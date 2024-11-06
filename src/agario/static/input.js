@@ -12,7 +12,7 @@ function handleKeyDown(event) {
 
     let key = event.key.toLowerCase();
     if (['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
-        console.log('in handleKeyDown, key', key);
+        // console.log('in handleKeyDown, key', key);
         event.preventDefault();
         sendPlayerMove(playerId, key, true);
     }
@@ -24,7 +24,7 @@ function handleKeyUp(event) {
 
     let key = event.key.toLowerCase();
     if (['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key)) {
-        console.log('in handleKeyUp, key', key);
+        // console.log('in handleKeyUp, key', key);
         event.preventDefault();
         sendPlayerMove(playerId, key, false);
     }

@@ -9,7 +9,7 @@ export function initFood(initialFood = []) {
     food = initialFood;
     const foodGeometry = new THREE.CircleGeometry(5, 32);
     const foodMaterial = new THREE.MeshBasicMaterial({ 
-        vertexColors: true,
+        // vertexColors: true,
         transparent: true,
         depthWrite: false,
         depthTest: false
@@ -24,12 +24,14 @@ export function initFood(initialFood = []) {
         matrix.setPosition(foodItem.x, foodItem.y, 1);
         const scale = 1 + (foodItem.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
-        color.setStyle(foodItem.color);
-        console.log('foodItem.color:', foodItem.color);
-        console.log('color:', color);
+        
+        const hexColor = foodItem.color.replace('#', '0x');
+        color.setHex(parseInt(hexColor, 16));
+        console.log('foodItem.color:',foodItem.color);
+        console.log('hexColor:', hexColor);
         
         foodInstancedMesh.setMatrixAt(index, matrix);
-        foodInstancedMesh.setColorAt(index, color); 
+        foodInstancedMesh.setColorAt(index, color);
     });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
@@ -39,36 +41,27 @@ export function initFood(initialFood = []) {
 }
 
 export function updateFood(newFood) {
+    console.log('in updateFood');
     food = newFood;
     if (!food || food.length === 0 || !foodInstancedMesh) return;
 
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
-    // On ne met à jour que les foods qui ont changé
-    const changedFoods = food.filter((f, index) => {
-        const oldFood = food[index];
-        return !oldFood || 
-               oldFood.x !== f.x || 
-               oldFood.y !== f.y || 
-               oldFood.type !== f.type;
-    });
-
-    changedFoods.forEach((item, index) => {
+    food.forEach((item, index) => {
         matrix.identity();
         matrix.setPosition(item.x, item.y, 1);
         const scale = 1 + (item.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
-        color.setStyle(item.color);
+        
+        const hexColor = item.color.replace('#', '0x');
+        color.setHex(parseInt(hexColor, 16));
         
         foodInstancedMesh.setMatrixAt(index, matrix);
         foodInstancedMesh.setColorAt(index, color);
     });
-
-    if (changedFoods.length > 0) {
-        foodInstancedMesh.instanceMatrix.needsUpdate = true;
-        foodInstancedMesh.instanceColor.needsUpdate = true;
-    }
+    foodInstancedMesh.instanceMatrix.needsUpdate = true;
+    foodInstancedMesh.instanceColor.needsUpdate = true;
 }
 
 export function getFood() {
