@@ -14,6 +14,14 @@ FOOD_TYPES = {
 }
 
 class GameState:
+    _instance = None
+    
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = cls()
+        return cls._instance
+    
     def __init__(self):
         self.players = {}
         self.food = []
@@ -197,4 +205,7 @@ class GameState:
             }
         }
 
-game_state = GameState()
+    def is_game_active(self):
+        return len(self.players) > 0
+
+game_state = GameState.get_instance()

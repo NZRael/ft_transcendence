@@ -28,21 +28,17 @@ SECRET_KEY = 'django-insecure-)5$(!#z0392-a%=0$hgc^k3h93adujpce_cwmxh$0m^r+#k*tb
 DEBUG = True
 
 # Obtenir l'adresse IP locale
-hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
+HOSTNAME = os.getenv("HOST_NAME")
+BASE_URL = os.getenv("BASE_URL")
+WS_URL = os.getenv("WS_URL")
+if BASE_URL:
+	BASE_URL = BASE_URL.replace("HOST_NAME", HOSTNAME)
+if WS_URL:
+	WS_URL = WS_URL.replace("HOST_NAME", HOSTNAME)
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'c1r4p5.42nice.fr',  # Votre adresse IP publique
-    local_ip,  # Votre adresse IP locale
-]
-
-# Configuration des CORS si nécessaire
-CORS_ALLOWED_ORIGINS = [
     '*'
 ]
-
 
 # Application definition
 
@@ -55,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
+	'corsheaders',
     'agario',
 ]
 
@@ -69,6 +66,7 @@ CACHES = {
 }
 
 MIDDLEWARE = [
+	'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -77,6 +75,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+# Configuration des CORS si nécessaire
+CORS_ALLOWED_ORIGINS = [
+    BASE_URL
 ]
 
 ROOT_URLCONF = 'alt_game.urls'

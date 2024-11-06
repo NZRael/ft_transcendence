@@ -107,6 +107,13 @@
             }
         });
     </script> -->
+    <script>
+        window.ENV = {
+            BASE_URL: '{{ BASE_URL|safe }}',
+            WS_URL: '{{ WS_URL|safe }}',
+            DEBUG: {{ DEBUG|yesno:"true,false" }}
+        }
+    </script>
     <script type="module" src="{% static 'main.js' %}"></script>
 </body>
 </html>

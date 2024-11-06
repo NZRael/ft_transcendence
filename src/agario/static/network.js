@@ -11,9 +11,10 @@ export function initNetwork() {
 
 function connectWebSocket() {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const host = window.location.hostname || 'localhost';
-    const port = '8000'; // Port par défaut de Django
-    const wsUrl = `${protocol}//${host}:${port}/ws/game/`; //const wsUrl = `${protocol}//${window.location.host}/ws/game/`; // Use computer hostname for remote (GOOFY)
+    
+    // Use the WS_URL from environment
+    const envUrl = window.ENV.WS_URL;
+    const wsUrl = `${protocol}//${envUrl}/ws/game/`;
     console.log('Attempting WebSocket connection to:', wsUrl);
     
     try {
@@ -41,7 +42,7 @@ function connectWebSocket() {
                     document.getElementById('gameContainer').style.display = 'none';
                     break;
                 case 'game_started':
-                    console.log('Received message:', data);
+                    console.log('Player joined game:', data);
                     document.getElementById('waitingRoom').style.display = 'none';
                     document.getElementById('gameContainer').style.display = 'block';
                     startGameLoop(data);

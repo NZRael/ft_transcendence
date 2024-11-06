@@ -8,8 +8,8 @@ services:
       - "8000:8000"
     depends_on:
       - redis
-    environment:
-      - REDIS_HOST=redis
+    env_file:
+      - .env
     networks:
       - alt_game_network
     volumes:
