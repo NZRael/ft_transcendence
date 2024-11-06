@@ -8,7 +8,7 @@ let foodInstancedMesh;
 export function initFood(initialFood = []) {
     food = initialFood;
     const foodGeometry = new THREE.CircleGeometry(5, 32);
-    const foodMaterial = new THREE.MeshBasicMaterial({ visible: true, vertexColors: true, transparent: true, opacity: 0.2, depthWrite: false });
+    const foodMaterial = new THREE.MeshBasicMaterial({ visible: true, vertexColors: true });
     foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
     
     const matrix = new THREE.Matrix4();

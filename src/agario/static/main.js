@@ -1,5 +1,5 @@
 import * as THREE from './three/three.module.js';
-import { initScene, render, updateCameraPosition } from './scene.js';
+import { initScene, render, updateCameraPosition, mapHeight, mapWidth, createGrid, createMapBorders } from './scene.js';
 import { updatePlayers, getMyPlayerId, getPlayers } from './player.js';
 import { initFood } from './food.js';
 import { initNetwork, startGame } from './network.js';
@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
     initFood(initialGameState.gameState.food);
+    createMapBorders(scene, mapWidth, mapHeight);
+    createGrid();
     updateUI();
     initInput();
     updatePlayers(initialGameState.players, initialGameState.yourPlayerId);

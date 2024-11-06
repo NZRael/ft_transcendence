@@ -22,8 +22,8 @@ export function initScene() {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-    createMapBorders(scene, mapWidth, mapHeight);
-    createGrid();
+    // createMapBorders(scene, mapWidth, mapHeight);
+    // createGrid();
     camera.position.set(0, 0, 500);
     camera.lookAt(0, 0, 0);
     return { scene, camera, renderer };
@@ -33,7 +33,7 @@ export function render(scene, camera, renderer) {
     renderer.render(scene, camera);
 }
 
-function createMapBorders(scene, mapWidth, mapHeight) {
+export function createMapBorders(scene, mapWidth, mapHeight) {
     const borderMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
     const borderGeometry = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(0, 0, 0),

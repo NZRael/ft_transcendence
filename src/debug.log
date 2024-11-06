@@ -113,3 +113,19 @@ INFO 2024-11-05 16:30:05,034 consumers 1 140316793490216 Player 2fc7b04b-d05c-4b
 INFO 2024-11-05 16:41:25,412 consumers 1 140316793490216 Player 088ba784-6069-40d8-9f1a-1a1b0d0ebfd7 disconnected with code 1001
 INFO 2024-11-05 16:41:26,273 consumers 1 140316793490216 Starting new game
 INFO 2024-11-05 16:42:11,431 consumers 1 140316793490216 Player 9006afc9-ea83-4e80-b557-6bc52c12c19d disconnected with code 1001
+INFO 2024-11-06 09:34:45,655 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:35:53,928 consumers 1 139840828836648 Player ac2c43a1-a328-42ee-9690-9ac9887d5d6d disconnected with code 1001
+INFO 2024-11-06 09:36:05,558 consumers 1 139840828836648 Player f6addb89-35d5-4078-9275-1591f38f08e9 disconnected with code 1001
+INFO 2024-11-06 09:36:06,821 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:38:14,869 consumers 1 139840828836648 Player 6a693049-8c44-490c-9e5e-ef58c46d1849 disconnected with code 1001
+INFO 2024-11-06 09:41:12,810 consumers 1 139840828836648 Player f1743b29-16e1-4be4-bd42-7e3ecab5a722 disconnected with code 1001
+INFO 2024-11-06 09:41:13,816 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:42:53,082 consumers 1 139840828836648 Player 3ae8c52f-cd90-44ce-b481-bf5673d9518c disconnected with code 1001
+INFO 2024-11-06 09:42:54,052 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:43:02,072 consumers 1 139840828836648 Player f5390998-ab91-4139-8a95-01fd91cdf35f disconnected with code 1001
+INFO 2024-11-06 09:43:11,200 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:43:15,302 consumers 1 139840828836648 Player 6601b77c-601f-46ee-8c52-f1215917a512 disconnected with code 1001
+INFO 2024-11-06 09:43:16,328 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:44:56,631 consumers 1 139840828836648 Player 0dbd75cd-9be0-4797-8f0a-3402dccc5fee disconnected with code 1001
+INFO 2024-11-06 09:44:58,664 consumers 1 139840828836648 Starting new game
+INFO 2024-11-06 09:45:21,985 consumers 1 139840828836648 Player 640188b7-354c-41ab-99d0-5dcd4832455c disconnected with code 1001
