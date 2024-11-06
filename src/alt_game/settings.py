@@ -34,6 +34,7 @@ local_ip = socket.gethostbyname(hostname)
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    'c1r4p5.42nice.fr',  # Votre adresse IP publique
     local_ip,  # Votre adresse IP locale
 ]
 

@@ -180,3 +180,1861 @@ INFO 2024-11-06 10:25:18,338 consumers 1 140707803552552 Player 52647b21-f9be-47
 INFO 2024-11-06 10:32:39,155 consumers 1 139645396118312 Player 33d81e68-2296-48f6-a746-e81c7931382a disconnected with code 1001
 INFO 2024-11-06 10:32:39,716 consumers 1 139645396118312 Starting new game
 INFO 2024-11-06 10:32:42,413 consumers 1 139645396118312 Player bcc139df-ecb6-4c45-9217-3b08a5ceb8cb disconnected with code 1001
+INFO 2024-11-06 10:33:12,928 consumers 1 140381171931944 Player bfcf3939-67a0-4890-b48d-cea0512216dc disconnected with code 1001
+ERROR 2024-11-06 10:33:19,687 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:19,714 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:19,788 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:19,815 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:21,225 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,240 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:21,286 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,310 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:21,583 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,593 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:21,624 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,645 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:21,829 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,845 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:21,875 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:21,890 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:22,080 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,104 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:22,141 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,163 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:22,306 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,320 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:22,365 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,387 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:33:22,496 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,511 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:33:22,549 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:33:22,572 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:23,216 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:23,234 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:23,253 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:23,275 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:24,062 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,077 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:24,106 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,127 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:24,419 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,434 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:24,485 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,507 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:24,636 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,658 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:24,701 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:24,723 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:25,173 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,194 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:25,239 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,261 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:25,492 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,515 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:25,539 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,558 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:25,713 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,736 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:25,764 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,786 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:25,915 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:25,939 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:25,980 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:26,003 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:26,095 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:26,108 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:26,151 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:26,172 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:26,269 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:26,294 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:26,331 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:26,353 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:54,176 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:54,200 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:54,245 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:54,256 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:54,901 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:54,922 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:54,958 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:54,973 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:55,310 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,332 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:55,373 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,391 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:55,606 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,631 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:55,668 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,691 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:55,817 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,841 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:55,883 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:55,904 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:57,499 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:57,522 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:57,560 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:57,583 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:57,851 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:57,870 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:57,907 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:57,917 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:58,301 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:58,332 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:58,365 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:58,391 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:34:59,841 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:59,852 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:34:59,880 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:34:59,894 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:01,533 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:01,558 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:01,606 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:01,629 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:52,606 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:52,621 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:52,643 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:52,665 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:53,041 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,056 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:53,079 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,099 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:53,204 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,227 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:53,257 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,277 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:53,391 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,410 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:53,517 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,539 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:53,561 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,583 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:53,619 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,641 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:35:53,727 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,753 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:35:53,784 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:35:53,803 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:03,264 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,279 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:03,307 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,318 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:03,541 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,566 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:03,605 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,616 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:03,753 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,768 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:03,806 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,834 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:03,938 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:03,961 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:03,993 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,017 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:04,120 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,135 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:04,173 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,187 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:04,273 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,288 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:04,326 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,345 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:04,463 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,472 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:04,507 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,530 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:04,735 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,768 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:04,801 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:04,817 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:14,642 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:14,666 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:14,708 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:14,731 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:14,890 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:14,912 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:14,949 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:14,971 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:15,115 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,130 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:15,163 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,184 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:15,275 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,299 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:15,334 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,355 log 1 140381095906104 Bad Request: /app/favicon.ico
+ERROR 2024-11-06 10:36:15,441 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,465 log 1 140381095906104 Bad Request: /app/
+ERROR 2024-11-06 10:36:15,502 exception 1 140381095906104 Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 518, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.9/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.9/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 468, in __call__
+    ret = await asyncio.shield(exec_coro)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/current_thread_executor.py", line 40, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/asgiref/sync.py", line 522, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/usr/local/lib/python3.9/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'c1r4p5.42nice.fr:8000'. You may need to add 'c1r4p5.42nice.fr' to ALLOWED_HOSTS.
+WARNING 2024-11-06 10:36:15,518 log 1 140381095906104 Bad Request: /app/favicon.ico
+INFO 2024-11-06 10:36:39,987 consumers 1 140263933270824 Player 68a23e80-4b5b-4d54-aa63-da064a3aa346 disconnected with code 1001
+INFO 2024-11-06 10:36:40,983 consumers 1 140263933270824 Starting new game
+INFO 2024-11-06 10:38:10,058 consumers 1 140263933270824 Player ab41a7bf-79ad-425e-943d-3fe863cd513c disconnected with code 1001
+INFO 2024-11-06 10:38:12,153 consumers 1 140263933270824 Player 4ca47869-6976-4c1e-ad78-1d101f8bea44 disconnected with code 1001
+INFO 2024-11-06 10:38:12,478 consumers 1 140263933270824 Player 72f8b378-71af-4cc9-a8a5-1c8356a15742 disconnected with code 1001
+INFO 2024-11-06 10:38:13,695 consumers 1 140263933270824 Player 598d7030-455b-43f6-a99a-6cefb9e86817 disconnected with code 1001
+INFO 2024-11-06 10:38:14,334 consumers 1 140263933270824 Player 139d580d-2015-477f-94ba-4b6c36db4048 disconnected with code 1001
+INFO 2024-11-06 10:38:16,333 consumers 1 140263933270824 Player 50c9fdee-0304-4d93-88c7-6b22490cd793 disconnected with code 1001
+INFO 2024-11-06 10:38:16,840 consumers 1 140263933270824 Player c0df4b7d-c93c-4b2b-b2a5-7a6d1bf5dadd disconnected with code 1001
+INFO 2024-11-06 10:38:17,432 consumers 1 140263933270824 Player dd9e5930-9d33-4a72-9925-6f47260d9477 disconnected with code 1001
+INFO 2024-11-06 10:38:17,808 consumers 1 140263933270824 Player be5919f4-ce00-416f-9b59-376123dbd165 disconnected with code 1001
+INFO 2024-11-06 10:38:17,939 consumers 1 140263933270824 Player 2fbf6455-7251-4305-97ce-92160f1c49ad disconnected with code 1001
+INFO 2024-11-06 10:38:18,029 consumers 1 140263933270824 Player 7916c937-fa58-48db-b759-e1b1fff733cd disconnected with code 1001
+INFO 2024-11-06 10:38:18,320 consumers 1 140263933270824 Player 338fd5d6-b246-47a1-8ef2-226315b4fee8 disconnected with code 1001
+INFO 2024-11-06 10:38:19,141 consumers 1 140263933270824 Starting new game
+INFO 2024-11-06 10:38:35,151 consumers 1 140263933270824 Player 614aca51-a11f-49be-9c2f-4f09c64aaf7b disconnected with code 1001
+INFO 2024-11-06 10:38:38,731 consumers 1 140263933270824 Player de83a78b-2587-4b5a-a7ee-11e52661bad4 disconnected with code 1001
