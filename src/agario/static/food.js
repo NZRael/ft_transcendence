@@ -1,7 +1,7 @@
 import * as THREE from './three/three.module.js';
 import { scene } from './scene.js';
 
-const MAX_FOOD = 500;
+const MAX_FOOD = 750;
 let food = [];
 let foodInstancedMesh;
 

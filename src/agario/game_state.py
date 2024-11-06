@@ -3,7 +3,7 @@ import uuid
 from .logger import setup_logger
 logger = setup_logger()
 
-MAX_FOOD = 500  # Augmenté pour une carte plus grande
+MAX_FOOD = 750  # Augmenté pour une carte plus grande
 MAP_WIDTH = 10000
 MAP_HEIGHT = 10000
 
@@ -45,7 +45,7 @@ class GameState:
             'name': player_name,
             'x': random.randint(0, self.map_width),
             'y': random.randint(0, self.map_height),
-            'size': 20,
+            'size': 30,
             'score': 0,
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
         }
@@ -94,7 +94,7 @@ class GameState:
         collision_occurred = False
         
         for food in self.food[:]:
-            if self.distance(player, food) < player['size']:
+            if self.distance(player, food) < player['size'] * 0.9:
                 player['size'] += food['value']
                 player['score'] += food['value']
                 self.food.remove(food)

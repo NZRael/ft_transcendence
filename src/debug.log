@@ -92,3 +92,38 @@ INFO 2024-11-06 16:32:41,234 consumers 1 140650357914408 Starting new game
 INFO 2024-11-06 16:37:28,713 consumers 1 140650357914408 Player 485d1f7b-d20e-48f9-98ba-a5c6c2805ad2 disconnected with code 1001
 INFO 2024-11-06 16:57:59,811 consumers 1 140650357914408 Player f51ef5d0-6ed3-4ea0-946d-de25348903ab disconnected with code 1001
 INFO 2024-11-06 17:05:07,599 consumers 1 140650357914408 Player 4b65515e-d201-4f45-8c17-9aa24fa6dca1 disconnected with code 1001
+INFO 2024-11-06 17:08:04,499 consumers 1 140656779795240 Player da16f552-78e9-4aff-a297-731b2ae3d138 disconnected with code 1001
+INFO 2024-11-06 17:08:05,744 consumers 1 140656779795240 Player c1f31f39-e391-4bc0-b44f-54533e5393ab disconnected with code 1001
+INFO 2024-11-06 17:08:06,707 consumers 1 140656779795240 Starting new game
+INFO 2024-11-06 17:08:23,906 consumers 1 140656779795240 Player 1a7ebbfa-5af3-4f26-88e4-dcb8e0e16c40 disconnected with code 1001
+INFO 2024-11-06 17:09:13,735 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:10:35,289 consumers 1 140716205493032 Player 7c43e3c6-4fde-4c2c-9cd9-3aaee01b4193 disconnected with code 1001
+INFO 2024-11-06 17:11:21,834 consumers 1 140716205493032 Player df2786c6-24d1-4cb6-9e98-61fd3d179a3e disconnected with code 1001
+INFO 2024-11-06 17:11:22,468 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:11:24,340 consumers 1 140716205493032 Player 22c3c35f-2a05-4584-bcc1-e2759660b680 disconnected with code 1001
+INFO 2024-11-06 17:11:25,385 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:11:27,862 consumers 1 140716205493032 Player 6d47f09c-1f5c-42b2-9635-c9c09c62a2bb disconnected with code 1001
+INFO 2024-11-06 17:13:48,942 consumers 1 140716205493032 Player 6eaec180-c72e-43f8-8df6-669c21df5e6b disconnected with code 1001
+INFO 2024-11-06 17:13:49,801 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:15:10,632 consumers 1 140716205493032 Player f138e61c-aa7f-4970-950e-a5746d5288fd disconnected with code 1001
+INFO 2024-11-06 17:16:50,362 consumers 1 140716205493032 Player f63ba7d9-7638-4cad-9e96-bbbf4e15aa00 disconnected with code 1001
+INFO 2024-11-06 17:16:51,211 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:18:41,054 consumers 1 140716205493032 Player 73fd9049-01a4-4c60-aca0-c828ada508b5 disconnected with code 1001
+INFO 2024-11-06 17:19:10,923 consumers 1 140716205493032 Player 25375aa2-11bc-4097-81f1-79f69ddf59f1 disconnected with code 1001
+INFO 2024-11-06 17:19:11,531 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:19:18,152 consumers 1 140716205493032 Player 737f3c39-b97e-4295-a80d-85dc76e091b9 disconnected with code 1001
+INFO 2024-11-06 17:19:19,518 consumers 1 140716205493032 Starting new game
+INFO 2024-11-06 17:21:01,800 consumers 1 139982782671656 Starting new game
+INFO 2024-11-06 17:21:06,052 consumers 1 139982782671656 Player 72fbc75f-6f7f-48e2-8869-046e46c29e7f disconnected with code 1001
+INFO 2024-11-06 17:21:24,737 consumers 1 139982782671656 Player 6bee77be-7eb6-4866-a84b-395d1660e841 disconnected with code 1001
+INFO 2024-11-06 17:21:25,495 consumers 1 139982782671656 Player 5b2e5fa2-5647-407c-bf9d-097c84ad7044 disconnected with code 1001
+INFO 2024-11-06 17:21:26,296 consumers 1 139982782671656 Starting new game
+INFO 2024-11-06 17:21:32,263 consumers 1 139982782671656 Player 779102da-c432-4503-b73b-67d35872ec49 disconnected with code 1001
+INFO 2024-11-06 17:22:23,339 consumers 1 139819692440360 Starting new game
+INFO 2024-11-06 17:22:27,252 consumers 1 139819692440360 Player 71c38589-f46d-4935-9d16-91ba5b2dd9f5 disconnected with code 1001
+INFO 2024-11-06 17:22:28,087 consumers 1 139819692440360 Starting new game
+INFO 2024-11-06 17:22:33,496 consumers 1 139819692440360 Player eb7b47ef-0933-4c09-99f0-cbf5197ac7c6 disconnected with code 1001
+INFO 2024-11-06 17:23:00,808 consumers 1 140535167351592 Starting new game
+INFO 2024-11-06 17:23:21,694 consumers 1 140535167351592 Player 28f18dca-ca3f-4098-90b8-b980e9c6e440 disconnected with code 1001
+INFO 2024-11-06 17:23:23,924 consumers 1 140535167351592 Starting new game
+INFO 2024-11-06 17:24:42,926 consumers 1 140535167351592 Player d8c01894-192c-44a9-b34b-088a5d3c495e disconnected with code 1001
