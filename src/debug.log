@@ -88,3 +88,7 @@ INFO 2024-11-06 16:28:44,937 consumers 1 140393837321000 Starting new game
 INFO 2024-11-06 16:31:11,359 consumers 1 140253140417320 Starting new game
 INFO 2024-11-06 16:31:42,722 consumers 1 140253140417320 Player bcf3d66f-7d2b-4f50-8a12-37ce5655e28a disconnected with code 1001
 INFO 2024-11-06 16:31:43,729 consumers 1 140253140417320 Player 2dc2b9c8-4463-4783-982f-e1294e09042e disconnected with code 1001
+INFO 2024-11-06 16:32:41,234 consumers 1 140650357914408 Starting new game
+INFO 2024-11-06 16:37:28,713 consumers 1 140650357914408 Player 485d1f7b-d20e-48f9-98ba-a5c6c2805ad2 disconnected with code 1001
+INFO 2024-11-06 16:57:59,811 consumers 1 140650357914408 Player f51ef5d0-6ed3-4ea0-946d-de25348903ab disconnected with code 1001
+INFO 2024-11-06 17:05:07,599 consumers 1 140650357914408 Player 4b65515e-d201-4f45-8c17-9aa24fa6dca1 disconnected with code 1001
