@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,20 @@ SECRET_KEY = 'django-insecure-)5$(!#z0392-a%=0$hgc^k3h93adujpce_cwmxh$0m^r+#k*tb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',
-                 ]
+# Obtenir l'adresse IP locale
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    local_ip,  # Votre adresse IP locale
+]
+
+# Configuration des CORS si nécessaire
+CORS_ALLOWED_ORIGINS = [
+    '*'
+]
 
 
 # Application definition

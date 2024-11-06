@@ -11,7 +11,9 @@ export function initNetwork() {
 
 function connectWebSocket() {
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const wsUrl = `${protocol}//c1r4p5/ws/game/`; // Use computer hostname for remote (GOOFY) ${window.location.host}
+    const host = window.location.hostname || 'localhost';
+    const port = '8000'; // Port par défaut de Django
+    const wsUrl = `${protocol}//${host}:${port}/ws/game/`; //const wsUrl = `${protocol}//${window.location.host}/ws/game/`; // Use computer hostname for remote (GOOFY)
     console.log('Attempting WebSocket connection to:', wsUrl);
     
     try {
