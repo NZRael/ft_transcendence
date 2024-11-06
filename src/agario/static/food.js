@@ -27,8 +27,6 @@ export function initFood(initialFood = []) {
         
         const hexColor = foodItem.color.replace('#', '0x');
         color.setHex(parseInt(hexColor, 16));
-        console.log('foodItem.color:',foodItem.color);
-        console.log('hexColor:', hexColor);
         
         foodInstancedMesh.setMatrixAt(index, matrix);
         foodInstancedMesh.setColorAt(index, color);

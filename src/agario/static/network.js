@@ -42,7 +42,13 @@ function connectWebSocket() {
                     document.getElementById('gameContainer').style.display = 'none';
                     break;
                 case 'game_started':
-                    console.log('Player joined game:', data);
+                    console.log('Game started:', data);
+                    document.getElementById('waitingRoom').style.display = 'none';
+                    document.getElementById('gameContainer').style.display = 'block';
+                    startGameLoop(data);
+                    break;
+                case 'game_joined':
+                    console.log('Joined existing game:', data);
                     document.getElementById('waitingRoom').style.display = 'none';
                     document.getElementById('gameContainer').style.display = 'block';
                     startGameLoop(data);
