@@ -76,6 +76,7 @@ export function createGrid() {
     
     // Position de la grille au centre de la scène
     gridHelper.position.set(gridSize/2, gridSize/2, -1);
+    gridHelper.renderOrder = 0;
     
     scene.add(gridHelper);
 }

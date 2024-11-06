@@ -8,27 +8,31 @@ let foodInstancedMesh;
 export function initFood(initialFood = []) {
     food = initialFood;
     const foodGeometry = new THREE.CircleGeometry(5, 32);
-    const foodMaterial = new THREE.MeshBasicMaterial({ visible: true, vertexColors: true });
+    const foodMaterial = new THREE.MeshBasicMaterial({ 
+        vertexColors: true,
+        transparent: true,
+        depthWrite: false,
+        depthTest: false
+    });
     foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
     
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
-    // Initialiser toutes les instances avec leurs positions initiales
     food.forEach((foodItem, index) => {
-        // console.log('foodItem:', foodItem);
-        matrix.setPosition(foodItem.x, foodItem.y, 0);
+        matrix.identity();
+        matrix.setPosition(foodItem.x, foodItem.y, 1);
         const scale = 1 + (foodItem.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
         color.setStyle(foodItem.color);
-
+        
         foodInstancedMesh.setMatrixAt(index, matrix);
         foodInstancedMesh.setColorAt(index, color);
     });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
     foodInstancedMesh.instanceColor.needsUpdate = true;
-    console.log('foodInstancedMesh:', foodInstancedMesh);
+    foodInstancedMesh.renderOrder = 1;
     scene.add(foodInstancedMesh);
 }
 
@@ -49,7 +53,8 @@ export function updateFood(newFood) {
     });
 
     changedFoods.forEach((item, index) => {
-        matrix.setPosition(item.x, item.y, 0);
+        matrix.identity();
+        matrix.setPosition(item.x, item.y, 1);
         const scale = 1 + (item.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
         color.setStyle(item.color);
