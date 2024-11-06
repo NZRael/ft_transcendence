@@ -25,9 +25,11 @@ export function initFood(initialFood = []) {
         const scale = 1 + (foodItem.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
         color.setStyle(foodItem.color);
+        console.log('foodItem.color:', foodItem.color);
+        console.log('color:', color);
         
         foodInstancedMesh.setMatrixAt(index, matrix);
-        foodInstancedMesh.setColorAt(index, color);
+        foodInstancedMesh.setColorAt(index, color); 
     });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;

@@ -22,8 +22,8 @@ export function initScene() {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-    // createMapBorders(scene, mapWidth, mapHeight);
-    // createGrid();
+    createMapBorders(scene, mapWidth, mapHeight);
+    createGrid();
     camera.position.set(0, 0, 500);
     camera.lookAt(0, 0, 0);
     return { scene, camera, renderer };

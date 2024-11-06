@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 export function startGameLoop(initialGameState) {
     ({ scene, camera, renderer } = initScene());
     initFood(initialGameState.gameState.food);
-    createMapBorders(scene, mapWidth, mapHeight);
-    createGrid();
+    // createMapBorders(scene, mapWidth, mapHeight);
+    // createGrid();
     updateUI();
     initInput();
     updatePlayers(initialGameState.players, initialGameState.yourPlayerId);
