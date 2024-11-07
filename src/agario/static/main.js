@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return;
     }
     console.log('Three.js is available:', THREE.REVISION);
-    const startGameBtn = document.getElementById('startGameBtn');
-    startGameBtn.addEventListener('click', () => {
+    const createGameBtn = document.getElementById('createGameBtn');
+    createGameBtn.addEventListener('click', () => {
         startGame();
     });
     initNetwork();

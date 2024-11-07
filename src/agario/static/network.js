@@ -1,6 +1,7 @@
 import { updatePlayers } from './player.js';
 import { updateFood } from './food.js';
 import { startGameLoop } from './main.js';
+import { updateGameInfo } from './utils.js';
 
 let socket;
 
@@ -43,14 +44,17 @@ function connectWebSocket() {
                     break;
                 case 'game_started':
                     console.log('Game started:', data);
+                    updateGameInfo(data);
                     document.getElementById('waitingRoom').style.display = 'none';
                     document.getElementById('gameContainer').style.display = 'block';
+                    document.getElementById('gameInfoContainer').style.display = 'none';
                     startGameLoop(data);
                     break;
                 case 'game_joined':
                     console.log('Joined existing game:', data);
                     document.getElementById('waitingRoom').style.display = 'none';
                     document.getElementById('gameContainer').style.display = 'block';
+                    document.getElementById('gameInfoContainer').style.display = 'none';
                     startGameLoop(data);
                     break;
                 case 'food_update':
@@ -97,6 +101,18 @@ export function startGame() {
     
     socket.send(JSON.stringify({
         type: 'start_game'
+    }));
+}
+
+export function joinGame(gameId) {
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+        console.error('Socket not ready');
+        return;
+    }
+    
+    socket.send(JSON.stringify({
+        type: 'join_game',
+        gameId: gameId
     }));
 }
 

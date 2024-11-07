@@ -18,30 +18,36 @@
         canvas {
             display: block;
         }
+        #waitingRoomTitle {
+            position: fixed;
+            top: 7%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            z-index: 1000;
+        }
+        #waitingRoomTitle h1 {
+            font-size: 4em;
+            margin: 0;
+            text-shadow: 0 0 10px #fff;
+            color: #fff;
+        }
         #waitingRoom {
             position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: rgba(0, 0, 0, 0.9);
             z-index: 1000;
-            border-radius: 10px;
+            border-radius: 0;
         }
-        #waitingRoom h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px #fff;
-            text-align: center;
-            width: 100%;
-        }
-        #startGameBtn {
+        #createGameBtn {
             padding: 15px 30px;
             font-size: 1.2em;
             background-color: #4CAF50;
@@ -49,24 +55,24 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
             outline: none;
             display: block;
-            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
-        #startGameBtn:hover {
+        #createGameBtn:hover {
             background-color: #45a049;
-            transform: scale(1.05);
+            transform: translate(-50%, -50%) scale(1.1);
             box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
         }
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.1); }
             100% { transform: scale(1); }
-        }
-        #startGameBtn:focus {
-            animation: pulse 1s infinite;
         }
         #scoreboard, #minimap {
             position: absolute;
@@ -86,27 +92,45 @@
             left: 10px;
             border: 1px solid rgba(255, 255, 255, 0.774);
         }
+        #gameInfoContainer {
+            position: absolute;
+            bottom: 20px;
+            left: 45%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #gameInfoBlock {
+            background-color: rgba(46, 43, 43, 0.432);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            margin-top: 20px;
+        }
     </style>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
 </head>
 <body>
     <div id="waitingRoom">
-        <h2>Salle d'attente</h2>
-        <button id="startGameBtn">Start Game</button>
+        <div id="waitingRoomTitle">
+            <h1>Waiting Room</h1>
+        </div>
+        <button id="createGameBtn">Create New Game</button>
+        <div id="gameInfoContainer">
+            <div id="gameInfoBlock">
+                <p>Games : <span id="gameCount">0</span></p>
+                <div id="gameDetails">
+                    <p>Game_id :</p>
+                    <p>Players : <span id="playerList"></span></p>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="gameContainer" style="display: none;">
         <div id="scoreboard"></div>
         <canvas id="minimap"></canvas>
     </div>
-    <!-- <script>
-        window.addEventListener('load', function() {
-            if (typeof THREE === 'undefined') {
-                console.error('Three.js is not loaded FUCCCCCKKK');
-            } else {
-                console.log('Three.js is loaded successfully MY BLOOD');
-            }
-        });
-    </script> -->
     <script>
         window.ENV = {
             BASE_URL: '{{ BASE_URL|safe }}',
