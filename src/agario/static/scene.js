@@ -1,8 +1,8 @@
 import * as THREE from './three/three.module.js';
+import { mapHeight, mapWidth } from './main.js';
 
 export let scene;
-export const mapWidth = 10000;
-export const mapHeight = 10000;
+
 
 export function initScene() {
     scene = new THREE.Scene();
@@ -22,7 +22,7 @@ export function initScene() {
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
-    createMapBorders(scene, mapWidth, mapHeight);
+    createMapBorders(scene);
     createGrid();
     camera.position.set(0, 0, 500);
     camera.lookAt(0, 0, 0);
@@ -33,7 +33,7 @@ export function render(scene, camera, renderer) {
     renderer.render(scene, camera);
 }
 
-export function createMapBorders(scene, mapWidth, mapHeight) {
+export function createMapBorders(scene) {
     const borderMaterial = new THREE.LineBasicMaterial({ color: 0xFFFFFF });
     const borderGeometry = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(0, 0, 0),
@@ -67,8 +67,8 @@ export function getScene() {
 }
 
 export function createGrid() {
-    const gridSize = 10000;  // Taille totale de la grille
-    const divisions = 50;    // Nombre de divisions
+    const gridSize = mapHeight; // Taille totale de la grille
+    const divisions = mapHeight / 200; // Nombre de divisions
     const gridHelper = new THREE.GridHelper(gridSize, divisions, 0x444444, 0x222222);
     
     // Rotation pour que la grille soit horizontale (X-Z plane)

@@ -1,4 +1,4 @@
-import { scene, getScene } from './scene.js';
+import { getScene } from './scene.js';
 import { getRandomColor } from './utils.js';
 import * as THREE from './three/three.module.js';
 
@@ -54,10 +54,10 @@ export function createPlayerSprite(player) {
     playerContext.fillStyle = highlight;
     playerContext.fill();
 
-    // Bordure
-    playerContext.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-    playerContext.lineWidth = size/20;
-    playerContext.stroke();
+    // // Bordure
+    // playerContext.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    // playerContext.lineWidth = size/20;
+    // playerContext.stroke();
 
     const playerTexture = new THREE.CanvasTexture(playerCanvas);
     playerTexture.minFilter = THREE.LinearFilter;
@@ -148,15 +148,4 @@ export function getPlayers() {
 
 export function getMyPlayerId() {
     return myPlayerId;
-}
-
-export function interpolatePlayerPosition() {
-    const player = players[myPlayerId];
-    if (!player) return;
-    
-    // Uniquement mettre à jour l'affichage avec les positions reçues du serveur
-    const scene = getScene();
-    if (scene) {
-        updatePlayerSprite(player, scene);
-    }
 }

@@ -1,7 +1,8 @@
 import * as THREE from './three/three.module.js';
 import { scene } from './scene.js';
+import { max_food } from './main.js';
 
-const MAX_FOOD = 750;
+
 let food = [];
 let foodInstancedMesh;
 
@@ -14,7 +15,7 @@ export function initFood(initialFood = []) {
         depthWrite: false,
         depthTest: false
     });
-    foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, MAX_FOOD);
+    foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, max_food);
     
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
@@ -39,7 +40,6 @@ export function initFood(initialFood = []) {
 }
 
 export function updateFood(newFood) {
-    console.log('in updateFood');
     food = newFood;
     if (!food || food.length === 0 || !foodInstancedMesh) return;
 

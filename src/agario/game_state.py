@@ -3,9 +3,9 @@ import uuid
 from .logger import setup_logger
 logger = setup_logger()
 
-MAX_FOOD = 750  # Augmenté pour une carte plus grande
-MAP_WIDTH = 10000
-MAP_HEIGHT = 10000
+MAX_FOOD = 2500  # Augmenté pour une carte plus grande
+MAP_WIDTH = 20000
+MAP_HEIGHT = 20000
 
 FOOD_TYPES = {
     'common': {'value': 1, 'probability': 0.75, 'color': '#FFFF00'},
@@ -15,6 +15,9 @@ FOOD_TYPES = {
 
 class GameState:
     _instance = None
+    maxFood = MAX_FOOD
+    mapWidth = MAP_WIDTH
+    mapHeight = MAP_HEIGHT
     
     @classmethod
     def get_instance(cls):
@@ -26,9 +29,9 @@ class GameState:
         self.players = {}
         self.food = []
         self.next_player_id = 1
+        self.active_players_count = 0
         self.map_width = MAP_WIDTH
         self.map_height = MAP_HEIGHT
-        self.active_players_count = 0
         self.INTERPOLATION_SPEED = 0.1
         self.MOVEMENT_THRESHOLD = 1
         self.PLAYER_SPEED = 300

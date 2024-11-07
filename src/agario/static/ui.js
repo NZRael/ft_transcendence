@@ -1,6 +1,7 @@
 import { getPlayers } from './player.js';
 import { getFood } from './food.js';
 import { getMyPlayerId } from './player.js';
+import { mapHeight, mapWidth } from './main.js';
 
 const minimapCanvas = document.getElementById('minimap');
 const minimapCtx = minimapCanvas.getContext('2d');
@@ -30,8 +31,7 @@ export function updateScoreboard() {
 export function updateMinimap() {
     const players = getPlayers();
     const food = getFood();
-    const mapWidth = 10000;
-    const mapHeight = 10000;
+    // console.log('in updateMinimap, mapheight', mapHeight, 'mapWidth', mapWidth);
 
     minimapCtx.clearRect(0, 0, minimapSize, minimapSize);
 

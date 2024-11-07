@@ -72,6 +72,10 @@ class GameConsumer(AsyncWebsocketConsumer):
                 # Envoyer l'état initial au créateur
                 await self.send(text_data=json.dumps({
                     "type": "game_started",
+                    "gameId": GameConsumer.game_id,
+                    "mapHeight": GameConsumer.active_game.mapHeight,
+                    "mapWidth": GameConsumer.active_game.mapWidth,
+                    "maxFood": GameConsumer.active_game.maxFood,
                     "yourPlayerId": self.player_id,
                     "yourPlayerName": self.player_name,
                     "gameState": GameConsumer.active_game.get_state()
@@ -87,6 +91,9 @@ class GameConsumer(AsyncWebsocketConsumer):
                     # Envoyer l'état actuel au nouveau joueur
                     await self.send(text_data=json.dumps({
                         "type": "game_joined",
+                        "mapHeight": GameConsumer.active_game.mapHeight,
+                        "mapWidth": GameConsumer.active_game.mapWidth,
+                        "maxFood": GameConsumer.active_game.maxFood,
                         "yourPlayerId": self.player_id,
                         "yourPlayerName": self.player_name,
                         "gameState": GameConsumer.active_game.get_state()

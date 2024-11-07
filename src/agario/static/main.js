@@ -8,6 +8,7 @@ import { updateUI } from './ui.js';
 import { throttle } from './utils.js';
 
 let scene, camera, renderer;
+export let mapHeight, mapWidth, max_food;
 
 document.addEventListener('DOMContentLoaded', (event) => {
     if (typeof THREE === 'undefined') {
@@ -23,6 +24,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 export function startGameLoop(initialGameState) {
+    mapHeight = initialGameState.mapHeight;
+    mapWidth = initialGameState.mapWidth;
+    max_food = initialGameState.maxFood;
     ({ scene, camera, renderer } = initScene());
     initFood(initialGameState.gameState.food);
     updateUI();
