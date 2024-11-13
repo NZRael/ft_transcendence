@@ -37,6 +37,7 @@ function connectWebSocket() {
 
         socket.onmessage = function(e) {
             const data = JSON.parse(e.data);
+            console.log('Received message:', data);
             switch (data.type) {
                 case 'waiting_room':
                     document.getElementById('waitingRoom').style.display = 'block';
@@ -98,7 +99,7 @@ export function startGame() {
         console.error('Socket not ready');
         return;
     }
-    
+
     socket.send(JSON.stringify({
         type: 'start_game'
     }));

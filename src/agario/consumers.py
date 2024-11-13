@@ -29,12 +29,13 @@ class GameConsumer(AsyncWebsocketConsumer):
 
     async def disconnect(self, close_code):
         if self.player_id in GameConsumer.players:
+            GameConsumer.player_count -= 1
             del GameConsumer.players[self.player_id]
-            
+
         if self.current_game_id in GameConsumer.active_games:
             game = GameConsumer.active_games[self.current_game_id]
             game.remove_player(self.player_id)
-            
+
             if len(game.players) == 0:
                 await game.cleanup()
                 del GameConsumer.active_games[self.current_game_id]
@@ -109,3 +110,21 @@ class GameConsumer(AsyncWebsocketConsumer):
             'yourPlayerId': self.player_id,
             'yourPlayerName': self.player_name
         }))
+
+    async def broadcast_games_info(self):
+        """Diffuse les informations sur les parties à tous les joueurs"""
+        games_info = []
+        for game_id, game in GameConsumer.active_games.items():
+            games_info.append({
+                'gameId': game_id,
+                'players': [p['name'] for p in game.players.values()],
+                'status': game.status
+            })
+
+        for player in GameConsumer.players.values():
+            await player.send(text_data=json.dumps({
+                'type': 'waiting_room',
+                'games': games_info,
+                'yourPlayerId': player.player_id,
+                'yourPlayerName': player.player_name
+            }))
