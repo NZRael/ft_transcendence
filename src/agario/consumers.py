@@ -23,7 +23,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         GameConsumer.player_count += 1
         self.player_name = f"Player_{GameConsumer.player_count}"
         GameConsumer.players[self.player_id] = self
-        
+
         # Envoyer la liste des parties disponibles
         await self.send_games_info()
 
