@@ -28,19 +28,32 @@ class GameConsumer(AsyncWebsocketConsumer):
         await self.send_games_info()
 
     async def disconnect(self, close_code):
+        logger.info(f"Player {self.player_id} disconnected with code {close_code}")
+        
         if self.player_id in GameConsumer.players:
             GameConsumer.player_count -= 1
             del GameConsumer.players[self.player_id]
+            logger.debug(f"Removed player {self.player_id} from players list")
 
         if self.current_game_id in GameConsumer.active_games:
             game = GameConsumer.active_games[self.current_game_id]
             game.remove_player(self.player_id)
+            logger.debug(f"Removed player {self.player_id} from game {self.current_game_id}")
 
+            # Si la partie est vide, on la nettoie et la supprime
             if len(game.players) == 0:
+                logger.info(f"Game {self.current_game_id} is empty, cleaning up")
                 await game.cleanup()
                 del GameConsumer.active_games[self.current_game_id]
             else:
+                # Informer les autres joueurs de la déconnexion
+                logger.debug(f"Broadcasting updated game info after player disconnect")
                 await self.broadcast_games_info()
+                
+                # Si la partie n'a plus qu'un joueur, on met à jour son statut
+                if len(game.players) == 1:
+                    game.status = "waiting"
+                    logger.info(f"Game {self.current_game_id} returned to waiting status")
 
     async def receive(self, text_data):
         data = json.loads(text_data)

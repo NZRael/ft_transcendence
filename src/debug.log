@@ -1,0 +1,6 @@
+INFO 2024-11-14 16:14:43,893 consumers 1 139827144198952 Player ef9a0b8b-c660-4e13-8409-3ab57c77a700 disconnected with code 1001
+DEBUG 2024-11-14 16:14:43,896 consumers 1 139827144198952 Removed player ef9a0b8b-c660-4e13-8409-3ab57c77a700 from players list
+INFO 2024-11-14 16:14:50,954 consumers 1 139827144198952 Player e86c8188-150f-4885-a019-54ba88a1ff94 disconnected with code 1001
+DEBUG 2024-11-14 16:14:50,954 consumers 1 139827144198952 Removed player e86c8188-150f-4885-a019-54ba88a1ff94 from players list
+INFO 2024-11-14 16:20:45,502 consumers 1 139827144198952 Player ed2ee548-b243-4c89-8626-88a894f9c73e disconnected with code 1001
+DEBUG 2024-11-14 16:20:45,503 consumers 1 139827144198952 Removed player ed2ee548-b243-4c89-8626-88a894f9c73e from players list

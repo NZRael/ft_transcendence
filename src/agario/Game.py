@@ -202,14 +202,21 @@ class Game:
 
     async def cleanup(self):
         """Nettoie les ressources de la partie"""
+        logger.info(f"Cleaning up game {self.game_id}")
+        
         if self.game_loop_task:
             self.game_loop_task.cancel()
             try:
                 await self.game_loop_task
             except asyncio.CancelledError:
+                logger.debug(f"Game loop for game {self.game_id} cancelled successfully")
                 pass
+            except Exception as e:
+                logger.error(f"Error while cancelling game loop for game {self.game_id}: {e}")
+        
         self.status = "finished"
         self.players.clear()
         self.food.clear()
         self.player_inputs.clear()
         self.player_movements.clear()
+        logger.info(f"Game {self.game_id} cleaned up successfully")
