@@ -28,7 +28,7 @@ export function startGameLoop(initialGameState) {
     mapWidth = initialGameState.mapWidth;
     max_food = initialGameState.maxFood;
     ({ scene, camera, renderer } = initScene());
-    initFood(initialGameState.gameState.food);
+    initFood(initialGameState.food);
     updateUI();
     initInput();
     updatePlayers(initialGameState.players, initialGameState.yourPlayerId);

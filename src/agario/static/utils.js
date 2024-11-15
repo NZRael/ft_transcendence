@@ -27,9 +27,10 @@ export function updateGameInfo(gamesData) {
     const gameInfoContainer = document.getElementById('gameInfoContainer');
     gameInfoContainer.innerHTML = '';
 
+    console.log('gamesData:', gamesData);
     if (!Array.isArray(gamesData.games)) {
-        console.error('Invalid games data format');
-        return;
+        console.warn('Invalid games data format');
+        // return;
     }
 
     gamesData.games.forEach((game, index) => {

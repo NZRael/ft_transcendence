@@ -138,6 +138,11 @@ class Game:
             'status': self.status
         }
 
+    def update_state(self, food_changes=None):
+        """Retourne l'état mis à jour soit des joueurs soit de la nourriture"""
+        game_state = self.get_state() if food_changes else self.get_players_state()
+        return game_state
+
     def handle_player_input(self, player_id, key, is_key_down):
         """Gère les entrées des joueurs"""
         if player_id not in self.player_inputs:
@@ -153,20 +158,25 @@ class Game:
         
     async def _game_loop(self, broadcast_callback):
         """Boucle de jeu principale"""
-        last_update = asyncio.get_event_loop().time()
         try:
+            last_update = asyncio.get_event_loop().time()
+            await broadcast_callback(self.game_id, self.update_state(food_changes=True))
             while self.status != "finished":
                 current_time = asyncio.get_event_loop().time()
                 delta_time = current_time - last_update
                 last_update = current_time
 
                 positions_updated = self.update_positions(delta_time)
-                food_changes = self.check_all_food_collisions()
+                if positions_updated:
+                    await broadcast_callback(self.game_id, self.update_state(food_changes=False)) # Send only updated positions to all players
 
-                if positions_updated or food_changes:
-                    await broadcast_callback(self.game_id, food_changes)
+                player_food_changes = self.check_all_food_collisions()
+                if player_food_changes:
+                    await broadcast_callback(self.game_id, self.update_state(food_changes=True)) # Send only food changes to all players
 
                 await asyncio.sleep(1/60)
+            if self.status == "finished":
+                """TODO: Send final state to all players"""
         except Exception as e:
             logger.error(f"Error in game loop for game {self.game_id}: {e}")
 
