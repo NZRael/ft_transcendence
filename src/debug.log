@@ -285,3 +285,16 @@ INFO 2024-11-20 16:54:15,938 consumers 1 140684828113704 Game 148e24dd-f74e-4c1b
 INFO 2024-11-20 16:54:15,939 Game 1 140684828113704 Cleaning up game 148e24dd-f74e-4c1b-a218-651df25ac222
 DEBUG 2024-11-20 16:54:15,939 Game 1 140684828113704 Game loop for game 148e24dd-f74e-4c1b-a218-651df25ac222 cancelled successfully
 INFO 2024-11-20 16:54:15,939 Game 1 140684828113704 Game 148e24dd-f74e-4c1b-a218-651df25ac222 cleaned up successfully
+INFO 2024-11-20 16:55:54,058 consumers 1 140695296797480 Player d6314003-b866-451c-8914-2ef58e636930 disconnected with code 1001
+DEBUG 2024-11-20 16:55:54,058 consumers 1 140695296797480 Removed player d6314003-b866-451c-8914-2ef58e636930 from players list
+INFO 2024-11-20 16:56:36,776 consumers 1 140695296797480 Player 72028225-c0f5-4b7f-bbd3-90811c60ae8d disconnected with code 1001
+DEBUG 2024-11-20 16:56:36,776 consumers 1 140695296797480 Removed player 72028225-c0f5-4b7f-bbd3-90811c60ae8d from players list
+DEBUG 2024-11-20 16:56:36,777 consumers 1 140695296797480 Removed player 72028225-c0f5-4b7f-bbd3-90811c60ae8d from game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e
+DEBUG 2024-11-20 16:56:36,777 consumers 1 140695296797480 Broadcasting updated game info after player disconnect
+INFO 2024-11-20 16:57:47,770 consumers 1 140695296797480 Player b57b24e3-2f12-4b1d-91f7-892babc9ad58 disconnected with code 1001
+DEBUG 2024-11-20 16:57:47,771 consumers 1 140695296797480 Removed player b57b24e3-2f12-4b1d-91f7-892babc9ad58 from players list
+DEBUG 2024-11-20 16:57:47,771 consumers 1 140695296797480 Removed player b57b24e3-2f12-4b1d-91f7-892babc9ad58 from game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e
+INFO 2024-11-20 16:57:47,771 consumers 1 140695296797480 Game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e is empty, cleaning up
+INFO 2024-11-20 16:57:47,771 Game 1 140695296797480 Cleaning up game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e
+DEBUG 2024-11-20 16:57:47,771 Game 1 140695296797480 Game loop for game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e cancelled successfully
+INFO 2024-11-20 16:57:47,772 Game 1 140695296797480 Game 0d8bb21e-85f9-4033-ae02-bc4b60eb946e cleaned up successfully
