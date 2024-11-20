@@ -48,7 +48,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             else:
                 # Informer les autres joueurs de la déconnexion
                 logger.debug(f"Broadcasting updated game info after player disconnect")
-                await self.broadcast_games_info()
+                # await self.broadcast_games_info()
                 
                 # # Si la partie n'a plus qu'un joueur, on met à jour son statut
                 # if len(game.players) == 1:
@@ -125,6 +125,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             'yourPlayerName': self.player_name
         }))
 
+    # TODO: Supprimer cette fonction ou la remplacer pour une autre fonctionnalité
     async def broadcast_games_info(self):
         """Diffuse les informations sur les parties à tous les joueurs"""
         games_info = []
@@ -137,10 +138,8 @@ class GameConsumer(AsyncWebsocketConsumer):
 
         for player in GameConsumer.players.values():
             await player.send(text_data=json.dumps({
-                'type': 'custom',
+                'type': 'update_waiting_room',
                 'games': games_info,
-                'yourPlayerId': player.player_id,
-                'yourPlayerName': player.player_name
             }))
 
     async def broadcast_game_state(self, game_id, state_update):
