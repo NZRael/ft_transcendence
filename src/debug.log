@@ -1,0 +1,16 @@
+INFO 2024-11-20 13:48:18,945 consumers 1 140664541580072 Player 4db1d075-1d52-4b62-baed-e88d2488e861 disconnected with code 1001
+DEBUG 2024-11-20 13:48:18,945 consumers 1 140664541580072 Removed player 4db1d075-1d52-4b62-baed-e88d2488e861 from players list
+DEBUG 2024-11-20 13:48:18,945 consumers 1 140664541580072 Removed player 4db1d075-1d52-4b62-baed-e88d2488e861 from game f4a989f0-e0e2-43f2-a446-abb680f46423
+INFO 2024-11-20 13:48:18,945 consumers 1 140664541580072 Game f4a989f0-e0e2-43f2-a446-abb680f46423 is empty, cleaning up
+INFO 2024-11-20 13:48:18,946 Game 1 140664541580072 Cleaning up game f4a989f0-e0e2-43f2-a446-abb680f46423
+DEBUG 2024-11-20 13:48:18,946 Game 1 140664541580072 Game loop for game f4a989f0-e0e2-43f2-a446-abb680f46423 cancelled successfully
+INFO 2024-11-20 13:48:18,946 Game 1 140664541580072 Game f4a989f0-e0e2-43f2-a446-abb680f46423 cleaned up successfully
+INFO 2024-11-20 13:48:24,504 consumers 1 140664541580072 Player c593493f-d588-4f0f-9c17-4f3bcb76c1a2 disconnected with code 1001
+DEBUG 2024-11-20 13:48:24,504 consumers 1 140664541580072 Removed player c593493f-d588-4f0f-9c17-4f3bcb76c1a2 from players list
+DEBUG 2024-11-20 13:48:24,504 consumers 1 140664541580072 Removed player c593493f-d588-4f0f-9c17-4f3bcb76c1a2 from game e2dbdc57-41c0-41e2-9959-0e73320c69fe
+INFO 2024-11-20 13:48:24,504 consumers 1 140664541580072 Game e2dbdc57-41c0-41e2-9959-0e73320c69fe is empty, cleaning up
+INFO 2024-11-20 13:48:24,504 Game 1 140664541580072 Cleaning up game e2dbdc57-41c0-41e2-9959-0e73320c69fe
+DEBUG 2024-11-20 13:48:24,504 Game 1 140664541580072 Game loop for game e2dbdc57-41c0-41e2-9959-0e73320c69fe cancelled successfully
+INFO 2024-11-20 13:48:24,505 Game 1 140664541580072 Game e2dbdc57-41c0-41e2-9959-0e73320c69fe cleaned up successfully
+INFO 2024-11-20 13:48:36,259 consumers 1 140664541580072 Player ac72eeb6-aed4-4f46-a3bc-f3e84a894718 disconnected with code 1001
+DEBUG 2024-11-20 13:48:36,259 consumers 1 140664541580072 Removed player ac72eeb6-aed4-4f46-a3bc-f3e84a894718 from players list
