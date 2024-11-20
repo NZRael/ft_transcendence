@@ -35,7 +35,7 @@ export function initFood(initialFood = []) {
     });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
-    // foodInstancedMesh.instanceColor.needsUpdate = true;
+    foodInstancedMesh.instanceColor.needsUpdate = true;
     foodInstancedMesh.renderOrder = 1;
     scene.add(foodInstancedMesh);
 }

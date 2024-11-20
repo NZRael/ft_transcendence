@@ -28,45 +28,51 @@ export function getRandomColor() {
 export function updateGameInfo(data) {
     const gameInfoContainer = document.getElementById('gameInfoContainer');
     if (!gameInfoContainer) return;
-    
     gameInfoContainer.innerHTML = '';
-
     // Vérifier si data est un objet valide
     if (!data || typeof data !== 'object') {
         console.warn('Données invalides reçues dans updateGameInfo');
         return;
     }
 
-    // Si les données viennent du message 'game_started'
-    if (data.type === 'game_started') {
-        const gameBlock = document.createElement('div');
-        gameBlock.className = 'gameInfoBlock';
-        gameBlock.innerHTML = `
-            <p>Partie en cours</p>
-            <p>ID: ${data.gameId}</p>
-            <p>Joueurs: ${Object.values(data.players).map(p => p.name).join(', ')}</p>
-        `;
-        gameInfoContainer.appendChild(gameBlock);
-        return;
-    }
+    // // Si les données viennent du message 'game_started'
+    // if (data.type === 'game_started') {
+    //     const gameBlock = document.createElement('div');
+    //     gameBlock.className = 'gameInfoBlock';
+    //     gameBlock.innerHTML = `
+    //         <p>Partie en cours</p>
+    //         <p>ID: ${data.gameId}</p>
+    //         <p>Joueurs: ${Object.values(data.players).map(p => p.name).join(', ')}</p>
+    //     `;
+    //     gameInfoContainer.appendChild(gameBlock);
+    //     return;
+    // }
 
     // Si les données viennent du message 'waiting_room'
     const games = Array.isArray(data.games) ? data.games : [];
-    
-    games.forEach((game, index) => {
+
+    if (games.length === 0) {
         const gameBlock = document.createElement('div');
         gameBlock.className = 'gameInfoBlock';
-        gameBlock.innerHTML = `
-            <p>Partie ${index + 1}</p>
-            <p>ID: ${game.gameId}</p>
-            <p>Joueurs: ${game.players.join(', ')}</p>
-            <p>Statut: ${game.status}</p>
-            <button class="joinGameBtn" data-gameid="${game.gameId}">
-                ${game.status === 'waiting' ? 'Rejoindre' : 'Observer'}
-            </button>
-        `;
+        gameBlock.innerHTML = '<p>No games available</p>';
         gameInfoContainer.appendChild(gameBlock);
-    });
+        return;
+    }
+    else {
+        games.forEach((game, index) => {
+            const gameBlock = document.createElement('div');
+            gameBlock.className = 'gameInfoBlock';
+            gameBlock.innerHTML = `
+            <p>Game ${index + 1}</p>
+            <p>Game ID: ${game.gameId}</p>
+            <p>Players: ${game.players.join(', ')}</p>
+                <button class="joinGameBtn" data-gameid="${game.gameId}">
+                    ${game.status === 'custom' ? 'Join' : 'Watch'}
+                </button>
+            `;
+            gameInfoContainer.appendChild(gameBlock);
+        });
+    }
 
     const gameCountElement = document.getElementById('gameCount');
     if (gameCountElement) {

@@ -50,10 +50,10 @@ class GameConsumer(AsyncWebsocketConsumer):
                 logger.debug(f"Broadcasting updated game info after player disconnect")
                 await self.broadcast_games_info()
                 
-                # Si la partie n'a plus qu'un joueur, on met à jour son statut
-                if len(game.players) == 1:
-                    game.status = "waiting"
-                    logger.info(f"Game {self.current_game_id} returned to waiting status")
+                # # Si la partie n'a plus qu'un joueur, on met à jour son statut
+                # if len(game.players) == 1:
+                #     game.status = "waiting"
+                #     logger.info(f"Game {self.current_game_id} returned to waiting status")
 
     async def receive(self, text_data):
         data = json.loads(text_data)
@@ -67,7 +67,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             
             # Démarrer la boucle de jeu
             await new_game.start_game_loop(self.broadcast_game_state)
-            await self.broadcast_games_info()
+            # await self.broadcast_games_info()
             
             # Envoyer l'état initial au créateur
             await self.send(text_data=json.dumps({
@@ -77,6 +77,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 'mapHeight': new_game.map_height,
                 'maxFood': new_game.max_food,
                 'players': new_game.players,
+                'food': new_game.food,
                 'yourPlayerId': self.player_id
             }))
 
@@ -84,20 +85,20 @@ class GameConsumer(AsyncWebsocketConsumer):
             game_id = data['gameId']
             if game_id in GameConsumer.active_games:
                 game = GameConsumer.active_games[game_id]
-                if game.status == "waiting":
+                if game.status == "custom":
                     self.current_game_id = game_id
                     game.add_player(self.player_id, self.player_name)
-                    await self.broadcast_games_info()
+                    # await self.broadcast_games_info()
                     
                     # Envoyer l'état initial au joueur qui rejoint
                     await self.send(text_data=json.dumps({
-                        'type': 'game_started',
+                        'type': 'game_joined',
                         'gameId': game_id,
                         'mapWidth': game.map_width,
                         'mapHeight': game.map_height,
                         'maxFood': game.max_food,
-                        # 'gameState': game.get_state(),
                         'players': game.players,
+                        'food': game.food,
                         'yourPlayerName': self.player_name,
                         'yourPlayerId': self.player_id
                     }))
@@ -136,7 +137,7 @@ class GameConsumer(AsyncWebsocketConsumer):
 
         for player in GameConsumer.players.values():
             await player.send(text_data=json.dumps({
-                'type': 'waiting_room',
+                'type': 'custom',
                 'games': games_info,
                 'yourPlayerId': player.player_id,
                 'yourPlayerName': player.player_name

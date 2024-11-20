@@ -43,29 +43,30 @@ function connectWebSocket() {
                     document.getElementById('waitingRoom').style.display = 'block';
                     document.getElementById('gameContainer').style.display = 'none';
                     updateGameInfo(data);
+                    document.getElementById('gameInfoContainer').style.display = 'block';
                     break;
                 case 'game_started':
                     console.log('Game started:', data);
                     updateGameInfo(data);
                     document.getElementById('waitingRoom').style.display = 'none';
-                    document.getElementById('gameContainer').style.display = 'block';
                     document.getElementById('gameInfoContainer').style.display = 'none';
+                    document.getElementById('gameContainer').style.display = 'block';
                     startGameLoop(data);
                     break;
                 case 'game_joined':
                     console.log('Joined existing game:', data);
                     document.getElementById('waitingRoom').style.display = 'none';
-                    document.getElementById('gameContainer').style.display = 'block';
                     document.getElementById('gameInfoContainer').style.display = 'none';
+                    document.getElementById('gameContainer').style.display = 'block';
                     startGameLoop(data);
                     break;
                 case 'food_update':
-                    console.log('FOOD_UPDATE:', data);
+                    // console.log('FOOD_UPDATE:', data);
                     updateFood(data.food);
                     updatePlayers(data.players, data.yourPlayerId);
                     break;
                 case 'players_update':
-                    console.log('PLAYERS_UPDATE:', data);
+                    // console.log('PLAYERS_UPDATE:', data);
                     updatePlayers(data.players, data.yourPlayerId);
                     break;
                 default:

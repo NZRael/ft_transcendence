@@ -22,7 +22,7 @@ class Game:
         self.player_inputs = {}
         self.player_movements = {}
         self.PLAYER_SPEED = 300
-        self.status = "waiting"
+        self.status = "custom"
         self.game_loop_task = None
         self.initialize_food()
 
