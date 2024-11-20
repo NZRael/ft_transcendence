@@ -76,7 +76,6 @@ class GameConsumer(AsyncWebsocketConsumer):
                 'mapWidth': new_game.map_width,
                 'mapHeight': new_game.map_height,
                 'maxFood': new_game.max_food,
-                # 'gameState': new_game.get_state(),
                 'players': new_game.players,
                 'yourPlayerId': self.player_id
             }))
@@ -148,19 +147,19 @@ class GameConsumer(AsyncWebsocketConsumer):
         if game_id in GameConsumer.active_games:
             game = GameConsumer.active_games[game_id]
             
-            # Détermine le type de mise à jour
-            if isinstance(state_update, dict) and 'game_id' in state_update:
-                # C'est un état complet (get_state)
+            # Détermine le type de mise à jour explicitement
+            if 'food' in state_update:
                 message = {
-                    'type': 'players_update',
+                    'type': state_update['type'],
+                    'game_id': state_update['game_id'],
                     'players': state_update['players'],
                     'food': state_update['food']
                 }
             else:
-                # C'est une mise à jour de nourriture
                 message = {
-                    'type': 'food_update',
-                    'food': state_update
+                    'type': state_update['type'],
+                    'game_id': state_update['game_id'],
+                    'players': state_update['players']
                 }
 
             # Envoie la mise à jour à tous les joueurs de la partie

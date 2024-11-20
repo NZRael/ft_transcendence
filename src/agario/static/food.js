@@ -15,8 +15,9 @@ export function initFood(initialFood = []) {
         depthWrite: false,
         depthTest: false
     });
+
     foodInstancedMesh = new THREE.InstancedMesh(foodGeometry, foodMaterial, max_food);
-    
+
     const matrix = new THREE.Matrix4();
     const color = new THREE.Color();
 
@@ -25,16 +26,16 @@ export function initFood(initialFood = []) {
         matrix.setPosition(foodItem.x, foodItem.y, 1);
         const scale = 1 + (foodItem.value - 1) * 0.5;
         matrix.scale(new THREE.Vector3(scale, scale, 1));
-        
+
         const hexColor = foodItem.color.replace('#', '0x');
         color.setHex(parseInt(hexColor, 16));
-        
+
         foodInstancedMesh.setMatrixAt(index, matrix);
         foodInstancedMesh.setColorAt(index, color);
     });
 
     foodInstancedMesh.instanceMatrix.needsUpdate = true;
-    foodInstancedMesh.instanceColor.needsUpdate = true;
+    // foodInstancedMesh.instanceColor.needsUpdate = true;
     foodInstancedMesh.renderOrder = 1;
     scene.add(foodInstancedMesh);
 }

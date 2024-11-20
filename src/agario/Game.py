@@ -92,12 +92,6 @@ class Game:
                 food_changes.extend(changes)
         return len(food_changes) > 0
 
-    def get_players_state(self):
-        """Retourne l'état des joueurs"""
-        return {
-            'players': self.players
-        }
-
     def is_game_active(self):
         """Vérifie si la partie est active"""
         return self.status == "in_progress"
@@ -127,20 +121,26 @@ class Game:
         if len(self.players) == 0:
             self.status = "finished"
 
-    def get_state(self):
+    def get_food_state(self):
         """Retourne l'état complet de la partie"""
         return {
+            'type': 'food_update',
             'game_id': self.game_id,
             'players': self.players,
             'food': self.food,
-            'map_width': self.map_width,
-            'map_height': self.map_height,
-            'status': self.status
+        }
+
+    def get_players_state(self):
+        """Retourne l'état des joueurs"""
+        return {
+            'type': 'players_update',
+            'game_id': self.game_id,
+            'players': self.players,
         }
 
     def update_state(self, food_changes=None):
         """Retourne l'état mis à jour soit des joueurs soit de la nourriture"""
-        game_state = self.get_state() if food_changes else self.get_players_state()
+        game_state = self.get_food_state() if food_changes == True else self.get_players_state()
         return game_state
 
     def handle_player_input(self, player_id, key, is_key_down):
