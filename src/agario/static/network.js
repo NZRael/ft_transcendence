@@ -45,6 +45,10 @@ function connectWebSocket() {
                     updateGameInfo(data);
                     document.getElementById('gameInfoContainer').style.display = 'block';
                     break;
+                case 'update_waiting_room':
+                    console.log('Update waiting room:', data);
+                    updateGameInfo(data);
+                    break;
                 case 'game_started':
                     console.log('Game started:', data);
                     updateGameInfo(data);

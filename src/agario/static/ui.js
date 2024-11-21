@@ -12,6 +12,7 @@ minimapCanvas.height = minimapSize;
 export function updateUI() {
     updateScoreboard();
     updateMinimap();
+    updateSpeedometer();
 }
 
 export function updateScoreboard() {
@@ -77,5 +78,16 @@ export function updateMinimap() {
                 minimapCtx.fill();
             }
         });
+    }
+}
+
+function updateSpeedometer() {
+    const speedometer = document.getElementById('speedometer');
+    const myPlayerId = getMyPlayerId();
+    const players = getPlayers();
+    
+    if (myPlayerId && players[myPlayerId]) {
+        const speed = players[myPlayerId].current_speed || 0;
+        speedometer.textContent = `Speed: ${speed}`;
     }
 }

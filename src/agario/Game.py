@@ -195,7 +195,13 @@ class Game:
 
             if dx != 0 or dy != 0:
                 player = self.players[player_id]
-                speed = self.PLAYER_SPEED * (30 / player['size'])  # Vitesse inversement proportionnelle à la taille
+                base_speed = self.PLAYER_SPEED
+
+                if player['score'] <= 250:
+                    speed_factor = max(0.4, 1 - (player['score'] / 500))
+                    speed = base_speed * speed_factor
+                else:
+                    speed = base_speed * 0.4
                 
                 new_x = player['x'] + dx * speed * delta_time
                 new_y = player['y'] + dy * speed * delta_time
@@ -207,6 +213,8 @@ class Game:
                     player['x'] = new_x
                     player['y'] = new_y
                     positions_updated = True
+                    
+                player['current_speed'] = round(speed)
                     
         return positions_updated
 

@@ -26,58 +26,34 @@ export function getRandomColor() {
 }
 
 export function updateGameInfo(data) {
-    const gameInfoContainer = document.getElementById('gameInfoContainer');
-    if (!gameInfoContainer) return;
-    gameInfoContainer.innerHTML = '';
-    // Vérifier si data est un objet valide
-    if (!data || typeof data !== 'object') {
-        console.warn('Données invalides reçues dans updateGameInfo');
-        return;
-    }
+    const gameList = document.getElementById('gameList');
+    if (!gameList) return;
+    gameList.innerHTML = '';
 
-    // // Si les données viennent du message 'game_started'
-    // if (data.type === 'game_started') {
-    //     const gameBlock = document.createElement('div');
-    //     gameBlock.className = 'gameInfoBlock';
-    //     gameBlock.innerHTML = `
-    //         <p>Partie en cours</p>
-    //         <p>ID: ${data.gameId}</p>
-    //         <p>Joueurs: ${Object.values(data.players).map(p => p.name).join(', ')}</p>
-    //     `;
-    //     gameInfoContainer.appendChild(gameBlock);
-    //     return;
-    // }
-
-    // Si les données viennent du message 'waiting_room'
     const games = Array.isArray(data.games) ? data.games : [];
 
     if (games.length === 0) {
-        const gameBlock = document.createElement('div');
-        gameBlock.className = 'gameInfoBlock';
-        gameBlock.innerHTML = '<p>No games available</p>';
-        gameInfoContainer.appendChild(gameBlock);
+        const row = document.createElement('tr');
+        row.innerHTML = '<td colspan="3" style="text-align: center;">No games available</td>';
+        gameList.appendChild(row);
         return;
     }
-    else {
-        games.forEach((game, index) => {
-            const gameBlock = document.createElement('div');
-            gameBlock.className = 'gameInfoBlock';
-            gameBlock.innerHTML = `
-            <p>Game ${index + 1}</p>
-            <p>Game ID: ${game.gameId}</p>
-            <p>Players: ${game.players.join(', ')}</p>
+
+    games.forEach((game, index) => {
+        const row = document.createElement('tr');
+        const playerNames = Array.isArray(game.players) ? game.players.map(player => player.name).join(', ') : '';
+        
+        row.innerHTML = `
+            <td>Game ${index + 1}</td>
+            <td>${playerNames}</td>
+            <td>
                 <button class="joinGameBtn" data-gameid="${game.gameId}">
                     ${game.status === 'custom' ? 'Join' : 'Watch'}
                 </button>
-            `;
-            gameInfoContainer.appendChild(gameBlock);
-        });
-    }
-
-    const gameCountElement = document.getElementById('gameCount');
-    if (gameCountElement) {
-        gameCountElement.textContent = games.length;
-    }
+            </td>
+        `;
+        gameList.appendChild(row);
+    });
 
     // Ajouter les écouteurs d'événements pour les boutons
     document.querySelectorAll('.joinGameBtn').forEach(button => {

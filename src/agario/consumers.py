@@ -48,12 +48,12 @@ class GameConsumer(AsyncWebsocketConsumer):
             else:
                 # Informer les autres joueurs de la déconnexion
                 logger.debug(f"Broadcasting updated game info after player disconnect")
-                # await self.broadcast_games_info()
+                await self.broadcast_games_info()
                 
-                # # Si la partie n'a plus qu'un joueur, on met à jour son statut
-                # if len(game.players) == 1:
-                #     game.status = "waiting"
-                #     logger.info(f"Game {self.current_game_id} returned to waiting status")
+                # Si la partie n'a plus qu'un joueur, on met à jour son statut
+                if len(game.players) == 1:
+                    game.status = "custom"
+                    logger.info(f"Game {self.current_game_id} returned to custom status")
 
     async def receive(self, text_data):
         data = json.loads(text_data)
@@ -67,7 +67,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             
             # Démarrer la boucle de jeu
             await new_game.start_game_loop(self.broadcast_game_state)
-            # await self.broadcast_games_info()
+            await self.broadcast_games_info()
             
             # Envoyer l'état initial au créateur
             await self.send(text_data=json.dumps({
@@ -88,7 +88,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 if game.status == "custom":
                     self.current_game_id = game_id
                     game.add_player(self.player_id, self.player_name)
-                    # await self.broadcast_games_info()
+                    await self.broadcast_games_info()
                     
                     # Envoyer l'état initial au joueur qui rejoint
                     await self.send(text_data=json.dumps({
@@ -114,7 +114,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         for game_id, game in GameConsumer.active_games.items():
             games_info.append({
                 'gameId': game_id,
-                'players': [p['name'] for p in game.players.values()],
+                'players': [{'name': p['name'], 'id': p['id']} for p in game.players.values()] ,
                 'status': game.status
             })
 
@@ -132,7 +132,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         for game_id, game in GameConsumer.active_games.items():
             games_info.append({
                 'gameId': game_id,
-                'players': [p['name'] for p in game.players.values()],
+                'players': [{'name': p['name'], 'id': p['id']} for p in game.players.values()] ,
                 'status': game.status
             })
 
