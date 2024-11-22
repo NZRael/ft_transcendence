@@ -170,3 +170,17 @@ INFO 2024-11-22 12:26:44,777 consumers 1 140093704420136 Game d5217b63-cad7-45e6
 INFO 2024-11-22 12:26:44,777 Game 1 140093704420136 Cleaning up game d5217b63-cad7-45e6-9791-96f2025ffd0e
 DEBUG 2024-11-22 12:26:44,777 Game 1 140093704420136 Game loop for game d5217b63-cad7-45e6-9791-96f2025ffd0e cancelled successfully
 INFO 2024-11-22 12:26:44,777 Game 1 140093704420136 Game d5217b63-cad7-45e6-9791-96f2025ffd0e cleaned up successfully
+INFO 2024-11-22 14:01:36,395 consumers 1 140171178957608 Player 23cbbafe-2e49-47c7-accf-dff6c955b086 disconnected with code 1001
+DEBUG 2024-11-22 14:01:36,396 consumers 1 140171178957608 Removed player 23cbbafe-2e49-47c7-accf-dff6c955b086 from players list
+INFO 2024-11-22 15:51:28,627 consumers 1 140171178957608 Player 039ad4fb-f508-4d65-832f-ac83ee424a6e disconnected with code 1001
+DEBUG 2024-11-22 15:51:28,627 consumers 1 140171178957608 Removed player 039ad4fb-f508-4d65-832f-ac83ee424a6e from players list
+DEBUG 2024-11-22 15:51:28,627 consumers 1 140171178957608 Removed player 039ad4fb-f508-4d65-832f-ac83ee424a6e from game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a
+DEBUG 2024-11-22 15:51:28,627 consumers 1 140171178957608 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 15:51:28,628 consumers 1 140171178957608 Game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a returned to custom status
+INFO 2024-11-22 15:51:29,858 consumers 1 140171178957608 Player 8ff0d1ca-4c84-457e-934e-e93d1edb93ac disconnected with code 1001
+DEBUG 2024-11-22 15:51:29,859 consumers 1 140171178957608 Removed player 8ff0d1ca-4c84-457e-934e-e93d1edb93ac from players list
+DEBUG 2024-11-22 15:51:29,859 consumers 1 140171178957608 Removed player 8ff0d1ca-4c84-457e-934e-e93d1edb93ac from game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a
+INFO 2024-11-22 15:51:29,859 consumers 1 140171178957608 Game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a is empty, cleaning up
+INFO 2024-11-22 15:51:29,859 Game 1 140171178957608 Cleaning up game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a
+DEBUG 2024-11-22 15:51:29,859 Game 1 140171178957608 Game loop for game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a cancelled successfully
+INFO 2024-11-22 15:51:29,859 Game 1 140171178957608 Game 7abd2eab-7a2a-4c2e-8ad7-7451ea09814a cleaned up successfully
