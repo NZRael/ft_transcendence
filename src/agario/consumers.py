@@ -37,6 +37,13 @@ class GameConsumer(AsyncWebsocketConsumer):
 
         if self.current_game_id in GameConsumer.active_games:
             game = GameConsumer.active_games[self.current_game_id]
+            # Informer les autres joueurs de la déconnexion immédiatement
+            for player_id in game.players:
+                if player_id != self.player_id and player_id in GameConsumer.players:
+                    await GameConsumer.players[player_id].send(text_data=json.dumps({
+                        'type': 'player_disconnected',
+                        'playerId': self.player_id
+                    }))
             game.remove_player(self.player_id)
             logger.debug(f"Removed player {self.player_id} from game {self.current_game_id}")
 
@@ -48,7 +55,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             else:
                 # Informer les autres joueurs de la déconnexion
                 logger.debug(f"Broadcasting updated game info after player disconnect")
-                await self.broadcast_games_info()
+                await self.broadcast_games_info_waitingroom()
                 
                 # Si la partie n'a plus qu'un joueur, on met à jour son statut
                 if len(game.players) == 1:
@@ -67,7 +74,7 @@ class GameConsumer(AsyncWebsocketConsumer):
             
             # Démarrer la boucle de jeu
             await new_game.start_game_loop(self.broadcast_game_state)
-            await self.broadcast_games_info()
+            await self.broadcast_games_info_waitingroom()
             
             # Envoyer l'état initial au créateur
             await self.send(text_data=json.dumps({
@@ -88,7 +95,7 @@ class GameConsumer(AsyncWebsocketConsumer):
                 if game.status == "custom":
                     self.current_game_id = game_id
                     game.add_player(self.player_id, self.player_name)
-                    await self.broadcast_games_info()
+                    await self.broadcast_games_info_waitingroom()
                     
                     # Envoyer l'état initial au joueur qui rejoint
                     await self.send(text_data=json.dumps({
@@ -126,7 +133,7 @@ class GameConsumer(AsyncWebsocketConsumer):
         }))
 
     # TODO: Supprimer cette fonction ou la remplacer pour une autre fonctionnalité
-    async def broadcast_games_info(self):
+    async def broadcast_games_info_waitingroom(self):
         """Diffuse les informations sur les parties à tous les joueurs"""
         games_info = []
         for game_id, game in GameConsumer.active_games.items():

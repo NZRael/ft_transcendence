@@ -1,4 +1,4 @@
-import { updatePlayers } from './player.js';
+import { updatePlayers, removePlayer } from './player.js';
 import { updateFood } from './food.js';
 import { startGameLoop } from './main.js';
 import { updateGameInfo } from './utils.js';
@@ -72,6 +72,9 @@ function connectWebSocket() {
                 case 'players_update':
                     // console.log('PLAYERS_UPDATE:', data);
                     updatePlayers(data.players, data.yourPlayerId);
+                    break;
+                case 'player_disconnected':
+                    removePlayer(data.playerId);
                     break;
                 default:
                     console.log('Unknown message type:', data.type);

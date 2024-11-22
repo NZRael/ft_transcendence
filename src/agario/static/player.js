@@ -6,16 +6,31 @@ let players = {};
 let myPlayerId = null;
 
 export function updatePlayers(newPlayers, newMyPlayerId) {
+    const currentScene = getScene();
+    if (!currentScene) return;
+
+    // Supprimer les joueurs qui ne sont plus présents
+    Object.keys(players).forEach(playerId => {
+        if (!newPlayers[playerId]) {
+            const playerSprite = currentScene.getObjectByName(`player_${playerId}`);
+            const textSprite = currentScene.getObjectByName(`text_${playerId}`);
+            
+            if (playerSprite) {
+                playerSprite.material.dispose();
+                playerSprite.removeFromParent();
+            }
+            if (textSprite) {
+                textSprite.material.dispose();
+                textSprite.removeFromParent();
+            }
+        }
+    });
+
+    // Mettre à jour les joueurs
     if (newPlayers && Object.keys(newPlayers).length > 0) {
         players = newPlayers;
-
         if (newMyPlayerId && !myPlayerId) myPlayerId = newMyPlayerId;
-
-        const currentScene = getScene();
-
-        if (currentScene) {
-            Object.values(players).forEach(player => updatePlayerSprite(player, currentScene));
-        }
+        Object.values(players).forEach(player => updatePlayerSprite(player, currentScene));
     }
 }
 
@@ -140,6 +155,33 @@ function createTextSprite(player) {
     textSprite.name = `text_${player.id}`;
     
     return textSprite;
+}
+
+export function removePlayer(playerId) {
+    const currentScene = getScene();
+    if (!currentScene) return;
+    
+    const playerSprite = currentScene.getObjectByName(`player_${playerId}`);
+    const textSprite = currentScene.getObjectByName(`text_${playerId}`);
+    
+    if (playerSprite) {
+        if (playerSprite.material.map) {
+            playerSprite.material.map.dispose();
+        }
+        playerSprite.material.dispose();
+        playerSprite.removeFromParent();
+    }
+    if (textSprite) {
+        if (textSprite.material.map) {
+            textSprite.material.map.dispose();
+        }
+        textSprite.material.dispose();
+        textSprite.removeFromParent();
+    }
+    
+    if (players[playerId]) {
+        delete players[playerId];
+    }
 }
 
 export function getPlayers() {

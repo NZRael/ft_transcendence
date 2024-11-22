@@ -107,7 +107,7 @@ class Game:
             'score': 0,
             'color': f'#{random.randint(0, 0xFFFFFF):06x}'
         }
-        if len(self.players) > 1:
+        if len(self.players) > 4:
             self.status = "in_progress"
             
     def remove_player(self, player_id):
@@ -231,7 +231,6 @@ class Game:
                 pass
             except Exception as e:
                 logger.error(f"Error while cancelling game loop for game {self.game_id}: {e}")
-        
         self.status = "finished"
         self.players.clear()
         self.food.clear()

@@ -1,0 +1,172 @@
+INFO 2024-11-22 10:00:37,690 consumers 1 140065323203368 Player 515d5285-0f26-4737-963b-6f1a41d39468 disconnected with code 1001
+DEBUG 2024-11-22 10:00:37,691 consumers 1 140065323203368 Removed player 515d5285-0f26-4737-963b-6f1a41d39468 from players list
+INFO 2024-11-22 10:00:38,414 consumers 1 140065323203368 Player 3be2be58-44d8-43b1-a16f-c97e99463530 disconnected with code 1001
+DEBUG 2024-11-22 10:00:38,414 consumers 1 140065323203368 Removed player 3be2be58-44d8-43b1-a16f-c97e99463530 from players list
+DEBUG 2024-11-22 10:00:38,414 consumers 1 140065323203368 Removed player 3be2be58-44d8-43b1-a16f-c97e99463530 from game c81745df-5a50-4184-84da-7f7458977cec
+INFO 2024-11-22 10:00:38,415 consumers 1 140065323203368 Game c81745df-5a50-4184-84da-7f7458977cec is empty, cleaning up
+INFO 2024-11-22 10:00:38,415 Game 1 140065323203368 Cleaning up game c81745df-5a50-4184-84da-7f7458977cec
+DEBUG 2024-11-22 10:00:38,415 Game 1 140065323203368 Game loop for game c81745df-5a50-4184-84da-7f7458977cec cancelled successfully
+INFO 2024-11-22 10:00:38,415 Game 1 140065323203368 Game c81745df-5a50-4184-84da-7f7458977cec cleaned up successfully
+INFO 2024-11-22 10:00:39,991 consumers 1 140065323203368 Player 9d2b3848-e31e-48fb-8fb0-bbbc2b9f9722 disconnected with code 1001
+DEBUG 2024-11-22 10:00:39,991 consumers 1 140065323203368 Removed player 9d2b3848-e31e-48fb-8fb0-bbbc2b9f9722 from players list
+DEBUG 2024-11-22 10:00:39,991 consumers 1 140065323203368 Removed player 9d2b3848-e31e-48fb-8fb0-bbbc2b9f9722 from game b8059ff3-a4f1-49a2-922a-d59b62709f48
+INFO 2024-11-22 10:00:39,992 consumers 1 140065323203368 Game b8059ff3-a4f1-49a2-922a-d59b62709f48 is empty, cleaning up
+INFO 2024-11-22 10:00:39,992 Game 1 140065323203368 Cleaning up game b8059ff3-a4f1-49a2-922a-d59b62709f48
+DEBUG 2024-11-22 10:00:39,992 Game 1 140065323203368 Game loop for game b8059ff3-a4f1-49a2-922a-d59b62709f48 cancelled successfully
+INFO 2024-11-22 10:00:39,992 Game 1 140065323203368 Game b8059ff3-a4f1-49a2-922a-d59b62709f48 cleaned up successfully
+INFO 2024-11-22 10:08:52,930 consumers 1 140657663261480 Player bec9d058-a2eb-40d7-905d-c516e6ecbcae disconnected with code 1001
+DEBUG 2024-11-22 10:08:52,930 consumers 1 140657663261480 Removed player bec9d058-a2eb-40d7-905d-c516e6ecbcae from players list
+DEBUG 2024-11-22 10:08:52,930 consumers 1 140657663261480 Removed player bec9d058-a2eb-40d7-905d-c516e6ecbcae from game 410db0b1-5531-4ebc-b652-ebd485927e18
+DEBUG 2024-11-22 10:08:52,930 consumers 1 140657663261480 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 10:08:53,353 consumers 1 140657663261480 Player 60ba85c1-1f5c-4ab3-ac87-246aa31cfe06 disconnected with code 1001
+DEBUG 2024-11-22 10:08:53,353 consumers 1 140657663261480 Removed player 60ba85c1-1f5c-4ab3-ac87-246aa31cfe06 from players list
+DEBUG 2024-11-22 10:08:53,353 consumers 1 140657663261480 Removed player 60ba85c1-1f5c-4ab3-ac87-246aa31cfe06 from game 410db0b1-5531-4ebc-b652-ebd485927e18
+DEBUG 2024-11-22 10:08:53,354 consumers 1 140657663261480 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 10:08:53,355 consumers 1 140657663261480 Game 410db0b1-5531-4ebc-b652-ebd485927e18 returned to custom status
+INFO 2024-11-22 10:08:55,174 consumers 1 140657663261480 Player 12950956-5fd6-491c-8e1a-b1a2ed886c7e disconnected with code 1001
+DEBUG 2024-11-22 10:08:55,175 consumers 1 140657663261480 Removed player 12950956-5fd6-491c-8e1a-b1a2ed886c7e from players list
+DEBUG 2024-11-22 10:08:55,175 consumers 1 140657663261480 Removed player 12950956-5fd6-491c-8e1a-b1a2ed886c7e from game 410db0b1-5531-4ebc-b652-ebd485927e18
+INFO 2024-11-22 10:08:55,175 consumers 1 140657663261480 Game 410db0b1-5531-4ebc-b652-ebd485927e18 is empty, cleaning up
+INFO 2024-11-22 10:08:55,175 Game 1 140657663261480 Cleaning up game 410db0b1-5531-4ebc-b652-ebd485927e18
+DEBUG 2024-11-22 10:08:55,176 Game 1 140657663261480 Game loop for game 410db0b1-5531-4ebc-b652-ebd485927e18 cancelled successfully
+INFO 2024-11-22 10:08:55,176 Game 1 140657663261480 Game 410db0b1-5531-4ebc-b652-ebd485927e18 cleaned up successfully
+INFO 2024-11-22 10:09:52,216 consumers 1 140657663261480 Player aec82a8e-a517-454d-a54d-a8b4af9f8d3f disconnected with code 1001
+DEBUG 2024-11-22 10:09:52,217 consumers 1 140657663261480 Removed player aec82a8e-a517-454d-a54d-a8b4af9f8d3f from players list
+INFO 2024-11-22 10:10:19,774 consumers 1 140657663261480 Player 277acd39-62f1-42bd-bc3f-0f7a19f3e125 disconnected with code 1001
+DEBUG 2024-11-22 10:10:19,775 consumers 1 140657663261480 Removed player 277acd39-62f1-42bd-bc3f-0f7a19f3e125 from players list
+INFO 2024-11-22 10:41:00,737 consumers 1 139782799448872 Player 54f7ab83-abb4-4474-85e1-7b4cb59dd19e disconnected with code 1001
+DEBUG 2024-11-22 10:41:00,738 consumers 1 139782799448872 Removed player 54f7ab83-abb4-4474-85e1-7b4cb59dd19e from players list
+DEBUG 2024-11-22 10:41:00,738 consumers 1 139782799448872 Removed player 54f7ab83-abb4-4474-85e1-7b4cb59dd19e from game 0138bb76-0eb7-4b69-8849-f8680c51608d
+DEBUG 2024-11-22 10:41:00,739 consumers 1 139782799448872 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 10:41:06,481 consumers 1 139782799448872 Player 0a287cf2-e6c7-4a8c-bc4d-f54f16d93662 disconnected with code 1001
+DEBUG 2024-11-22 10:41:06,482 consumers 1 139782799448872 Removed player 0a287cf2-e6c7-4a8c-bc4d-f54f16d93662 from players list
+DEBUG 2024-11-22 10:41:06,483 consumers 1 139782799448872 Removed player 0a287cf2-e6c7-4a8c-bc4d-f54f16d93662 from game 0138bb76-0eb7-4b69-8849-f8680c51608d
+DEBUG 2024-11-22 10:41:06,483 consumers 1 139782799448872 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 10:41:06,484 consumers 1 139782799448872 Game 0138bb76-0eb7-4b69-8849-f8680c51608d returned to custom status
+INFO 2024-11-22 10:41:11,446 consumers 1 139782799448872 Player 5cf45d1f-7114-48c2-8127-959e856893ea disconnected with code 1001
+DEBUG 2024-11-22 10:41:11,447 consumers 1 139782799448872 Removed player 5cf45d1f-7114-48c2-8127-959e856893ea from players list
+DEBUG 2024-11-22 10:41:11,448 consumers 1 139782799448872 Removed player 5cf45d1f-7114-48c2-8127-959e856893ea from game 0138bb76-0eb7-4b69-8849-f8680c51608d
+INFO 2024-11-22 10:41:11,448 consumers 1 139782799448872 Game 0138bb76-0eb7-4b69-8849-f8680c51608d is empty, cleaning up
+INFO 2024-11-22 10:41:11,449 Game 1 139782799448872 Cleaning up game 0138bb76-0eb7-4b69-8849-f8680c51608d
+DEBUG 2024-11-22 10:41:11,449 Game 1 139782799448872 Game loop for game 0138bb76-0eb7-4b69-8849-f8680c51608d cancelled successfully
+INFO 2024-11-22 10:41:11,451 Game 1 139782799448872 Game 0138bb76-0eb7-4b69-8849-f8680c51608d cleaned up successfully
+INFO 2024-11-22 11:03:56,592 consumers 1 140325561289512 Player b901e444-1c4d-43f2-8086-730e858aa3cb disconnected with code 1001
+DEBUG 2024-11-22 11:03:56,596 consumers 1 140325561289512 Removed player b901e444-1c4d-43f2-8086-730e858aa3cb from players list
+DEBUG 2024-11-22 11:03:56,597 consumers 1 140325561289512 Removed player b901e444-1c4d-43f2-8086-730e858aa3cb from game 78827e86-f313-4d29-97ea-6289e3204584
+DEBUG 2024-11-22 11:03:56,597 consumers 1 140325561289512 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 11:04:01,067 consumers 1 140325561289512 Player e3638f84-c088-4835-9901-02daf1f0ac9d disconnected with code 1001
+DEBUG 2024-11-22 11:04:01,068 consumers 1 140325561289512 Removed player e3638f84-c088-4835-9901-02daf1f0ac9d from players list
+DEBUG 2024-11-22 11:04:01,068 consumers 1 140325561289512 Removed player e3638f84-c088-4835-9901-02daf1f0ac9d from game 78827e86-f313-4d29-97ea-6289e3204584
+DEBUG 2024-11-22 11:04:01,068 consumers 1 140325561289512 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 11:04:01,069 consumers 1 140325561289512 Game 78827e86-f313-4d29-97ea-6289e3204584 returned to custom status
+INFO 2024-11-22 11:04:02,873 consumers 1 140325561289512 Player b9487bbb-7baa-4d2c-a7b1-9ddc25a8e687 disconnected with code 1001
+DEBUG 2024-11-22 11:04:02,874 consumers 1 140325561289512 Removed player b9487bbb-7baa-4d2c-a7b1-9ddc25a8e687 from players list
+DEBUG 2024-11-22 11:04:02,874 consumers 1 140325561289512 Removed player b9487bbb-7baa-4d2c-a7b1-9ddc25a8e687 from game 78827e86-f313-4d29-97ea-6289e3204584
+INFO 2024-11-22 11:04:02,874 consumers 1 140325561289512 Game 78827e86-f313-4d29-97ea-6289e3204584 is empty, cleaning up
+INFO 2024-11-22 11:04:02,874 Game 1 140325561289512 Cleaning up game 78827e86-f313-4d29-97ea-6289e3204584
+DEBUG 2024-11-22 11:04:02,875 Game 1 140325561289512 Game loop for game 78827e86-f313-4d29-97ea-6289e3204584 cancelled successfully
+INFO 2024-11-22 11:04:02,875 Game 1 140325561289512 Game 78827e86-f313-4d29-97ea-6289e3204584 cleaned up successfully
+INFO 2024-11-22 11:04:10,985 consumers 1 140325561289512 Player 013dfb02-b60d-4bfc-aa08-734053495d1d disconnected with code 1001
+DEBUG 2024-11-22 11:04:10,986 consumers 1 140325561289512 Removed player 013dfb02-b60d-4bfc-aa08-734053495d1d from players list
+DEBUG 2024-11-22 11:04:10,987 consumers 1 140325561289512 Removed player 013dfb02-b60d-4bfc-aa08-734053495d1d from game 26523d82-927f-4857-bf85-f2110c7d84c5
+DEBUG 2024-11-22 11:04:10,987 consumers 1 140325561289512 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 11:04:10,987 consumers 1 140325561289512 Game 26523d82-927f-4857-bf85-f2110c7d84c5 returned to custom status
+INFO 2024-11-22 11:06:02,759 consumers 1 140093704420136 Player 28b9a324-a963-40f0-b371-9335fcd5fa4f disconnected with code 1001
+DEBUG 2024-11-22 11:06:02,759 consumers 1 140093704420136 Removed player 28b9a324-a963-40f0-b371-9335fcd5fa4f from players list
+DEBUG 2024-11-22 11:06:02,760 consumers 1 140093704420136 Removed player 28b9a324-a963-40f0-b371-9335fcd5fa4f from game 36a04e43-2811-4667-9073-5516051f7f64
+DEBUG 2024-11-22 11:06:02,760 consumers 1 140093704420136 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 11:06:02,760 consumers 1 140093704420136 Game 36a04e43-2811-4667-9073-5516051f7f64 returned to custom status
+INFO 2024-11-22 11:06:10,429 consumers 1 140093704420136 Player 834499ea-afd5-4098-9644-812bda925a54 disconnected with code 1001
+DEBUG 2024-11-22 11:06:10,429 consumers 1 140093704420136 Removed player 834499ea-afd5-4098-9644-812bda925a54 from players list
+DEBUG 2024-11-22 11:06:10,429 consumers 1 140093704420136 Removed player 834499ea-afd5-4098-9644-812bda925a54 from game 36a04e43-2811-4667-9073-5516051f7f64
+INFO 2024-11-22 11:06:10,430 consumers 1 140093704420136 Game 36a04e43-2811-4667-9073-5516051f7f64 is empty, cleaning up
+INFO 2024-11-22 11:06:10,430 Game 1 140093704420136 Cleaning up game 36a04e43-2811-4667-9073-5516051f7f64
+DEBUG 2024-11-22 11:06:10,431 Game 1 140093704420136 Game loop for game 36a04e43-2811-4667-9073-5516051f7f64 cancelled successfully
+INFO 2024-11-22 11:06:10,431 Game 1 140093704420136 Game 36a04e43-2811-4667-9073-5516051f7f64 cleaned up successfully
+INFO 2024-11-22 11:15:02,453 consumers 1 140093704420136 Player 6d8613fe-bb61-41f3-8917-0b798c14461b disconnected with code 1001
+DEBUG 2024-11-22 11:15:02,453 consumers 1 140093704420136 Removed player 6d8613fe-bb61-41f3-8917-0b798c14461b from players list
+DEBUG 2024-11-22 11:15:02,453 consumers 1 140093704420136 Removed player 6d8613fe-bb61-41f3-8917-0b798c14461b from game 99493df2-ad97-4885-90cb-62a5befda5e3
+INFO 2024-11-22 11:15:02,454 consumers 1 140093704420136 Game 99493df2-ad97-4885-90cb-62a5befda5e3 is empty, cleaning up
+INFO 2024-11-22 11:15:02,454 Game 1 140093704420136 Cleaning up game 99493df2-ad97-4885-90cb-62a5befda5e3
+DEBUG 2024-11-22 11:15:02,465 Game 1 140093704420136 Game loop for game 99493df2-ad97-4885-90cb-62a5befda5e3 cancelled successfully
+INFO 2024-11-22 11:15:02,466 Game 1 140093704420136 Game 99493df2-ad97-4885-90cb-62a5befda5e3 cleaned up successfully
+INFO 2024-11-22 11:16:40,025 consumers 1 140093704420136 Player 7c67e721-b507-40c7-b780-b559e59fa931 disconnected with code 1001
+DEBUG 2024-11-22 11:16:40,028 consumers 1 140093704420136 Removed player 7c67e721-b507-40c7-b780-b559e59fa931 from players list
+DEBUG 2024-11-22 11:16:40,029 consumers 1 140093704420136 Removed player 7c67e721-b507-40c7-b780-b559e59fa931 from game d13b6227-7a96-43bb-862e-ba668cc906ed
+INFO 2024-11-22 11:16:40,029 consumers 1 140093704420136 Game d13b6227-7a96-43bb-862e-ba668cc906ed is empty, cleaning up
+INFO 2024-11-22 11:16:40,030 Game 1 140093704420136 Cleaning up game d13b6227-7a96-43bb-862e-ba668cc906ed
+DEBUG 2024-11-22 11:16:40,030 Game 1 140093704420136 Game loop for game d13b6227-7a96-43bb-862e-ba668cc906ed cancelled successfully
+INFO 2024-11-22 11:16:40,031 Game 1 140093704420136 Game d13b6227-7a96-43bb-862e-ba668cc906ed cleaned up successfully
+INFO 2024-11-22 11:16:52,716 consumers 1 140093704420136 Player c713f30f-965f-4a93-b811-67c13af33b45 disconnected with code 1001
+DEBUG 2024-11-22 11:16:52,717 consumers 1 140093704420136 Removed player c713f30f-965f-4a93-b811-67c13af33b45 from players list
+DEBUG 2024-11-22 11:16:52,718 consumers 1 140093704420136 Removed player c713f30f-965f-4a93-b811-67c13af33b45 from game 99d06a3b-6b56-4c96-8550-b17da365f28b
+INFO 2024-11-22 11:16:52,718 consumers 1 140093704420136 Game 99d06a3b-6b56-4c96-8550-b17da365f28b is empty, cleaning up
+INFO 2024-11-22 11:16:52,718 Game 1 140093704420136 Cleaning up game 99d06a3b-6b56-4c96-8550-b17da365f28b
+DEBUG 2024-11-22 11:16:52,719 Game 1 140093704420136 Game loop for game 99d06a3b-6b56-4c96-8550-b17da365f28b cancelled successfully
+INFO 2024-11-22 11:16:52,725 Game 1 140093704420136 Game 99d06a3b-6b56-4c96-8550-b17da365f28b cleaned up successfully
+INFO 2024-11-22 11:17:09,964 consumers 1 140093704420136 Player b5b453e6-b36e-469c-8d47-aa78ec9a0a5f disconnected with code 1001
+DEBUG 2024-11-22 11:17:09,968 consumers 1 140093704420136 Removed player b5b453e6-b36e-469c-8d47-aa78ec9a0a5f from players list
+INFO 2024-11-22 11:17:44,363 consumers 1 140093704420136 Player 397ee3bf-3360-44cb-ae7a-fa6f785a556c disconnected with code 1001
+DEBUG 2024-11-22 11:17:44,363 consumers 1 140093704420136 Removed player 397ee3bf-3360-44cb-ae7a-fa6f785a556c from players list
+DEBUG 2024-11-22 11:17:44,365 consumers 1 140093704420136 Removed player 397ee3bf-3360-44cb-ae7a-fa6f785a556c from game 761263b1-b58b-41a8-839b-6f8136b2f765
+INFO 2024-11-22 11:17:44,365 consumers 1 140093704420136 Game 761263b1-b58b-41a8-839b-6f8136b2f765 is empty, cleaning up
+INFO 2024-11-22 11:17:44,365 Game 1 140093704420136 Cleaning up game 761263b1-b58b-41a8-839b-6f8136b2f765
+DEBUG 2024-11-22 11:17:44,369 Game 1 140093704420136 Game loop for game 761263b1-b58b-41a8-839b-6f8136b2f765 cancelled successfully
+INFO 2024-11-22 11:17:44,370 Game 1 140093704420136 Game 761263b1-b58b-41a8-839b-6f8136b2f765 cleaned up successfully
+INFO 2024-11-22 11:20:43,429 consumers 1 140093704420136 Player f5a351e0-2bb0-4c5d-a5e6-39d84eebc2da disconnected with code 1001
+DEBUG 2024-11-22 11:20:43,430 consumers 1 140093704420136 Removed player f5a351e0-2bb0-4c5d-a5e6-39d84eebc2da from players list
+INFO 2024-11-22 11:20:45,979 consumers 1 140093704420136 Player b014f236-fb65-495b-a9b9-9df8ae2486c3 disconnected with code 1001
+DEBUG 2024-11-22 11:20:45,980 consumers 1 140093704420136 Removed player b014f236-fb65-495b-a9b9-9df8ae2486c3 from players list
+DEBUG 2024-11-22 11:20:45,980 consumers 1 140093704420136 Removed player b014f236-fb65-495b-a9b9-9df8ae2486c3 from game fa50336e-357c-4bd4-bc10-89142e00e51b
+DEBUG 2024-11-22 11:20:45,980 consumers 1 140093704420136 Broadcasting updated game info after player disconnect
+INFO 2024-11-22 11:20:45,981 consumers 1 140093704420136 Game fa50336e-357c-4bd4-bc10-89142e00e51b returned to custom status
+INFO 2024-11-22 11:20:46,655 consumers 1 140093704420136 Player 95e28d1a-2047-44e5-a1cc-563c224de3ef disconnected with code 1001
+DEBUG 2024-11-22 11:20:46,655 consumers 1 140093704420136 Removed player 95e28d1a-2047-44e5-a1cc-563c224de3ef from players list
+DEBUG 2024-11-22 11:20:46,656 consumers 1 140093704420136 Removed player 95e28d1a-2047-44e5-a1cc-563c224de3ef from game 38724ad5-b5e5-48c6-89f1-a4b176da4e24
+INFO 2024-11-22 11:20:46,656 consumers 1 140093704420136 Game 38724ad5-b5e5-48c6-89f1-a4b176da4e24 is empty, cleaning up
+INFO 2024-11-22 11:20:46,656 Game 1 140093704420136 Cleaning up game 38724ad5-b5e5-48c6-89f1-a4b176da4e24
+DEBUG 2024-11-22 11:20:46,657 Game 1 140093704420136 Game loop for game 38724ad5-b5e5-48c6-89f1-a4b176da4e24 cancelled successfully
+INFO 2024-11-22 11:20:46,658 Game 1 140093704420136 Game 38724ad5-b5e5-48c6-89f1-a4b176da4e24 cleaned up successfully
+INFO 2024-11-22 11:20:48,482 consumers 1 140093704420136 Player 4b557d46-46bd-44a2-b642-bafeaecc3628 disconnected with code 1001
+DEBUG 2024-11-22 11:20:48,483 consumers 1 140093704420136 Removed player 4b557d46-46bd-44a2-b642-bafeaecc3628 from players list
+DEBUG 2024-11-22 11:20:48,484 consumers 1 140093704420136 Removed player 4b557d46-46bd-44a2-b642-bafeaecc3628 from game fa50336e-357c-4bd4-bc10-89142e00e51b
+INFO 2024-11-22 11:20:48,484 consumers 1 140093704420136 Game fa50336e-357c-4bd4-bc10-89142e00e51b is empty, cleaning up
+INFO 2024-11-22 11:20:48,484 Game 1 140093704420136 Cleaning up game fa50336e-357c-4bd4-bc10-89142e00e51b
+DEBUG 2024-11-22 11:20:48,485 Game 1 140093704420136 Game loop for game fa50336e-357c-4bd4-bc10-89142e00e51b cancelled successfully
+INFO 2024-11-22 11:20:48,485 Game 1 140093704420136 Game fa50336e-357c-4bd4-bc10-89142e00e51b cleaned up successfully
+INFO 2024-11-22 11:21:00,596 consumers 1 140093704420136 Player 256fc6be-2690-467d-ab91-00d9942e27c0 disconnected with code 1001
+DEBUG 2024-11-22 11:21:00,601 consumers 1 140093704420136 Removed player 256fc6be-2690-467d-ab91-00d9942e27c0 from players list
+INFO 2024-11-22 11:22:01,477 consumers 1 140093704420136 Player c168f689-bcbe-45af-9a02-6f608ab07431 disconnected with code 1001
+DEBUG 2024-11-22 11:22:01,478 consumers 1 140093704420136 Removed player c168f689-bcbe-45af-9a02-6f608ab07431 from players list
+INFO 2024-11-22 11:28:14,331 consumers 1 140093704420136 Player 4d16c252-fddb-4ab8-973d-72772e42e033 disconnected with code 1001
+DEBUG 2024-11-22 11:28:14,333 consumers 1 140093704420136 Removed player 4d16c252-fddb-4ab8-973d-72772e42e033 from players list
+DEBUG 2024-11-22 11:28:14,333 consumers 1 140093704420136 Removed player 4d16c252-fddb-4ab8-973d-72772e42e033 from game a3348c75-5b89-4c3a-9aa2-b7933a56a159
+INFO 2024-11-22 11:28:14,333 consumers 1 140093704420136 Game a3348c75-5b89-4c3a-9aa2-b7933a56a159 is empty, cleaning up
+INFO 2024-11-22 11:28:14,333 Game 1 140093704420136 Cleaning up game a3348c75-5b89-4c3a-9aa2-b7933a56a159
+DEBUG 2024-11-22 11:28:14,334 Game 1 140093704420136 Game loop for game a3348c75-5b89-4c3a-9aa2-b7933a56a159 cancelled successfully
+INFO 2024-11-22 11:28:14,334 Game 1 140093704420136 Game a3348c75-5b89-4c3a-9aa2-b7933a56a159 cleaned up successfully
+INFO 2024-11-22 11:30:59,425 consumers 1 140093704420136 Player 85e72ad4-15c4-41d0-a5c8-142a5d9236e3 disconnected with code 1001
+DEBUG 2024-11-22 11:30:59,426 consumers 1 140093704420136 Removed player 85e72ad4-15c4-41d0-a5c8-142a5d9236e3 from players list
+DEBUG 2024-11-22 11:30:59,427 consumers 1 140093704420136 Removed player 85e72ad4-15c4-41d0-a5c8-142a5d9236e3 from game 4515eced-2020-4a34-aa2a-9fa6da9b7891
+INFO 2024-11-22 11:30:59,428 consumers 1 140093704420136 Game 4515eced-2020-4a34-aa2a-9fa6da9b7891 is empty, cleaning up
+INFO 2024-11-22 11:30:59,430 Game 1 140093704420136 Cleaning up game 4515eced-2020-4a34-aa2a-9fa6da9b7891
+DEBUG 2024-11-22 11:30:59,433 Game 1 140093704420136 Game loop for game 4515eced-2020-4a34-aa2a-9fa6da9b7891 cancelled successfully
+INFO 2024-11-22 11:30:59,434 Game 1 140093704420136 Game 4515eced-2020-4a34-aa2a-9fa6da9b7891 cleaned up successfully
+INFO 2024-11-22 11:32:07,455 consumers 1 140093704420136 Player 9985c7d8-09b7-41bc-91e5-b455af727716 disconnected with code 1001
+DEBUG 2024-11-22 11:32:07,456 consumers 1 140093704420136 Removed player 9985c7d8-09b7-41bc-91e5-b455af727716 from players list
+INFO 2024-11-22 11:32:15,359 consumers 1 140093704420136 Player 82e1d83a-4630-4949-b4f4-f9643c60ce30 disconnected with code 1001
+DEBUG 2024-11-22 11:32:15,360 consumers 1 140093704420136 Removed player 82e1d83a-4630-4949-b4f4-f9643c60ce30 from players list
+DEBUG 2024-11-22 11:32:15,361 consumers 1 140093704420136 Removed player 82e1d83a-4630-4949-b4f4-f9643c60ce30 from game 3a24d78c-ed33-43b2-9f8b-0bf732a1cb5f
+INFO 2024-11-22 11:32:15,361 consumers 1 140093704420136 Game 3a24d78c-ed33-43b2-9f8b-0bf732a1cb5f is empty, cleaning up
+INFO 2024-11-22 11:32:15,362 Game 1 140093704420136 Cleaning up game 3a24d78c-ed33-43b2-9f8b-0bf732a1cb5f
+DEBUG 2024-11-22 11:32:15,362 Game 1 140093704420136 Game loop for game 3a24d78c-ed33-43b2-9f8b-0bf732a1cb5f cancelled successfully
+INFO 2024-11-22 11:32:15,363 Game 1 140093704420136 Game 3a24d78c-ed33-43b2-9f8b-0bf732a1cb5f cleaned up successfully
+INFO 2024-11-22 12:26:20,210 consumers 1 140093704420136 Player a6e17878-7b8f-47d9-870e-9cdaa201e040 disconnected with code 1001
+DEBUG 2024-11-22 12:26:20,210 consumers 1 140093704420136 Removed player a6e17878-7b8f-47d9-870e-9cdaa201e040 from players list
+INFO 2024-11-22 12:26:44,776 consumers 1 140093704420136 Player 4c86ef33-b867-43c0-a9bc-8da6f133deec disconnected with code 1001
+DEBUG 2024-11-22 12:26:44,776 consumers 1 140093704420136 Removed player 4c86ef33-b867-43c0-a9bc-8da6f133deec from players list
+DEBUG 2024-11-22 12:26:44,776 consumers 1 140093704420136 Removed player 4c86ef33-b867-43c0-a9bc-8da6f133deec from game d5217b63-cad7-45e6-9791-96f2025ffd0e
+INFO 2024-11-22 12:26:44,777 consumers 1 140093704420136 Game d5217b63-cad7-45e6-9791-96f2025ffd0e is empty, cleaning up
+INFO 2024-11-22 12:26:44,777 Game 1 140093704420136 Cleaning up game d5217b63-cad7-45e6-9791-96f2025ffd0e
+DEBUG 2024-11-22 12:26:44,777 Game 1 140093704420136 Game loop for game d5217b63-cad7-45e6-9791-96f2025ffd0e cancelled successfully
+INFO 2024-11-22 12:26:44,777 Game 1 140093704420136 Game d5217b63-cad7-45e6-9791-96f2025ffd0e cleaned up successfully
